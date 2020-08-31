@@ -1,0 +1,19 @@
+{
+  "name": "20-maps",
+  "version": "1.0.0",
+  "description": "20 Maps for 2020",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slutske22/20-maps.git"
+  },
+  "author": "Seth Lutske",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/slutske22/20-maps/issues"
+  },
+  "homepage": "https://github.com/slutske22/20-maps#readme"
+}
