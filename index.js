@@ -13,7 +13,8 @@ require([
    // define layers
    var racialProtestsLayer = new FeatureLayer({
       id: 'racial',
-      url: 'https://services8.arcgis.com/3Y7J7SmaNLGLT6ec/arcgis/rest/services/2020_Protests_with_Location/FeatureServer',
+      // url: 'https://services8.arcgis.com/3Y7J7SmaNLGLT6ec/arcgis/rest/services/2020_Protests_with_Location/FeatureServer',
+      url: 'https://services6.arcgis.com/VqchQRhgtql2vsmO/arcgis/rest/services/US_Protests_2020_1/FeatureServer',
       outFields: ['*'],
       renderer: racialRenderer,
       popupTemplate,
@@ -22,7 +23,8 @@ require([
 
    var covidProtestsLayer = new FeatureLayer({
       id: 'covid',
-      url: 'https://services8.arcgis.com/3Y7J7SmaNLGLT6ec/arcgis/rest/services/2020_Protests_with_Location/FeatureServer',
+      // url: 'https://services8.arcgis.com/3Y7J7SmaNLGLT6ec/arcgis/rest/services/2020_Protests_with_Location/FeatureServer',
+      url: 'https://services6.arcgis.com/VqchQRhgtql2vsmO/arcgis/rest/services/US_Protests_2020_1/FeatureServer',
       outFields: ['*'],
       renderer: covidRenderer,
       popupTemplate,
@@ -31,7 +33,8 @@ require([
 
    var otherProtestLayer = new FeatureLayer({
       id: 'other',
-      url: 'https://services8.arcgis.com/3Y7J7SmaNLGLT6ec/arcgis/rest/services/2020_Protests_with_Location/FeatureServer',
+      // url: 'https://services8.arcgis.com/3Y7J7SmaNLGLT6ec/arcgis/rest/services/2020_Protests_with_Location/FeatureServer',
+      url: 'https://services6.arcgis.com/VqchQRhgtql2vsmO/arcgis/rest/services/US_Protests_2020_1/FeatureServer',
       outFields: ['*'],
       renderer: otherRenderer,
       popupTemplate,
