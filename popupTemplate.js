@@ -1,20 +1,31 @@
 export const popupTemplate = {
    title: "{Location}",
-   content: `
-      <div class="protests-popup">
-			<p>Attendees: {Attendees}</p>
-         <p>Date: {Date}</p>
-         <p>Tags: {Tags}</p>
-      </div>`,
-   fieldInfos: [
+   content: [
       {
-         fieldName: "Attendees",
-         format: {
-            digitSeparator: true,
-            places: 0
-         }
+         type: "fields",
+         fieldInfos: [
+            {
+               fieldName: "Date",
+            },
+            {
+               fieldName: "Location",
+            },
+            {
+               fieldName: "Attendees",
+               format: {
+                  digitSeparator: true,
+                  places: 0
+               }
+            },
+            {
+               fieldName: "Tags",
+            },
+            {
+               fieldName: "Source",
+            },
+         ]
       }
-   ]
+   ],
 }
 
 export default popupTemplate
