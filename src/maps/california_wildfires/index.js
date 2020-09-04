@@ -5,7 +5,13 @@ require([
    "esri/views/MapView",
    "esri/layers/FeatureLayer",
    "esri/layers/MapImageLayer",
-], function(Map, MapView, FeatureLayer, MapImageLayer){
+   "esri/layers/WebTileLayer"
+], function(Map, MapView, FeatureLayer, MapImageLayer, WebTileLayer){
+
+   var stamenTerrain = new WebTileLayer({
+      urlTemplate: 'https://stamen-tiles-{subDomain}.a.ssl.fastly.net/terrain-background/{level}/{col}/{row}{r}.png',
+      subDomains: ["a", "b", "c", "d"]
+   })
 
    var caBoundaries = new FeatureLayer({
       url: 'https://egis.fire.ca.gov/arcgis/rest/services/FRAP/Counties/MapServer'
@@ -27,7 +33,7 @@ require([
    var view = new MapView({
       container: "viewDiv",
       center: [-120, 37],
-      zoom: 3,
+      zoom: 6,
       map: map
    })
 
