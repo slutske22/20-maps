@@ -1,0 +1,15 @@
+html, body, #viewDiv {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#controls {
+  padding: 1em;
+}
+
+#sliderDiv {
+  margin-top: 30px;
+  width: 200px;
+}
