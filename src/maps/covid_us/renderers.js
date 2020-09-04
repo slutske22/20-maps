@@ -46,6 +46,48 @@ export const totCases = (minValue = 0, maxValue) => ({
 
 
 
+export const totCasesNormalized = (minValue = 0, maxValue) => ({
+   type: "simple",
+   symbol: defaultSymbol,
+   label: "US County",
+   visualVariables: [
+      {
+         type: "color",
+         field: "totCases",
+         normalizationField: "TOTPOP_CY",
+         legendOptions: {
+            title: "Total cases per US county"
+          },
+          stops: [
+            {
+               value: minValue,
+               color: "#ebe6df",
+               label: "0"
+            },
+            {
+               // value: 500,
+               value: 0.05,
+               color: "#7bccc4",
+               label: "500"
+            },
+            {
+               // value: 11000,
+               value: 0.07,
+               color: "#436480",
+               label: "11,000"
+            },
+            {
+               value: 0.5,
+               color: "#002624",
+               label: maxValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") // format number with commas
+            }
+         ]
+      }
+   ]
+})
+
+
+
 export const Case100K = (minValue = 0, maxValue) => ({
    type: "simple",
    symbol: defaultSymbol,
@@ -88,6 +130,7 @@ export const Deaths = (minValue = 0, maxValue) => ({
       {
          type: "color",
          field: "Deaths",
+         normalizationField: "TOTPOP_CY",
          legendOptions: {
             title: "Total deaths per US county"
           },
