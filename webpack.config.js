@@ -12,7 +12,7 @@ module.exports = {
       path: path.resolve(__dirname, 'dist'),
       publicPath: '/'
    },
-   target:'node',
+   // target:'node', // messes with styled components.  why?
    devtool: "cheap-module-source-map",
    module: {
       rules: [
