@@ -11,8 +11,8 @@ const Wrapper = styled.div`
 const BackSplash = styled.div`
    width: 100%;
    padding: 5px;
-   height: 60vh;
-   min-height: 500px;
+   height: 50vh;
+   min-height: 400px;
    display: flex;
    align-items: center;
    background: linear-gradient(
@@ -28,6 +28,8 @@ const SubHeader = styled.p`
    padding: 3em 5em;
    text-align: justify;
    color: #333;
+   font-size: 1.2em;
+   line-height: 1.5em;
 `
 
 const Title = styled.h1`
