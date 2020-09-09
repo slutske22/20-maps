@@ -5,8 +5,9 @@ require([
    "esri/views/MapView",
    "esri/layers/FeatureLayer",
    "esri/layers/MapImageLayer",
-   "esri/layers/WebTileLayer"
-], function(Map, MapView, FeatureLayer, MapImageLayer, WebTileLayer){
+   "esri/layers/WebTileLayer",
+   "esri/widgets/Legend"
+], function(Map, MapView, FeatureLayer, MapImageLayer, WebTileLayer, Legend){
 
    var stamenTerrain = new WebTileLayer({
       urlTemplate: 'https://stamen-tiles-{subDomain}.a.ssl.fastly.net/terrain-background/{level}/{col}/{row}{r}.png',
@@ -36,5 +37,18 @@ require([
       zoom: 6,
       map: map
    })
+
+
+   var legend = new Legend({
+      view: view,
+      layerInfos: [
+         {
+            layer: FIRMSfires,
+         }
+      ]
+   })
+
+   view.ui.add(legend, 'bottom-left')
+
 
 })
