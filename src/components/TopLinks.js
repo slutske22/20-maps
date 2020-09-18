@@ -20,11 +20,16 @@ const Wrapper = styled.header`
 
 const IconWrapper = styled.div`
 	font-size: 2em;
-	padding-left: 10px;
+	padding-left: 7px;
 	height: 44px;
 	width: 44px;
 	display: flex;
 	align-items: center;
+	transition: all 250ms;
+	&:hover {
+		color: ${(props) => (props.github ? '#b392f0' : '')};
+		transition: all 250ms;
+	}
 `;
 
 const TopLinks = () => (
@@ -47,7 +52,12 @@ const TopLinks = () => (
 		>
 			<FaTwitter />
 		</ShareButtonOutline>
-		<IconWrapper as="a" href="https://github.com/slutske22/20-maps">
+		<IconWrapper
+			as="a"
+			href="https://github.com/slutske22/20-maps"
+			target="_blank"
+			github
+		>
 			<FaGithub />
 		</IconWrapper>
 	</Wrapper>

@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import Container from './atoms/Container';
 import TextBlock from './atoms/TextBlock';
 import DropCaps from './atoms/DropCaps';
