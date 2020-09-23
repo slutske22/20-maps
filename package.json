@@ -41,7 +41,6 @@
    },
    "dependencies": {
       "emotion": "^10.0.27",
-      "esri-loader": "^2.15.0",
       "react": "^16.13.1",
       "react-custom-share": "^0.4.8",
       "react-dom": "^16.13.1",
