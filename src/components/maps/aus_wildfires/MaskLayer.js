@@ -4,7 +4,7 @@ import projection from 'esri/geometry/projection';
 import Polygon from 'esri/geometry/Polygon';
 import watchUtils from 'esri/core/watchUtils';
 
-export const MaskLayer = BaseLayerView2D.createSubclass({
+const MaskLayer = BaseLayerView2D.createSubclass({
    constructor: function () {
       this.tileContexts = new window.Map();
       this.watchHandles = new Handles();
@@ -252,3 +252,5 @@ export const MaskLayer = BaseLayerView2D.createSubclass({
 
    tilesChanged: function () {},
 }); // MaskLayer
+
+export default MaskLayer;

@@ -65,7 +65,12 @@ const WildfiresAustralia = () => {
       const view = new MapView({
          container: element.current,
          map: map,
-         zoom: 3,
+         zoom: 4,
+         center: [134, -26.9],
+         navigation: {
+            mouseWheelZoomEnabled: false,
+            browserTouchPanEnabled: false,
+         },
       });
 
       view.on('click', (e) => console.log(e.mapPoint));
@@ -80,11 +85,6 @@ const WildfiresAustralia = () => {
       countries.queryFeatures(query).then(function (result) {
          const geometry = result.features[0].geometry;
          mask.geometry = geometry;
-         view.goTo(geometry).catch(function (error) {
-            if (error.name != 'AbortError') {
-               console.error(error);
-            }
-         });
       });
    }, []);
 
