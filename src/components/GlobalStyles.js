@@ -40,6 +40,11 @@ const GlobalStyles = createGlobalStyle`
       padding: 0;
    }
 
+   .visibility-tracker {
+      width: 100%;
+      height: 100%;
+   }
+
    .arcgis-map {
       width: 100%;
       height: 100%;

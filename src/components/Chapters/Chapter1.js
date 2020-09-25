@@ -1,6 +1,7 @@
 import React from 'react';
+import TrackVisibility from 'react-on-screen';
 import { Chapter, MapContainer, SideCar } from '../atoms';
-import WildfiresAus from '../maps/WildfiresAus';
+import WildfiresAus from '../maps/aus_wildfires/WildfiresAus';
 
 const Chapter1 = () => {
    return (
@@ -15,7 +16,9 @@ const Chapter1 = () => {
             </SideCar.Text>
          </SideCar>
          <MapContainer>
-            <WildfiresAus />
+            <TrackVisibility className="visibility-tracker" partialVisibility>
+               {({ isVisible }) => isVisible && <WildfiresAus />}
+            </TrackVisibility>
          </MapContainer>
       </Chapter>
    );
