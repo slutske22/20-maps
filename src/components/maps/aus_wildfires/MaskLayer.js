@@ -1,6 +1,7 @@
 import Handles from 'esri/core/Handles';
 import BaseLayerView2D from 'esri/views/2d/layers/BaseLayerView2D';
-import projection from 'esri/geometry/projection';
+import { projection } from 'esri/geometry/projection';
+// import projection from '../../../utils/projection';
 import Polygon from 'esri/geometry/Polygon';
 import watchUtils from 'esri/core/watchUtils';
 

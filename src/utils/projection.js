@@ -1,9 +1,9 @@
 define([
    'require',
    'exports',
-   '../core/promiseUtils',
-   './pe',
-   './support/GeographicTransformation',
+   'esri/core/promiseUtils',
+   'esri/geometry/pe',
+   'esri/geometry/support/GeographicTransformation',
    '@dojo/framework/shim/Promise',
 ], function (e, n, r, o, t) {
    Object.defineProperty(n, '__esModule', { value: !0 });
@@ -23,10 +23,10 @@ define([
             .all([
                o.load(),
                new Promise(function (n, r) {
-                  e(['./geometryEngineBase'], n, r);
+                  e(['esri/geometry/geometryEngineBase'], n, r);
                }),
                new Promise(function (n, r) {
-                  e(['./geometryAdapters/hydrated'], n, r);
+                  e(['esri/geometry/geometryAdapters/hydrated'], n, r);
                }),
             ])
             .then(function (e) {
