@@ -28,13 +28,16 @@ const Intro = () => (
          <DropCaps>2020</DropCaps> has been a landmark year in many ways. We've
          had the first global pandemic in 100 years, some of the largest
          wildfires on record in Australia and the United States, political
-         upheaval and riots on a worldwide scale, and that was all before July.
-         The following image of the August wildfires in California became an
-         internet icon for "2020 wrapped up in a single image":
+         upheaval and riots on a worldwide scale - and that was all before July.
+         Whether you've lost a loved one to COVID19, lost your livelihood, or
+         were affected by natural disasters or racial injustice, everyone all
+         over the globe has been affected by 2020's events. The following image
+         of the August wildfires in California became an internet icon for "2020
+         wrapped up in a single image":
       </TextBlock>
       <Meme>
          <MemeImg src={NutShell} />
-         <MemeCap>The mayans must have been off a bit.</MemeCap>
+         <MemeCap>The mayans were only off by a bit.</MemeCap>
       </Meme>
       <TextBlock padding="1em 5em 3em 5em">
          While the word "unprecedented" has been thrown around a lot, it can be
