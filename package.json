@@ -43,6 +43,7 @@
       "webpack-dev-server": "^3.11.0"
    },
    "dependencies": {
+      "@types/arcgis-js-api": "^4.16.0",
       "emotion": "^10.0.27",
       "react": "^16.13.1",
       "react-custom-share": "^0.4.8",

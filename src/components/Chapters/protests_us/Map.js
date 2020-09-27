@@ -7,7 +7,7 @@ import loadArcGISCSS from '../../../utils/arcgis.css.loader';
 import './styles.scss';
 
 const Map = ({ metadata, mapState: { basemap, layers, zoom, center } }) => {
-	const element = useRef();
+	const element = useRef(null);
 
 	useEffect(() => {
 		loadArcGISCSS(metadata.theme || 'dark');
@@ -120,7 +120,7 @@ const Map = ({ metadata, mapState: { basemap, layers, zoom, center } }) => {
 				};
 			});
 		});
-	});
+	}, []);
 
 	return (
 		<>
