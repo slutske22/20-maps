@@ -4,5 +4,6 @@ import DropCaps from './DropCaps';
 import MapContainer from './MapContainer';
 import TextBlock from './TextBlock';
 import SideCar from './SideCar';
+import Page from './Page';
 
-export { Chapter, Container, DropCaps, MapContainer, TextBlock, SideCar };
+export { Chapter, Container, DropCaps, MapContainer, TextBlock, SideCar, Page };

@@ -4,7 +4,6 @@ import MapView from 'esri/views/MapView';
 import Layer from 'esri/layers/Layer';
 import FeatureLayer from 'esri/layers/FeatureLayer';
 import TileInfo from 'esri/layers/support/TileInfo';
-import Slider from 'esri/widgets/Slider';
 import MaskLayer from './MaskLayer';
 import * as renderers from './renderers';
 
