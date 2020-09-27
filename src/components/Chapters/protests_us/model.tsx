@@ -41,7 +41,7 @@ const otherProtestLayer = new FeatureLayer({
 		"Tags NOT LIKE '%racial%' AND Tags NOT LIKE '%police%'",
 });
 
-export default {
+export const model: any = {
 	metadata: {
 		name: 'US_protests',
 		theme: 'dark',
@@ -49,9 +49,7 @@ export default {
 	pages: [
 		{
 			title: 'United States Protests',
-			content: (
-				<>This is some information about the united states protests</>
-			),
+			content: 'This is some information about the united states protests',
 			mapState: {
 				center: [-100, 38],
 				zoom: 3,
@@ -65,3 +63,5 @@ export default {
 		},
 	],
 };
+
+export default model;

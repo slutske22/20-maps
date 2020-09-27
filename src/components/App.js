@@ -6,7 +6,7 @@ import GlobalStyles from './GlobalStyles';
 import Header from './Header';
 import Intro from './Intro';
 import Chapter1 from './Chapters/Chapter1';
-import Chapter2 from './Chapters/protests_us/Chapter';
+import Chapter2 from './Chapters/protests_us/Chapter.tsx';
 
 const App = () => (
 	<div className="App">

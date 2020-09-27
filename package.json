@@ -24,6 +24,7 @@
       "@babel/plugin-proposal-class-properties": "^7.10.4",
       "@babel/preset-env": "^7.11.5",
       "@babel/preset-react": "^7.10.4",
+      "@types/html-webpack-plugin": "^3.2.3",
       "babel-loader": "^8.1.0",
       "babel-plugin-styled-components": "^1.11.1",
       "babel-plugin-transform-es2015-modules-amd": "^6.24.1",
@@ -35,6 +36,8 @@
       "react-hot-loader": "^4.12.21",
       "sass-loader": "^10.0.2",
       "style-loader": "^1.2.1",
+      "ts-loader": "^8.0.4",
+      "typescript": "^4.0.3",
       "webpack": "^4.44.1",
       "webpack-cli": "^3.3.12",
       "webpack-dev-server": "^3.11.0"

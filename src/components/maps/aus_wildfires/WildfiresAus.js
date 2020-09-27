@@ -3,6 +3,7 @@ import Map from 'esri/Map';
 import MapView from 'esri/views/MapView';
 import Layer from 'esri/layers/Layer';
 import FeatureLayer from 'esri/layers/FeatureLayer';
+import TileLayer from 'esri/layers/TileLayer';
 import TileInfo from 'esri/layers/support/TileInfo';
 import MaskLayer from './MaskLayer';
 import * as renderers from './renderers';
@@ -13,7 +14,7 @@ const WildfiresAustralia = () => {
 	const element = useRef();
 
 	useEffect(() => {
-		loadArcGISCSS('light');
+		loadArcGISCSS('dark');
 
 		const CustomLayer = Layer.createSubclass({
 			tileInfo: TileInfo.create({
@@ -57,9 +58,14 @@ const WildfiresAustralia = () => {
 				'https://services.arcgis.com/nzS0F0zdNLvs7nc8/arcgis/rest/services/Biodiversity_Hotspots_2016_WFL1/FeatureServer',
 		});
 
+		const Koala_HSM_before = new TileLayer({
+			url:
+				'https://tiles.arcgis.com/tiles/yCVH8H4hXcgEqeRw/arcgis/rest/services/Koala_HSM_Before/MapServer',
+		});
+
 		const map = new Map({
 			basemap: 'satellite',
-			layers: [mask, firesLayer],
+			layers: [mask, firesLayer, Koala_HSM_before],
 		});
 
 		const view = new MapView({

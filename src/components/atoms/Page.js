@@ -4,7 +4,7 @@ const Page = styled.div`
 	width: 100%;
 	height: 100vh;
 	min-height: 500px;
-	max-height: 800px;
+	max-height: 1200px;
 	border: 2px solid yellow;
 	padding: 2em;
 `;

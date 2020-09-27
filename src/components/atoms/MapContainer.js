@@ -6,7 +6,7 @@ const MapContainer = styled.div`
 	width: ${(props) => (props.fullWidth ? '100%' : '70%')};
 	height: 100vh;
 	min-height: 500px;
-	max-height: 800px;
+	max-height: 1200px;
 	border: 2px solid green;
 `;
 
