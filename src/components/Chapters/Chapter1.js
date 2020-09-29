@@ -24,13 +24,13 @@ const Chapter1 = () => {
 					</PageText>
 				</Page>
 				<Page>
-					<Page.Title>Coronavirus Across the Globe</Page.Title>
-					<Page.Text>
+					<PageTitle>Coronavirus Across the Globe</PageTitle>
+					<PageText>
 						COVID-19 is the first pandemic in 100 years, and the first of
 						the information age. Originating in Wuhan, China in late 2019,
 						the virus made its way across Europe and the United States in
 						early 2020, and by
-					</Page.Text>
+					</PageText>
 				</Page>
 			</SideCar>
 			<MapContainer>
