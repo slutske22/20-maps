@@ -1,6 +1,7 @@
 import React, { useState, cloneElement } from 'react';
 import type { ReactNode } from 'react';
 import styled from 'styled-components';
+import TrackVisibility from 'react-on-screen';
 import { MapContainer, SideCar, Page, PageTitle, PageText } from '../atoms';
 import { Pages, MetaData } from '../../types';
 
@@ -50,10 +51,12 @@ const Chapter = ({
 				})}
 			</SideCar>
 			<MapContainer fullWidth={fullWidthMap}>
-				{cloneElement(map as null, {
-					mapState: pages[currentPage].mapState,
-					metadata,
-				})}
+            <TrackVisibility className="visibility-tracker" partialVisibility>
+               {({ isVisible }) => isVisible && cloneElement(map as null, {
+                  mapState: pages[currentPage].mapState,
+                  metadata,
+               })}
+            </TrackVisibility>
 			</MapContainer>
 		</Wrapper>
 	);
