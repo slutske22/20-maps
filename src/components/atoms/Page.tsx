@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Page = styled.div`
+export const Page = styled.div`
 	width: 100%;
 	height: 100vh;
 	min-height: 500px;
@@ -9,7 +9,7 @@ const Page = styled.div`
 	padding: 2em;
 `;
 
-Page.Title = styled.h3`
+export const PageTitle = styled.h3`
 	font-family: 'Helvetica', sans-serif;
 	font-weight: 700;
 	font-size: 1.5em;
@@ -17,9 +17,7 @@ Page.Title = styled.h3`
 	margin-top: 0;
 `;
 
-Page.Text = styled.p`
+export const PageText = styled.p`
 	font-size: 1.2em;
 	text-align: justify;
 `;
-
-export default Page;

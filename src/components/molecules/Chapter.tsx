@@ -1,7 +1,7 @@
 import React, { useState, cloneElement } from 'react';
 import type { ReactNode } from 'react';
 import styled from 'styled-components';
-import { MapContainer, SideCar, Page } from '../atoms';
+import { MapContainer, SideCar, Page, PageTitle, PageText } from '../atoms';
 import { Pages, MetaData } from '../../types';
 
 type WrapperProps = {
@@ -43,14 +43,14 @@ const Chapter = ({
 				{pages.map((page, index) => {
 					return (
 						<Page key={`${metadata.name}-page-${index}`}>
-							<Page.Title>{page.title}</Page.Title>
-							<Page.Text>{page.content}</Page.Text>
+							<PageTitle>{page.title}</PageTitle>
+							<PageText>{page.content}</PageText>
 						</Page>
 					);
 				})}
 			</SideCar>
 			<MapContainer fullWidth={fullWidthMap}>
-				{cloneElement(map as ReactNode, {
+				{cloneElement(map as null, {
 					mapState: pages[currentPage].mapState,
 					metadata,
 				})}
