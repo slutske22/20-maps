@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
-const Chapter = styled.div`
+type ChapterProps = {
+	height?: string;
+	screensTall?: number;
+};
+
+const Chapter = styled.div<ChapterProps>`
 	width: 100%;
 	height: ${(props) =>
 		props.height || `${props.screensTall * 100}vh` || `auto`};

@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-const MapContainer = styled.div`
+type MapContainerProps = {
+	fullWidth?: boolean;
+};
+
+const MapContainer = styled.div<MapContainerProps>`
 	position: sticky;
 	top: 0;
 	width: ${(props) => (props.fullWidth ? '100%' : '70%')};

@@ -1,11 +1,12 @@
 import React, { useState, cloneElement } from 'react';
+import type { ReactNode } from 'react';
 import styled from 'styled-components';
 import { MapContainer, SideCar, Page } from '../atoms';
 import { Pages, MetaData } from '../../types';
 
 type WrapperProps = {
-	height: string;
-	screensTall: number;
+	height?: string;
+	screensTall?: number;
 };
 
 const Wrapper = styled.div<WrapperProps>`
@@ -49,7 +50,7 @@ const Chapter = ({
 				})}
 			</SideCar>
 			<MapContainer fullWidth={fullWidthMap}>
-				{cloneElement(map, {
+				{cloneElement(map as ReactNode, {
 					mapState: pages[currentPage].mapState,
 					metadata,
 				})}

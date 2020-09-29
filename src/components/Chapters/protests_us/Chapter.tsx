@@ -1,5 +1,5 @@
 import React from 'react';
-import type { FunctionComponent } from 'react';
+import type { FunctionComponent, ReactNode } from 'react';
 
 import model from './model';
 import Template from '../../molecules/Chapter';
@@ -7,7 +7,7 @@ import Map from './Map';
 
 type ChapterProps = {
 	data: any;
-	map: FunctionComponent;
+	map: ReactNode;
 };
 
 const Chapter: FunctionComponent<ChapterProps> = () => {
