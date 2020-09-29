@@ -17,7 +17,7 @@ type ChapterProps = {
 };
 
 const Chapter: FunctionComponent<ChapterProps> = () => {
-   return <Template fullWidthMap data={model} map={<Map />} />;
+   return <Template fullWidthMap data={model} map={Map} />;
 };
 
 export default Chapter;

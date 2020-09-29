@@ -6,19 +6,7 @@ import LayerList from 'esri/widgets/LayerList';
 import TimeSlider from 'esri/widgets/TimeSlider';
 import loadArcGISCSS from '../../../utils/arcgis.css.loader.js';
 import './styles.scss';
-
-type MapProps = {
-   metadata?: {
-      name: string;
-      theme: string;
-   };
-   mapState?: {
-      center: number[];
-      zoom: number;
-      basemap: any;
-      layers: any[];
-   };
-};
+import { MapProps } from '../../../types';
 
 const Map: FunctionComponent<MapProps> = ({
    metadata,
