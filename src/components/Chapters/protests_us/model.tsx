@@ -3,6 +3,7 @@ import Basemap from 'esri/Basemap';
 import FeatureLayer from 'esri/layers/FeatureLayer';
 import * as renderers from './renderers';
 import popupTemplate from './popupTemplate';
+import { ModelSchema } from '../../../types';
 
 const basemap = new Basemap({
 	portalItem: {
@@ -41,7 +42,7 @@ const otherProtestLayer = new FeatureLayer({
 		"Tags NOT LIKE '%racial%' AND Tags NOT LIKE '%police%'",
 });
 
-export const model: any = {
+export const model: ModelSchema = {
 	metadata: {
 		name: 'US_protests',
 		theme: 'dark',

@@ -1,13 +1,31 @@
 import React, { useEffect, useRef } from 'react';
+import type { Component } from 'react';
 import EsriMap from 'esri/Map';
 import MapView from 'esri/views/MapView';
 import LayerList from 'esri/widgets/LayerList';
 import TimeSlider from 'esri/widgets/TimeSlider';
-import loadArcGISCSS from '../../../utils/arcgis.css.loader';
+import loadArcGISCSS from '../../../utils/arcgis.css.loader.js';
 import './styles.scss';
 
-const Map = ({ metadata, mapState: { basemap, layers, zoom, center } }) => {
+type MapProps = {
+	metadata: {
+		name: string;
+		theme: string;
+	};
+	mapState: {
+		center: number[];
+		zoom: number;
+		basemap: any;
+		layers: any[];
+	};
+};
+
+const Map = ({
+	metadata,
+	mapState: { basemap, layers, zoom, center },
+}: MapProps) => {
 	const element = useRef(null);
+	const customLegend = useRef(null);
 
 	useEffect(() => {
 		loadArcGISCSS(metadata.theme || 'dark');
@@ -39,14 +57,11 @@ const Map = ({ metadata, mapState: { basemap, layers, zoom, center } }) => {
 				layerViews.push(layerView);
 			});
 
-			const customLegend = document.querySelector(
-				'.esri-component.esri-legend.esri-widget.esri-widget--panel'
-			);
 			const bottomLeft = document.querySelector(
 				'.esri-ui-bottom-left.esri-ui-corner'
 			);
-			bottomLeft.appendChild(customLegend);
-			customLegend.style.display = 'flex';
+			bottomLeft.appendChild(customLegend.current);
+			customLegend.current.style.display = 'flex';
 		});
 
 		// Layer List
@@ -129,6 +144,7 @@ const Map = ({ metadata, mapState: { basemap, layers, zoom, center } }) => {
 			<div
 				className="esri-component esri-legend esri-widget esri-widget--panel"
 				style={{ display: 'none' }}
+				ref={customLegend}
 			>
 				<div>
 					<div className="esri-legend__service">

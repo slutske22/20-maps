@@ -1,8 +1,14 @@
 import React, { useState, cloneElement } from 'react';
 import styled from 'styled-components';
 import { MapContainer, SideCar, Page } from '../atoms';
+import { Pages, MetaData } from '../../types';
 
-const Wrapper = styled.div`
+type WrapperProps = {
+	height: string;
+	screensTall: number;
+};
+
+const Wrapper = styled.div<WrapperProps>`
 	width: 100%;
 	height: ${(props) =>
 		props.height || `${props.screensTall * 100}vh` || `auto`};
@@ -13,7 +19,20 @@ const Wrapper = styled.div`
 	border: 2px solid blue;
 `;
 
-const Chapter = ({ map, fullWidthMap, data: { pages, metadata } }) => {
+type ChapterProps = {
+	map: React.FunctionComponent;
+	fullWidthMap: boolean;
+	data: {
+		pages: Pages[];
+		metadata: MetaData;
+	};
+};
+
+const Chapter = ({
+	map,
+	fullWidthMap,
+	data: { pages, metadata },
+}: ChapterProps) => {
 	const [currentPage, setCurrentPage] = useState(0);
 	const Map = map;
 
