@@ -11,12 +11,7 @@ import model from './model';
 import Template from '../../molecules/Chapter';
 import Map from './Map';
 
-type ChapterProps = {
-   data: any;
-   map: ReactNode;
-};
-
-const Chapter: FunctionComponent<ChapterProps> = () => {
+const Chapter: FunctionComponent<{}> = () => {
    return <Template fullWidthMap data={model} map={Map} />;
 };
 
