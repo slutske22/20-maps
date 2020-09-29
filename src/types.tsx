@@ -1,13 +1,15 @@
+import type { ReactElement } from 'react';
+
 export type MapState = {
 	center: number[];
 	zoom: number;
-	basemap: any;
+	basemap?: any;
 	layers: any[];
 };
 
 export type Pages = {
 	title: string;
-	content: string;
+	content: string | ReactElement;
 	mapState: MapState;
 };
 
