@@ -13,7 +13,7 @@ import Map from './Map';
 
 type ChapterProps = {
    data: any;
-   map: Component;
+   map: ReactNode;
 };
 
 const Chapter: FunctionComponent<ChapterProps> = () => {

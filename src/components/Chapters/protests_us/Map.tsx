@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import type { Component } from 'react';
+import type { FunctionComponent } from 'react';
 import EsriMap from 'esri/Map';
 import MapView from 'esri/views/MapView';
 import LayerList from 'esri/widgets/LayerList';
@@ -8,11 +8,11 @@ import loadArcGISCSS from '../../../utils/arcgis.css.loader.js';
 import './styles.scss';
 
 type MapProps = {
-   metadata: {
+   metadata?: {
       name: string;
       theme: string;
    };
-   mapState: {
+   mapState?: {
       center: number[];
       zoom: number;
       basemap: any;
@@ -20,7 +20,7 @@ type MapProps = {
    };
 };
 
-const Map = ({
+const Map: FunctionComponent<MapProps> = ({
    metadata,
    mapState: { basemap, layers, zoom, center },
 }: MapProps) => {
