@@ -7,12 +7,14 @@ import { MapProps } from '../../../types';
 
 const Map: FunctionComponent<MapProps> = ({
 	metadata,
-	customBehavior,
+	customFeatures,
 	mapState: { basemap, layers, zoom, center },
 }: MapProps) => {
 	const element = useRef(null);
 	const [map, setMap] = useState(null);
 
+	// component mount: set up map, view, css theme
+	// apply any custom behavior that persists through entire chapter
 	useEffect(() => {
 		loadArcGISCSS(metadata.theme || 'dark');
 
@@ -36,16 +38,37 @@ const Map: FunctionComponent<MapProps> = ({
 			},
 		});
 
+		view.on('click', (e) => console.log(e.mapPoint));
+
 		setMap({ map, view });
 
-		customBehavior && customBehavior();
+		customFeatures && customFeatures();
 	}, []);
 
+	// layer change - add and remove layers
 	useEffect(() => {
 		if (map) {
 			map.map.layers = layers;
 		}
 	}, [layers]);
+
+	// view change - set center and zoom if different
+	useEffect(() => {
+		if (map) {
+			map.view.goTo(
+				{
+					target: center,
+					zoom,
+				},
+				{
+					duration: 1000,
+				}
+			);
+		}
+	}, [zoom, center]);
+
+	// apply custom behavior to each page if there is any
+	useEffect(() => {});
 
 	return <div className={`arcgis-map ${metadata.name}`} ref={element} />;
 };

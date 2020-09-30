@@ -10,21 +10,31 @@ export const countries = new FeatureLayer({
 		'https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/World_Countries_(Generalized)/FeatureServer/0',
 });
 
-export const firesLayer = new FeatureLayer({
+export const fires_layer = new FeatureLayer({
 	url:
 		'https://services7.arcgis.com/WSiUmUhlFx4CtMBB/arcgis/rest/services/AUBushfireBurnArea/FeatureServer',
 	// @ts-ignore
 	renderer: renderers.fireRenderer,
 });
 
-export const biodiversityHotspots = new FeatureLayer({
+export const biodiversity_hotspots = new FeatureLayer({
 	url:
 		'https://services.arcgis.com/nzS0F0zdNLvs7nc8/arcgis/rest/services/Biodiversity_Hotspots_2016_WFL1/FeatureServer',
 });
 
-export const Koala_HSM_before = new TileLayer({
+export const koalas_point_layer = new FeatureLayer({
+	url:
+		'https://services.arcgis.com/3vStCH7NDoBOZ5zn/arcgis/rest/services/Koala_Records2/FeatureServer',
+});
+
+export const koala_HSM_before = new TileLayer({
 	url:
 		'https://tiles.arcgis.com/tiles/yCVH8H4hXcgEqeRw/arcgis/rest/services/Koala_HSM_Before/MapServer',
+});
+
+export const koala_HSM_after = new TileLayer({
+	url:
+		'https://tiles.arcgis.com/tiles/yCVH8H4hXcgEqeRw/arcgis/rest/services/Koala_HSM_After/MapServer',
 });
 
 // @ts-ignore

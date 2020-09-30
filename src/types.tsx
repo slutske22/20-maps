@@ -5,9 +5,10 @@ export type MapState = {
 	zoom: number;
 	basemap?: any;
 	layers: any[];
+	customBehavior?: (...args: any[]) => any;
 };
 
-export type Pages = {
+export type PageTypes = {
 	title: string;
 	content: string | ReactElement;
 	mapState: MapState;
@@ -20,12 +21,12 @@ export type MetaData = {
 
 export type ModelSchema = {
 	metadata: MetaData;
-	pages: Pages[];
-	customBehavior?: () => void;
+	pages: PageTypes[];
+	customFeatures?: (...args: any[]) => any;
 };
 
 export type MapProps = {
 	metadata: MetaData;
 	mapState: MapState;
-	customBehavior?: () => void;
+	customFeatures?: () => void;
 };

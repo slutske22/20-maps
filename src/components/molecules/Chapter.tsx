@@ -3,7 +3,7 @@ import type { ReactNode, FunctionComponent } from 'react';
 import styled from 'styled-components';
 import TrackVisibility from 'react-on-screen';
 import { MapContainer, SideCar, Page, PageTitle, PageText } from '../atoms';
-import { Pages, MetaData, MapProps } from '../../types';
+import { PageTypes, MetaData, MapProps } from '../../types';
 
 type WrapperProps = {
 	height?: string;
@@ -26,15 +26,15 @@ type ChapterProps = {
 	fullWidthMap: boolean;
 	data: {
 		metadata: MetaData;
-		pages: Pages[];
-		customBehavior?: () => void;
+		pages: PageTypes[];
+		customFeatures?: () => void;
 	};
 };
 
 const Chapter = ({
 	map,
 	fullWidthMap,
-	data: { metadata, customBehavior, pages },
+	data: { metadata, customFeatures, pages },
 }: ChapterProps) => {
 	const [currentPage, setCurrentPage] = useState(0);
 	const Map: FunctionComponent<MapProps> = map;
@@ -45,13 +45,13 @@ const Chapter = ({
 				{pages.map((page, index) => {
 					return (
 						<Page key={`${metadata.name}-page-${index}`}>
-							<PageTitle>{page.title}</PageTitle>
-							<TrackVisibility className="visibility-tracker">
+							<TrackVisibility>
 								{({ isVisible }) => {
 									isVisible && setCurrentPage(index);
-									return <PageText>{page.content}</PageText>;
+									return <PageTitle>{page.title}</PageTitle>;
 								}}
 							</TrackVisibility>
+							<PageText>{page.content}</PageText>
 						</Page>
 					);
 				})}
@@ -62,7 +62,7 @@ const Chapter = ({
 						isVisible && (
 							<Map
 								mapState={pages[currentPage].mapState}
-								customBehavior={customBehavior}
+								customFeatures={customFeatures}
 								metadata={metadata}
 							/>
 						)

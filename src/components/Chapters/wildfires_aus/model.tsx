@@ -1,11 +1,14 @@
 import React from 'react';
 import {
-	firesLayer,
+	fires_layer,
 	mask,
 	countries,
-	Koala_HSM_before,
-	biodiversityHotspots,
+	biodiversity_hotspots,
+	koalas_point_layer,
+	koala_HSM_before,
+	koala_HSM_after,
 } from './layers';
+import Swipe from 'esri/widgets/Swipe';
 import { ModelSchema } from '../../../types';
 
 const model: ModelSchema = {
@@ -13,7 +16,7 @@ const model: ModelSchema = {
 		name: 'wildfires_australia',
 		theme: 'dark',
 	},
-	customBehavior: () => {
+	customFeatures: () => {
 		const query = countries.createQuery();
 		query.where = "ISO = 'AU'";
 		countries.queryFeatures(query).then(function (result) {
@@ -28,7 +31,7 @@ const model: ModelSchema = {
 			mapState: {
 				center: [134, -26.9],
 				zoom: 4,
-				layers: [firesLayer, mask],
+				layers: [fires_layer, mask],
 				basemap: 'satellite',
 			},
 		},
@@ -36,10 +39,36 @@ const model: ModelSchema = {
 			title: 'Koalas and stuff',
 			content: <>Koala's man. They're not doing great.</>,
 			mapState: {
-				center: [134, -26.9],
-				zoom: 4,
-				layers: [firesLayer, mask, Koala_HSM_before],
+				center: [153.28, -27.99],
+				zoom: 10,
+				layers: [fires_layer, mask, koalas_point_layer],
 				basemap: 'satellite',
+			},
+		},
+		{
+			title: 'Habitat Destruction',
+			content: (
+				<>
+					Use the swipe to see how their habitat has changed due to the
+					fires.
+				</>
+			),
+			mapState: {
+				center: [144.9, -37.15],
+				zoom: 7,
+				layers: [fires_layer, mask, koala_HSM_before, koala_HSM_after],
+				basemap: 'satellite',
+				customBehavior: (view) => {
+					const swipe = new Swipe({
+						leadingLayers: [koala_HSM_before],
+						trailingLayers: [koala_HSM_after],
+						view,
+					});
+					view.ui.add(swipe);
+					return () => {
+						view.ui.remove(swipe);
+					};
+				},
 			},
 		},
 	],
