@@ -6,64 +6,66 @@ import { MapContainer, SideCar, Page, PageTitle, PageText } from '../atoms';
 import { Pages, MetaData, MapProps } from '../../types';
 
 type WrapperProps = {
-   height?: string;
-   screensTall?: number;
+	height?: string;
+	screensTall?: number;
 };
 
 const Wrapper = styled.div<WrapperProps>`
-   width: 100%;
-   height: ${(props) =>
-      props.height || `${props.screensTall * 100}vh` || `auto`};
-   min-height: 500px;
-   position: relative;
-   display: flex;
-   flex-direction: row;
-   border: 2px solid blue;
+	width: 100%;
+	height: ${(props) =>
+		props.height || `${props.screensTall * 100}vh` || `auto`};
+	min-height: 500px;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	border: 2px solid blue;
 `;
 
 type ChapterProps = {
-   map: React.FunctionComponent;
-   fullWidthMap: boolean;
-   data: {
-      pages: Pages[];
-      metadata: MetaData;
-   };
+	map: React.FunctionComponent;
+	fullWidthMap: boolean;
+	data: {
+		metadata: MetaData;
+		pages: Pages[];
+		customBehavior?: () => void;
+	};
 };
 
 const Chapter = ({
-   map,
-   fullWidthMap,
-   data: { pages, metadata },
+	map,
+	fullWidthMap,
+	data: { metadata, customBehavior, pages },
 }: ChapterProps) => {
-   const [currentPage, setCurrentPage] = useState(0);
-   const Map: FunctionComponent<MapProps> = map;
+	const [currentPage, setCurrentPage] = useState(0);
+	const Map: FunctionComponent<MapProps> = map;
 
-   return (
-      <Wrapper>
-         <SideCar>
-            {pages.map((page, index) => {
-               return (
-                  <Page key={`${metadata.name}-page-${index}`}>
-                     <PageTitle>{page.title}</PageTitle>
-                     <PageText>{page.content}</PageText>
-                  </Page>
-               );
-            })}
-         </SideCar>
-         <MapContainer fullWidth={fullWidthMap}>
-            <TrackVisibility className="visibility-tracker" partialVisibility>
-               {({ isVisible }) =>
-                  isVisible && (
-                     <Map
-                        mapState={pages[currentPage].mapState}
-                        metadata={metadata}
-                     />
-                  )
-               }
-            </TrackVisibility>
-         </MapContainer>
-      </Wrapper>
-   );
+	return (
+		<Wrapper>
+			<SideCar>
+				{pages.map((page, index) => {
+					return (
+						<Page key={`${metadata.name}-page-${index}`}>
+							<PageTitle>{page.title}</PageTitle>
+							<PageText>{page.content}</PageText>
+						</Page>
+					);
+				})}
+			</SideCar>
+			<MapContainer fullWidth={fullWidthMap}>
+				<TrackVisibility className="visibility-tracker" partialVisibility>
+					{({ isVisible }) =>
+						isVisible && (
+							<Map
+								mapState={pages[currentPage].mapState}
+								customBehavior={customBehavior}
+								metadata={metadata}
+							/>
+						)
+					}
+				</TrackVisibility>
+			</MapContainer>
+		</Wrapper>
+	);
 };
 
 export default Chapter;
