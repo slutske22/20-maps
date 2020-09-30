@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import type { FunctionComponent } from 'react';
 import EsriMap from 'esri/Map';
 import MapView from 'esri/views/MapView';
@@ -11,6 +11,7 @@ const Map: FunctionComponent<MapProps> = ({
 	mapState: { basemap, layers, zoom, center },
 }: MapProps) => {
 	const element = useRef(null);
+	const [map, setMap] = useState(null);
 
 	useEffect(() => {
 		loadArcGISCSS(metadata.theme || 'dark');
@@ -35,8 +36,16 @@ const Map: FunctionComponent<MapProps> = ({
 			},
 		});
 
+		setMap({ map, view });
+
 		customBehavior && customBehavior();
 	}, []);
+
+	useEffect(() => {
+		if (map) {
+			map.map.layers = layers;
+		}
+	}, [layers]);
 
 	return <div className={`arcgis-map ${metadata.name}`} ref={element} />;
 };

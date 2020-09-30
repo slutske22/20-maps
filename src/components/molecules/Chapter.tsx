@@ -46,7 +46,15 @@ const Chapter = ({
 					return (
 						<Page key={`${metadata.name}-page-${index}`}>
 							<PageTitle>{page.title}</PageTitle>
-							<PageText>{page.content}</PageText>
+							<TrackVisibility
+								className="visibility-tracker"
+								partialVisibility
+							>
+								{({ isVisible }) => {
+									isVisible && setCurrentPage(index);
+									return <PageText>{page.content}</PageText>;
+								}}
+							</TrackVisibility>
 						</Page>
 					);
 				})}
