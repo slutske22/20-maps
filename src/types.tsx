@@ -1,10 +1,19 @@
 import type { ReactElement } from 'react';
+import type EsriMap from 'esri/Map';
+import type MapView from 'esri/views/MapView';
+import type Basemap from 'esri/Basemap';
+import type Layer from 'esri/layers/Layer';
+
+export type EsriMapRefTypes = {
+	map: EsriMap;
+	view: MapView;
+};
 
 export type MapState = {
 	center: number[];
 	zoom: number;
-	basemap?: any;
-	layers: any[];
+	basemap?: Basemap | string;
+	layers: Layer[];
 	customBehavior?: (...args: any[]) => any;
 };
 

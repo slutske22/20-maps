@@ -8,10 +8,11 @@ import { MapProps } from '../../../types';
 const Map: FunctionComponent<MapProps> = ({
 	metadata,
 	customFeatures,
-	mapState: { basemap, layers, zoom, center },
+	mapState: { basemap, layers, zoom, center, customBehavior },
 }: MapProps) => {
 	const element = useRef(null);
-	const [map, setMap] = useState(null);
+	const [mapRef, setMapRef] = useState(null);
+	const [cleanupFunction, setCleaupFunction] = useState(null);
 
 	// component mount: set up map, view, css theme
 	// apply any custom behavior that persists through entire chapter
@@ -40,22 +41,22 @@ const Map: FunctionComponent<MapProps> = ({
 
 		view.on('click', (e) => console.log(e.mapPoint));
 
-		setMap({ map, view });
+		setMapRef({ map, view });
 
 		customFeatures && customFeatures();
 	}, []);
 
 	// layer change - add and remove layers
 	useEffect(() => {
-		if (map) {
-			map.map.layers = layers;
+		if (mapRef) {
+			mapRef.map.layers = layers;
 		}
 	}, [layers]);
 
 	// view change - set center and zoom if different
 	useEffect(() => {
-		if (map) {
-			map.view.goTo(
+		if (mapRef) {
+			mapRef.view.goTo(
 				{
 					target: center,
 					zoom,
@@ -68,7 +69,17 @@ const Map: FunctionComponent<MapProps> = ({
 	}, [zoom, center]);
 
 	// apply custom behavior to each page if there is any
-	useEffect(() => {});
+	useEffect(() => {
+		if (mapRef) {
+			if (customBehavior) {
+				cleanupFunction && cleanupFunction();
+				const cleanup = customBehavior(mapRef);
+				setCleaupFunction(() => cleanup);
+			} else {
+				cleanupFunction && cleanupFunction();
+			}
+		}
+	}, [customBehavior]);
 
 	return <div className={`arcgis-map ${metadata.name}`} ref={element} />;
 };

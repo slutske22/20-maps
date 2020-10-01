@@ -56,18 +56,21 @@ const model: ModelSchema = {
 			mapState: {
 				center: [144.9, -37.15],
 				zoom: 7,
-				layers: [fires_layer, mask, koala_HSM_before, koala_HSM_after],
+				layers: [mask, koala_HSM_before, koala_HSM_after],
 				basemap: 'satellite',
-				customBehavior: (view) => {
+				customBehavior: (mapRef) => {
+					console.log('custom behavior function runs');
 					const swipe = new Swipe({
 						leadingLayers: [koala_HSM_before],
 						trailingLayers: [koala_HSM_after],
-						view,
+						view: mapRef.view,
 					});
-					view.ui.add(swipe);
-					return () => {
-						view.ui.remove(swipe);
+					mapRef.view.ui.add(swipe);
+					const cleanup = () => {
+						console.log('custom behavior cleanup runs');
+						mapRef.view.ui.remove(swipe);
 					};
+					return cleanup;
 				},
 			},
 		},
