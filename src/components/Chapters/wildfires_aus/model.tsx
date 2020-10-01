@@ -59,18 +59,15 @@ const model: ModelSchema = {
 				layers: [mask, koala_HSM_before, koala_HSM_after],
 				basemap: 'satellite',
 				customBehavior: (mapRef) => {
-					console.log('custom behavior function runs');
 					const swipe = new Swipe({
 						leadingLayers: [koala_HSM_before],
 						trailingLayers: [koala_HSM_after],
 						view: mapRef.view,
 					});
 					mapRef.view.ui.add(swipe);
-					const cleanup = () => {
-						console.log('custom behavior cleanup runs');
+					return () => {
 						mapRef.view.ui.remove(swipe);
 					};
-					return cleanup;
 				},
 			},
 		},
