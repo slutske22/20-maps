@@ -17,7 +17,7 @@ const model: ModelSchema = {
 		theme: 'dark',
 		fullWidthMap: false,
 	},
-	customFeatures: () => {
+	customFeatures: (args) => {
 		const query = countries.createQuery();
 		query.where = "ISO = 'AU'";
 		countries.queryFeatures(query).then(function (result) {

@@ -29,15 +29,21 @@ export type MetaData = {
 	fullWidthMap: boolean;
 };
 
+export type CustomFeaturesArgs = {
+	layers: Layer[];
+	map: EsriMap;
+	view: MapView;
+};
+
 export type ModelSchema = {
 	metadata: MetaData;
 	pages: PageTypes[];
-	customFeatures?: (...args: any[]) => any;
+	customFeatures?: any;
 	customDOM?: HTMLElement | ReactElement | Component;
 };
 
 export type MapProps = {
 	metadata: MetaData;
 	mapState: MapState;
-	customFeatures?: () => void;
+	customFeatures?: any;
 };

@@ -142,6 +142,7 @@ export const model: ModelSchema = {
 			});
 		});
 	},
+	customDOM: null,
 	pages: [
 		{
 			title: 'United States Protests',
