@@ -1,8 +1,16 @@
-import React, { useState, cloneElement } from 'react';
-import type { ReactNode, FunctionComponent } from 'react';
+import React, { useState } from 'react';
+import type { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import TrackVisibility from 'react-on-screen';
-import { MapContainer, SideCar, Page, PageTitle, PageText } from '../atoms';
+import {
+	MapContainer,
+	SideCar,
+	Page,
+	PageContent,
+	PageTitle,
+	PageText,
+} from '../atoms';
+import MapTemplate from './MapTemplate';
 import { PageTypes, MetaData, MapProps } from '../../types';
 
 type WrapperProps = {
@@ -23,7 +31,6 @@ const Wrapper = styled.div<WrapperProps>`
 
 type ChapterProps = {
 	map: React.FunctionComponent;
-	fullWidthMap: boolean;
 	data: {
 		metadata: MetaData;
 		pages: PageTypes[];
@@ -33,7 +40,6 @@ type ChapterProps = {
 
 const Chapter = ({
 	map,
-	fullWidthMap,
 	data: { metadata, customFeatures, pages },
 }: ChapterProps) => {
 	const [currentPage, setCurrentPage] = useState(0);
@@ -41,26 +47,28 @@ const Chapter = ({
 
 	return (
 		<Wrapper>
-			<SideCar>
+			<SideCar floating={metadata.fullWidthMap}>
 				{pages.map((page, index) => {
 					return (
 						<Page key={`${metadata.name}-page-${index}`}>
-							<TrackVisibility>
-								{({ isVisible }) => {
-									isVisible && setCurrentPage(index);
-									return <PageTitle>{page.title}</PageTitle>;
-								}}
-							</TrackVisibility>
-							<PageText>{page.content}</PageText>
+							<PageContent>
+								<TrackVisibility>
+									{({ isVisible }) => {
+										isVisible && setCurrentPage(index);
+										return <PageTitle>{page.title}</PageTitle>;
+									}}
+								</TrackVisibility>
+								<PageText>{page.content}</PageText>
+							</PageContent>
 						</Page>
 					);
 				})}
 			</SideCar>
-			<MapContainer fullWidth={fullWidthMap}>
+			<MapContainer fullWidth={metadata.fullWidthMap}>
 				<TrackVisibility className="visibility-tracker" partialVisibility>
 					{({ isVisible }) =>
 						isVisible && (
-							<Map
+							<MapTemplate
 								mapState={pages[currentPage].mapState}
 								customFeatures={customFeatures}
 								metadata={metadata}

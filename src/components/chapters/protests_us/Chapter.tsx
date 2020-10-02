@@ -2,11 +2,11 @@ import React from 'react';
 import type { FunctionComponent } from 'react';
 
 import model from './model';
-import Template from '../..//molecules/Chapter';
+import ChapterTemplate from '../../molecules/ChapterTemplate';
 import Map from './Map';
 
 const Chapter: FunctionComponent<{}> = () => {
-	return <Template fullWidthMap data={model} map={Map} />;
+	return <ChapterTemplate data={model} map={Map} />;
 };
 
 export default Chapter;

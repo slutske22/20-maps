@@ -15,6 +15,7 @@ const model: ModelSchema = {
 	metadata: {
 		name: 'wildfires_australia',
 		theme: 'dark',
+		fullWidthMap: false,
 	},
 	customFeatures: () => {
 		const query = countries.createQuery();

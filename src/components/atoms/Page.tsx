@@ -10,6 +10,8 @@ export const Page = styled.div`
 	padding: 2em;
 `;
 
+export const PageContent = styled.div``;
+
 export const PageTitle = styled.h3`
 	font-family: 'Helvetica', sans-serif;
 	font-weight: 700;

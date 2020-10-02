@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import type { ReactElement, Component } from 'react';
 import type EsriMap from 'esri/Map';
 import type MapView from 'esri/views/MapView';
 import type Basemap from 'esri/Basemap';
@@ -26,12 +26,14 @@ export type PageTypes = {
 export type MetaData = {
 	name: string;
 	theme: string;
+	fullWidthMap: boolean;
 };
 
 export type ModelSchema = {
 	metadata: MetaData;
 	pages: PageTypes[];
 	customFeatures?: (...args: any[]) => any;
+	customDOM?: HTMLElement | ReactElement | Component;
 };
 
 export type MapProps = {

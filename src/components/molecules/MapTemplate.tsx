@@ -2,9 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import type { FunctionComponent } from 'react';
 import EsriMap from 'esri/Map';
 import MapView from 'esri/views/MapView';
-import loadArcGISCSS from '../../../utils/arcgis.css.loader.js';
-import { MapProps } from '../../../types';
-import { TopLeft } from '../../atoms';
+import Zoom from 'esri/widgets/Zoom';
+import loadArcGISCSS from '../../utils/arcgis.css.loader.js';
+import { MapProps } from '../../types';
+import { TopLeft } from '../atoms';
 
 const Map: FunctionComponent<MapProps> = ({
 	metadata,
@@ -44,7 +45,15 @@ const Map: FunctionComponent<MapProps> = ({
 
 		setMapRef({ map, view });
 
-		customFeatures && customFeatures();
+		// Home zoom in a custom container whose css is controlled based on fullWidthMap prop
+		view.ui.empty('top-left');
+
+		const zoomwidget = new Zoom({
+			view,
+			container: `top-left-controls-${metadata.name}`,
+		});
+
+		customFeatures && customFeatures({ map, view, layers });
 	}, []);
 
 	// layer change - add and remove layers
@@ -85,7 +94,10 @@ const Map: FunctionComponent<MapProps> = ({
 	return (
 		<>
 			<div className={`arcgis-map ${metadata.name}`} ref={element} />
-			<TopLeft id={`top-left-controls-${metadata.name}`} />
+			<TopLeft
+				id={`top-left-controls-${metadata.name}`}
+				floating={metadata.fullWidthMap}
+			/>
 		</>
 	);
 };
