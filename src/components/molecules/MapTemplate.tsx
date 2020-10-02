@@ -19,7 +19,7 @@ const Map: FunctionComponent<MapProps> = ({
 	// component mount: set up map, view, css theme
 	// apply any custom behavior that persists through entire chapter
 	useEffect(() => {
-		loadArcGISCSS(metadata.theme || 'dark');
+		// loadArcGISCSS(metadata.theme || 'dark');
 
 		const map = new EsriMap({
 			basemap: basemap || null,

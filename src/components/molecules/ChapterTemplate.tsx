@@ -64,7 +64,10 @@ const Chapter = ({
 					);
 				})}
 			</SideCar>
-			<MapContainer fullWidth={metadata.fullWidthMap}>
+			<MapContainer
+				fullWidth={metadata.fullWidthMap}
+				className={`arcgis-map-${metadata.theme}`}
+			>
 				<TrackVisibility className="visibility-tracker" partialVisibility>
 					{({ isVisible }) =>
 						isVisible && (

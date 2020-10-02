@@ -50,7 +50,7 @@ const otherProtestLayer = new FeatureLayer({
 export const model: ModelSchema = {
 	metadata: {
 		name: 'US_protests',
-		theme: 'dark',
+		theme: 'dark-blue',
 		fullWidthMap: true,
 	},
 	customFeatures: (args) => {
