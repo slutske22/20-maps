@@ -14,7 +14,7 @@ import { ModelSchema } from '../../../types';
 const model: ModelSchema = {
 	metadata: {
 		name: 'wildfires_australia',
-		theme: 'light',
+		theme: 'dark-blue',
 		fullWidthMap: false,
 	},
 	customFeatures: (args) => {
