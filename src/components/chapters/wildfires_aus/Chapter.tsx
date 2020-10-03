@@ -3,10 +3,9 @@ import type { FunctionComponent } from 'react';
 
 import model from './model';
 import ChapterTemplate from '../../molecules/ChapterTemplate';
-import Map from './Map';
 
 const Chapter: FunctionComponent<{}> = () => {
-	return <ChapterTemplate data={model} map={Map} />;
+	return <ChapterTemplate data={model} />;
 };
 
 export default Chapter;

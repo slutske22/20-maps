@@ -3,7 +3,6 @@ import type { FunctionComponent } from 'react';
 import EsriMap from 'esri/Map';
 import MapView from 'esri/views/MapView';
 import Zoom from 'esri/widgets/Zoom';
-import loadArcGISCSS from '../../utils/arcgis.css.loader.js';
 import { MapProps } from '../../types';
 import { TopLeft } from '../atoms';
 
@@ -16,11 +15,9 @@ const Map: FunctionComponent<MapProps> = ({
 	const [mapRef, setMapRef] = useState(null);
 	const [cleanupFunction, setCleaupFunction] = useState(null);
 
-	// component mount: set up map, view, css theme
+	// component mount: set up map, view
 	// apply any custom behavior that persists through entire chapter
 	useEffect(() => {
-		// loadArcGISCSS(metadata.theme || 'dark');
-
 		const map = new EsriMap({
 			basemap: basemap || null,
 			layers: layers,

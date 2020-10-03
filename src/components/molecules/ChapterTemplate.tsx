@@ -30,7 +30,7 @@ const Wrapper = styled.div<WrapperProps>`
 `;
 
 type ChapterProps = {
-	map: React.FunctionComponent;
+	customMap?: React.FunctionComponent;
 	data: {
 		metadata: MetaData;
 		pages: PageTypes[];
@@ -39,11 +39,11 @@ type ChapterProps = {
 };
 
 const Chapter = ({
-	map,
+	customMap,
 	data: { metadata, customFeatures, pages },
 }: ChapterProps) => {
 	const [currentPage, setCurrentPage] = useState(0);
-	const Map: FunctionComponent<MapProps> = map;
+	const CustomMap: FunctionComponent<MapProps> = customMap || null;
 
 	return (
 		<Wrapper>
