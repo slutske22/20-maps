@@ -11,6 +11,7 @@ const SideCar = styled.div<SideCarProps>`
 	width: 30%;
 	border: 2px solid orange;
 	z-index: 1;
+	pointer-events: none;
 `;
 
 export default SideCar;

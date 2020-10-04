@@ -30,6 +30,7 @@ export const PageContent = styled.div<PageContentProps>`
 		props.floating && (props.theme === 'dark' || props.theme === 'dark-blue')
 			? '0 1px 2px rgba(0, 0, 0, 0.3)'
 			: ''};
+	pointer-events: auto;
 `;
 
 export const PageTitle = styled.h3`
