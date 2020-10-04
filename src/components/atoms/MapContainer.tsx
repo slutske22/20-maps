@@ -11,7 +11,7 @@ const MapContainer = styled.div<MapContainerProps>`
 	height: 100vh;
 	min-height: 500px;
 	max-height: 1200px;
-	border: 2px solid green;
+	/* border: 2px solid green; */
 `;
 
 export default MapContainer;

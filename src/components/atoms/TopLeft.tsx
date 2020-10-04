@@ -7,7 +7,7 @@ type TopLeftProps = {
 const TopLeft = styled.div<TopLeftProps>`
 	position: absolute;
 	top: 15px;
-	left: ${(props) => (props.floating ? 'calc(30% + 15px)' : '15px')};
+	left: ${(props) => (props.floating ? '30%' : '15px')};
 `;
 
 export default TopLeft;

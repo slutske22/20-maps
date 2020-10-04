@@ -6,8 +6,8 @@ type SideCarProps = {
 
 const SideCar = styled.div<SideCarProps>`
 	position: ${(props) => (props.floating ? 'absolute' : 'static')};
-	top: ${(props) => (props.floating ? '5px' : null)};
-	left: ${(props) => (props.floating ? '5px' : null)};
+	top: ${(props) => (props.floating ? '0px' : null)};
+	left: ${(props) => (props.floating ? '0px' : null)};
 	width: 30%;
 	border: 2px solid orange;
 	z-index: 1;

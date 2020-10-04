@@ -50,6 +50,13 @@ const GlobalStyles = createGlobalStyle`
       height: 100%;
    }
 
+   .arcgis-map-dark {
+      .esri-zoom.esri-widget {
+         border: 1px solid rgba(173,173,173,0.3)
+      }
+   }
+
+
 `;
 
 export default GlobalStyles;

@@ -51,7 +51,10 @@ const Chapter = ({
 				{pages.map((page, index) => {
 					return (
 						<Page key={`${metadata.name}-page-${index}`}>
-							<PageContent>
+							<PageContent
+								theme={metadata.theme}
+								floating={metadata.fullWidthMap}
+							>
 								<TrackVisibility>
 									{({ isVisible }) => {
 										isVisible && setCurrentPage(index);
