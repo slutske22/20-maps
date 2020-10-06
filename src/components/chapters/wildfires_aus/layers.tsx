@@ -8,6 +8,7 @@ import * as renderers from './renderers';
 export const countries = new FeatureLayer({
 	url:
 		'https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/World_Countries_(Generalized)/FeatureServer/0',
+	legendEnabled: false,
 });
 
 export const fires_layer = new FeatureLayer({
@@ -35,6 +36,7 @@ export const koala_HSM_before = new TileLayer({
 export const koala_HSM_after = new TileLayer({
 	url:
 		'https://tiles.arcgis.com/tiles/yCVH8H4hXcgEqeRw/arcgis/rest/services/Koala_HSM_After/MapServer',
+	legendEnabled: false,
 });
 
 // @ts-ignore

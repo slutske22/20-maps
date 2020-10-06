@@ -27,6 +27,7 @@ const Wrapper = styled.div<WrapperProps>`
 	position: relative;
 	display: flex;
 	flex-direction: row;
+	background-color: #242424;
 	// border: 2px solid blue;
 `;
 
