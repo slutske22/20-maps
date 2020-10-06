@@ -10,8 +10,11 @@ export type EsriMapRefTypes = {
 };
 
 export type MapState = {
-	center: number[];
-	zoom: number;
+	position: {
+		center?: number[];
+		zoom?: number;
+		extent?: any;
+	};
 	basemap?: Basemap | string;
 	layers: Layer[];
 	customBehavior?: (...args: any[]) => any;

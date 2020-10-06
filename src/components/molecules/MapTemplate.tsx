@@ -9,7 +9,7 @@ import { TopLeft } from '../atoms';
 const Map: FunctionComponent<MapProps> = ({
 	metadata,
 	customFeatures,
-	mapState: { basemap, layers, zoom, center, customBehavior },
+	mapState: { basemap, layers, position, customBehavior },
 }: MapProps) => {
 	const element = useRef(null);
 	const [mapRef, setMapRef] = useState(null);
@@ -26,8 +26,7 @@ const Map: FunctionComponent<MapProps> = ({
 		const view = new MapView({
 			container: element.current,
 			map,
-			zoom,
-			center,
+			...position,
 			highlightOptions: {
 				fillOpacity: 0,
 				color: [50, 50, 50],
@@ -38,7 +37,10 @@ const Map: FunctionComponent<MapProps> = ({
 			},
 		});
 
-		view.on('click', (e) => console.log(e.mapPoint));
+		view.on('click', (e) => {
+			console.log('extent', view.extent);
+			console.log('mappoint', e.mapPoint);
+		});
 
 		setMapRef({ map, view });
 
@@ -65,15 +67,15 @@ const Map: FunctionComponent<MapProps> = ({
 		if (mapRef) {
 			mapRef.view.goTo(
 				{
-					target: center,
-					zoom,
+					target: position.center,
+					zoom: position.zoom,
 				},
 				{
 					duration: 1000,
 				}
 			);
 		}
-	}, [zoom, center]);
+	}, [position]);
 
 	// apply custom behavior to each page if there is any
 	useEffect(() => {

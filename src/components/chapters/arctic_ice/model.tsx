@@ -1,5 +1,6 @@
 import { arcticReference, graticule, iceLayers } from './layers';
 import { ModelSchema } from '../../../types';
+import Extent from 'esri/geometry/Extent';
 import SpatialReference from 'esri/geometry/SpatialReference';
 import LayerList from 'esri/widgets/LayerList';
 import TimeSlider from 'esri/widgets/TimeSlider';
@@ -88,8 +89,17 @@ const model: ModelSchema = {
 					},
 				},
 				layers: [arcticReference, ...graticule, ...iceLayers],
-				center: [0, 0],
-				zoom: 4,
+				position: {
+					extent: new Extent({
+						xmax: 6613525,
+						xmin: -7640495,
+						ymax: 7298614,
+						ymin: -3477723,
+						spatialReference: {
+							wkid: 5936,
+						},
+					}),
+				},
 			},
 		},
 	],

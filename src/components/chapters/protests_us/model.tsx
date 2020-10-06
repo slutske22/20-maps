@@ -148,8 +148,10 @@ export const model: ModelSchema = {
 			title: 'United States Protests',
 			content: 'This is some information about the united states protests',
 			mapState: {
-				center: [-100, 38],
-				zoom: 3,
+				position: {
+					center: [-100, 38],
+					zoom: 3,
+				},
 				basemap,
 				layers: [
 					otherProtestLayer,

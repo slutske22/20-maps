@@ -30,8 +30,10 @@ const model: ModelSchema = {
 			title: 'Australia Wildfires',
 			content: <>'Some stuff in here'</>,
 			mapState: {
-				center: [134, -26.9],
-				zoom: 4,
+				position: {
+					center: [134, -26.9],
+					zoom: 4,
+				},
 				layers: [fires_layer, mask],
 				basemap: 'satellite',
 			},
@@ -40,8 +42,10 @@ const model: ModelSchema = {
 			title: 'Koalas and stuff',
 			content: <>Koala's man. They're not doing great.</>,
 			mapState: {
-				center: [153.28, -27.99],
-				zoom: 10,
+				position: {
+					center: [153.28, -27.99],
+					zoom: 10,
+				},
 				layers: [fires_layer, mask, koalas_point_layer],
 				basemap: 'satellite',
 			},
@@ -55,8 +59,10 @@ const model: ModelSchema = {
 				</>
 			),
 			mapState: {
-				center: [144.9, -37.15],
-				zoom: 7,
+				position: {
+					center: [144.9, -37.15],
+					zoom: 7,
+				},
 				layers: [mask, koala_HSM_before, koala_HSM_after],
 				basemap: 'satellite',
 				customBehavior: (mapRef) => {
