@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import type { ReactElement, Component } from 'react';
 import type { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import TrackVisibility from 'react-on-screen';
@@ -26,7 +27,7 @@ const Wrapper = styled.div<WrapperProps>`
 	position: relative;
 	display: flex;
 	flex-direction: row;
-	border: 2px solid blue;
+	// border: 2px solid blue;
 `;
 
 type ChapterProps = {
@@ -35,12 +36,13 @@ type ChapterProps = {
 		metadata: MetaData;
 		pages: PageTypes[];
 		customFeatures?: () => void;
+		customDOM?: HTMLElement | ReactElement | Component;
 	};
 };
 
 const Chapter = ({
 	customMap,
-	data: { metadata, customFeatures, pages },
+	data: { metadata, customFeatures, customDOM, pages },
 }: ChapterProps) => {
 	const [currentPage, setCurrentPage] = useState(0);
 	const CustomMap: FunctionComponent<MapProps> = customMap || null;
@@ -77,6 +79,7 @@ const Chapter = ({
 							<MapTemplate
 								mapState={pages[currentPage].mapState}
 								customFeatures={customFeatures}
+								customDOM={customDOM}
 								metadata={metadata}
 							/>
 						)

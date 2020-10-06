@@ -5,6 +5,7 @@ import LayerList from 'esri/widgets/LayerList';
 import TimeSlider from 'esri/widgets/TimeSlider';
 import * as renderers from './renderers';
 import popupTemplate from './popupTemplate';
+import CustomLegend from './CustomLegend';
 import { ModelSchema } from '../../../types';
 
 const basemap = new Basemap({
@@ -62,11 +63,15 @@ export const model: ModelSchema = {
 				layerViews.push(layerView);
 			});
 
-			// const bottomLeft = document.querySelector(
-			//    `.US_protests .esri-ui-bottom-left.esri-ui-corner`
-			// );
-			// bottomLeft.appendChild(customLegend.current);
-			// customLegend.current.style.display = 'flex';
+			const bottomLeft: HTMLElement = document.querySelector(
+				`.US_protests .esri-ui-bottom-left.esri-ui-corner`
+			);
+
+			const customLegend: HTMLElement = document.querySelector(
+				`.US_protests.esri-component.esri-legend.esri-widget.esri-widget--panel`
+			);
+
+			customLegend.style.display = 'flex';
 		});
 
 		// Layer List
@@ -142,7 +147,7 @@ export const model: ModelSchema = {
 			});
 		});
 	},
-	customDOM: null,
+	customDOM: CustomLegend,
 	pages: [
 		{
 			title: 'United States Protests',

@@ -11,7 +11,7 @@ export const Page = styled.div`
 	height: 100vh;
 	min-height: 500px;
 	max-height: 1200px;
-	border: 2px solid yellow;
+	// border: 2px solid yellow;
 `;
 
 export const PageContent = styled.div<PageContentProps>`

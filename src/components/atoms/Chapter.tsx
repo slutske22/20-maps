@@ -13,7 +13,7 @@ const Chapter = styled.div<ChapterProps>`
 	position: relative;
 	display: flex;
 	flex-direction: row;
-	border: 2px solid blue;
+	// border: 2px solid blue;
 `;
 
 export default Chapter;

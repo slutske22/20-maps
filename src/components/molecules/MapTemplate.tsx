@@ -9,6 +9,7 @@ import { TopLeft } from '../atoms';
 const Map: FunctionComponent<MapProps> = ({
 	metadata,
 	customFeatures,
+	customDOM,
 	mapState: { basemap, layers, position, customBehavior },
 }: MapProps) => {
 	const element = useRef(null);
@@ -27,10 +28,10 @@ const Map: FunctionComponent<MapProps> = ({
 			container: element.current,
 			map,
 			...position,
-			highlightOptions: {
-				fillOpacity: 0,
-				color: [50, 50, 50],
-			},
+			// highlightOptions: {
+			// 	fillOpacity: 0,
+			// 	color: [50, 50, 50],
+			// },
 			navigation: {
 				mouseWheelZoomEnabled: false,
 				browserTouchPanEnabled: false,
@@ -97,6 +98,7 @@ const Map: FunctionComponent<MapProps> = ({
 				id={`top-left-controls-${metadata.name}`}
 				floating={metadata.fullWidthMap}
 			/>
+			{customDOM && customDOM}
 		</>
 	);
 };

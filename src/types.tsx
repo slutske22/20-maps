@@ -49,4 +49,5 @@ export type MapProps = {
 	metadata: MetaData;
 	mapState: MapState;
 	customFeatures?: any;
+	customDOM?: HTMLElement | ReactElement | Component;
 };
