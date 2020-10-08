@@ -6,6 +6,7 @@ import TextBlock from './TextBlock';
 import SideCar from './SideCar';
 import TopLeft from './TopLeft';
 import { Page, PageContent, PageTitle, PageText } from './Page';
+import RefLink from './RefLink';
 
 export {
 	Chapter,
@@ -19,4 +20,5 @@ export {
 	PageContent,
 	PageTitle,
 	PageText,
+	RefLink,
 };

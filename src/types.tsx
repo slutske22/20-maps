@@ -1,4 +1,4 @@
-import type { ReactElement, Component } from 'react';
+import type { ReactElement, ReactNode, Component } from 'react';
 import type EsriMap from 'esri/Map';
 import type MapView from 'esri/views/MapView';
 import type Basemap from 'esri/Basemap';
@@ -22,7 +22,7 @@ export type MapState = {
 
 export type PageTypes = {
 	title: string;
-	content: string | ReactElement;
+	content: any;
 	mapState: MapState;
 };
 

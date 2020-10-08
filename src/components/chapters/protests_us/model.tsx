@@ -7,6 +7,7 @@ import * as renderers from './renderers';
 import popupTemplate from './popupTemplate';
 import CustomLegend from './CustomLegend';
 import { ModelSchema } from '../../../types';
+import { RefLink } from '../../atoms';
 
 const basemap = new Basemap({
 	portalItem: {
@@ -151,7 +152,35 @@ export const model: ModelSchema = {
 	pages: [
 		{
 			title: 'United States Protests',
-			content: 'This is some information about the united states protests',
+			content: (
+				<>
+					Social distancing and economic shutdown have overlapped with key
+					police and political incidents this year. The public's response
+					has been protests and riots on a scale that we have not seen in
+					decades.{' '}
+					<RefLink
+						linkTitle="countlove.org"
+						link="https://countlove.org/"
+						theme="dark"
+					>
+						Countlove.org
+					</RefLink>{' '}
+					has been keeping track of protests in the US for years. The
+					protest data is tagged with keywords about what the protest is
+					about. Play the time slider in the bottom right corner to watch
+					the protests erupt as the year progresses. Pay special attention
+					to what happens in March and April as Coronavirus takes hold, as
+					well as what happens in late May, just after the{' '}
+					<RefLink
+						link="https://en.wikipedia.org/wiki/Killing_of_George_Floyd"
+						linkTitle="Killing of George Floyd, Wikipedia"
+						theme="dark"
+					>
+						killing of George Floyd
+					</RefLink>
+					.
+				</>
+			),
 			mapState: {
 				position: {
 					center: [-100, 38],

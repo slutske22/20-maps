@@ -29,6 +29,7 @@ const GlobalStyles = createGlobalStyle`
    }
 
    a {
+      cursor: pointer;
       color: white;
    }
    a:hover {
@@ -53,6 +54,15 @@ const GlobalStyles = createGlobalStyle`
    .arcgis-map-dark {
       .esri-zoom.esri-widget {
          border: 1px solid rgba(173,173,173,0.3)
+      }
+   }
+
+   .tooltip {
+      pointer-events: auto !important;
+      opacity: 1 !important;
+      &:hover {
+         visibility: visible !important;
+         opacity: 1 !important;
       }
    }
 
