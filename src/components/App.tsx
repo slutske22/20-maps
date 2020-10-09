@@ -7,6 +7,9 @@ import Nav from './Nav';
 import Main from './Main';
 
 const Wrapper = styled.div`
+	height: 100vh;
+	overflow-y: scroll;
+	scroll-snap-type: y proximity;
 	width: 100%;
 	padding: 0;
 	margin: 0;

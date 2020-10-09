@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import type { ReactElement, Component } from 'react';
 import type { FunctionComponent } from 'react';
 import styled from 'styled-components';
-import TrackVisibility from 'react-on-screen';
+// import TrackVisibility from 'react-on-screen';
+import TrackVisibility from 'react-visibility-sensor';
 import {
 	MapContainer,
 	SideCar,
@@ -31,6 +32,8 @@ const Wrapper = styled.div<WrapperProps>`
 	background-color: ${(props) =>
 		props.maptheme === 'light' ? '' : '#242424'};
 	// border: 2px solid blue;
+	scroll-snap-stop: always;
+	scroll-snap-align: start;
 `;
 
 type ChapterProps = {
@@ -60,7 +63,14 @@ const Chapter = ({
 								theme={metadata.theme}
 								floating={metadata.fullWidthMap}
 							>
-								<TrackVisibility>
+								<TrackVisibility
+									onChange={(isVisible) =>
+										isVisible &&
+										console.log(
+											`${metadata.name} page ${index} is visible`
+										)
+									}
+								>
 									{({ isVisible }) => {
 										isVisible && setCurrentPage(index);
 										return <PageTitle>{page.title}</PageTitle>;
@@ -72,23 +82,24 @@ const Chapter = ({
 					);
 				})}
 			</SideCar>
-			<MapContainer
-				fullWidth={metadata.fullWidthMap}
-				className={`arcgis-map-${metadata.theme}`}
-			>
-				<TrackVisibility className="visibility-tracker" partialVisibility>
-					{({ isVisible }) =>
-						isVisible && (
+
+			<TrackVisibility partialVisibility>
+				{({ isVisible }) => (
+					<MapContainer
+						fullWidth={metadata.fullWidthMap}
+						className={`arcgis-map-${metadata.theme}`}
+					>
+						{isVisible && (
 							<MapTemplate
 								mapState={pages[currentPage].mapState}
 								customFeatures={customFeatures}
 								customDOM={customDOM}
 								metadata={metadata}
 							/>
-						)
-					}
-				</TrackVisibility>
-			</MapContainer>
+						)}
+					</MapContainer>
+				)}
+			</TrackVisibility>
 		</Wrapper>
 	);
 };
