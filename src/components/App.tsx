@@ -1,23 +1,25 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
+import styled from 'styled-components';
 
 import GlobalStyles from './GlobalStyles';
+import Nav from './Nav';
+import Main from './Main';
 
-import Header from './Header';
-import Intro from './Intro';
-import Chapter2 from './chapters/protests_us/Chapter';
-import Chapter3 from './chapters/wildfires_aus/Chapter';
-import Chapter4 from './chapters/arctic_ice/Chapter';
+const Wrapper = styled.div`
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	position: relative;
+`;
 
 const App = () => (
-	<div className="App">
+	<Wrapper>
 		<GlobalStyles />
-		<Header />
-		<Intro />
-		<Chapter2 />
-		<Chapter3 />
-		<Chapter4 />
-	</div>
+		<Nav />
+		<Main />
+	</Wrapper>
 );
 
 export default hot(module)(App);
