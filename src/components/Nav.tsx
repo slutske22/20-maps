@@ -24,6 +24,11 @@ const NavLink = styled.a<{ active: boolean }>`
 	background-color: ${(props) => (props.active ? 'white' : 'grey')};
 `;
 
+const NavLinkHome = styled.a<{ active: boolean }>`
+	margin: 10px 20px;
+	color: ${(props) => (props.active ? 'white' : 'grey')};
+`;
+
 const NavToolTip = styled(Tooltip)`
 	padding: 1em;
 	z-index: 5;
@@ -62,19 +67,90 @@ const chapterlinks = [
 		name: 'Arctic Sea Ice',
 		hash: 'sea_ice',
 	},
+   {
+		name: '9',
+		hash: '9',
+	},
+   {
+		name: '10',
+		hash: '9',
+	},
+   {
+		name: '11',
+		hash: '9',
+	},
+   {
+		name: '12',
+		hash: '9',
+	},
+      {
+		name: '13',
+		hash: '9',
+	},
+   {
+		name: '14',
+		hash: '9',
+	},
+   {
+		name: '15',
+		hash: '9',
+	},
+   {
+		name: '16',
+		hash: '9',
+	},
+      {
+		name: '17',
+		hash: '9',
+	},
+   {
+		name: '18',
+		hash: '9',
+	},
+   {
+		name: '19',
+		hash: '9',
+	},
+   {
+		name: '20',
+		hash: '9',
+	},
 ];
 
-const Nav = () => {
+
+type NavProps = {
+   activeNavLink: string;
+}
+
+const Nav = ({ activeNavLink }: NavProps) => {
 	return (
 		<Wrapper>
-			<FaHome style={{ marginBottom: '10px' }} />
+         <NavLinkHome active={activeNavLink === 'home'}>
+            <FaHome 						
+               data-tip
+               data-for={'nav-home'} 
+               style={{ marginBottom: '10px' }} />
+         </NavLinkHome>
+         <NavToolTip
+            id='nav-home'
+            place="right"
+            type="dark"
+            border
+            borderColor="darkgrey"
+            effect="solid"
+            delayHide={100}
+            className="tooltip"
+            offset={{ left: -10 }}
+         >
+            "Home"
+         </NavToolTip>
 			{chapterlinks.map((link) => (
 				<>
 					<NavLink
 						key={link.hash}
 						data-tip
 						data-for={link.hash}
-						active={link.hash === 'beirut'}
+						active={link.hash === activeNavLink}
 					/>
 					<NavToolTip
 						id={link.hash}

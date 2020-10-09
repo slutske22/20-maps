@@ -21,7 +21,7 @@ type WrapperProps = {
 	maptheme: string;
 };
 
-const Wrapper = styled.div<WrapperProps>`
+const Wrapper = styled.section<WrapperProps>`
 	width: 100%;
 	height: ${(props) =>
 		props.height || `${props.screensTall * 100}vh` || `auto`};
@@ -31,7 +31,6 @@ const Wrapper = styled.div<WrapperProps>`
 	flex-direction: row;
 	background-color: ${(props) =>
 		props.maptheme === 'light' ? '' : '#242424'};
-	// border: 2px solid blue;
 	scroll-snap-stop: always;
 	scroll-snap-align: start;
 `;
@@ -54,7 +53,7 @@ const Chapter = ({
 	const CustomMap: FunctionComponent<MapProps> = customMap || null;
 
 	return (
-		<Wrapper maptheme={metadata.theme}>
+		<Wrapper maptheme={metadata.theme} id={metadata.name}>
 			<SideCar floating={metadata.fullWidthMap}>
 				{pages.map((page, index) => {
 					return (
