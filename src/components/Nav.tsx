@@ -1,4 +1,5 @@
 import React from 'react';
+import Tooltip from 'react-tooltip';
 import styled from 'styled-components';
 import { FaHome } from 'react-icons/fa';
 
@@ -12,14 +13,20 @@ const Wrapper = styled.nav`
 	color: white;
 	align-items: center;
 	justify-content: center;
+	z-index: 5;
 `;
 
-const NavLink = styled.div`
+const NavLink = styled.a<{ active: boolean }>`
 	width: 8px;
 	height: 8px;
 	margin: 10px 20px;
 	border-radius: 50%;
-	background-color: white;
+	background-color: ${(props) => (props.active ? 'white' : 'grey')};
+`;
+
+const NavToolTip = styled(Tooltip)`
+	padding: 1em;
+	z-index: 5;
 `;
 
 const chapterlinks = [
@@ -62,7 +69,27 @@ const Nav = () => {
 		<Wrapper>
 			<FaHome style={{ marginBottom: '10px' }} />
 			{chapterlinks.map((link) => (
-				<NavLink key={link.hash} />
+				<>
+					<NavLink
+						key={link.hash}
+						data-tip
+						data-for={link.hash}
+						active={link.hash === 'beirut'}
+					/>
+					<NavToolTip
+						id={link.hash}
+						place="right"
+						type="dark"
+						border
+						borderColor="darkgrey"
+						effect="solid"
+						delayHide={100}
+						className="tooltip"
+						offset={{ left: -10 }}
+					>
+						{link.name}
+					</NavToolTip>
+				</>
 			))}
 		</Wrapper>
 	);
