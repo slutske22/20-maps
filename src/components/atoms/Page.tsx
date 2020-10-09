@@ -15,7 +15,7 @@ export const Page = styled.div`
 `;
 
 export const PageContent = styled.div<PageContentProps>`
-	padding: ${(props) => (props.floating ? '15px' : '2em')};
+	padding: ${(props) => (props.floating ? '1.5em' : '2em')};
 	margin: ${(props) => (props.floating ? '15px' : '')};
 	height: ${(props) => (props.floating ? '' : '100%')};
 	background-color: ${(props) =>
@@ -24,7 +24,7 @@ export const PageContent = styled.div<PageContentProps>`
 		props.theme === 'dark' || props.theme === 'dark-blue' ? '#d1d1d1' : ''};
 	border: ${(props) =>
 		props.floating && (props.theme === 'dark' || props.theme === 'dark-blue')
-			? '1px solid #303030'
+			? '1px solid darkgrey'
 			: ''};
 	box-shadow: ${(props) =>
 		props.floating && (props.theme === 'dark' || props.theme === 'dark-blue')
@@ -42,6 +42,6 @@ export const PageTitle = styled.h3`
 `;
 
 export const PageText = styled.p`
-	font-size: 1.2em;
+	font-size: 1.1em;
 	text-align: justify;
 `;
