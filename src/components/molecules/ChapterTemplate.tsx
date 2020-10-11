@@ -65,16 +65,17 @@ const Chapter = ({
 									floating={metadata.fullWidthMap}
 								>
 									<TrackVisibility
-										onChange={(isVisible) =>
-											isVisible &&
-											dispatch({
-												type: 'SET_NAV',
-												payload: metadata.name,
-											})
-										}
+										onChange={(isVisible) => {
+											if (isVisible) {
+												dispatch({
+													type: 'SET_NAV',
+													payload: metadata.name,
+												});
+												setCurrentPage(index);
+											}
+										}}
 									>
 										{({ isVisible }) => {
-											isVisible && setCurrentPage(index);
 											return <PageTitle>{page.title}</PageTitle>;
 										}}
 									</TrackVisibility>
@@ -104,7 +105,7 @@ const Chapter = ({
 				</TrackVisibility>
 			</Wrapper>
 		),
-		[]
+		[currentPage]
 	);
 };
 
