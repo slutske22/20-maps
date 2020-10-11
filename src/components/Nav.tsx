@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Fragment, useContext } from 'react';
 import Tooltip from 'react-tooltip';
 import styled from 'styled-components';
 import { FaHome } from 'react-icons/fa';
+import { Context } from '../context';
 
 const Wrapper = styled.nav`
 	display: flex;
@@ -41,7 +42,7 @@ const chapterlinks = [
 	},
 	{
 		name: 'Australian Wildfires',
-		hash: 'wildfires_aus',
+		hash: 'wildfires_australia',
 	},
 	{
 		name: 'COVID in Italy',
@@ -53,7 +54,7 @@ const chapterlinks = [
 	},
 	{
 		name: 'US Protests',
-		hash: 'protests_us',
+		hash: 'US_protests',
 	},
 	{
 		name: 'Blast in Beirut',
@@ -65,89 +66,88 @@ const chapterlinks = [
 	},
 	{
 		name: 'Arctic Sea Ice',
-		hash: 'sea_ice',
+		hash: 'artic_ice',
 	},
-   {
+	{
 		name: '9',
 		hash: '9',
 	},
-   {
+	{
 		name: '10',
-		hash: '9',
+		hash: '10',
 	},
-   {
+	{
 		name: '11',
-		hash: '9',
+		hash: '11',
 	},
-   {
+	{
 		name: '12',
-		hash: '9',
+		hash: '12',
 	},
-      {
+	{
 		name: '13',
-		hash: '9',
+		hash: '13',
 	},
-   {
+	{
 		name: '14',
-		hash: '9',
+		hash: '14',
 	},
-   {
+	{
 		name: '15',
-		hash: '9',
+		hash: '15',
 	},
-   {
+	{
 		name: '16',
-		hash: '9',
+		hash: '16',
 	},
-      {
+	{
 		name: '17',
-		hash: '9',
+		hash: '17',
 	},
-   {
+	{
 		name: '18',
-		hash: '9',
+		hash: '18',
 	},
-   {
+	{
 		name: '19',
-		hash: '9',
+		hash: '19',
 	},
-   {
+	{
 		name: '20',
-		hash: '9',
+		hash: '20',
 	},
 ];
 
+const Nav = () => {
+	const {
+		state: { activeNavLink },
+	} = useContext(Context);
 
-type NavProps = {
-   activeNavLink: string;
-}
-
-const Nav = ({ activeNavLink }: NavProps) => {
 	return (
 		<Wrapper>
-         <NavLinkHome active={activeNavLink === 'home'}>
-            <FaHome 						
-               data-tip
-               data-for={'nav-home'} 
-               style={{ marginBottom: '10px' }} />
-         </NavLinkHome>
-         <NavToolTip
-            id='nav-home'
-            place="right"
-            type="dark"
-            border
-            borderColor="darkgrey"
-            effect="solid"
-            delayHide={100}
-            className="tooltip"
-            offset={{ left: -10 }}
-         >
-            "Home"
-         </NavToolTip>
+			<NavLinkHome active={activeNavLink === 'home'}>
+				<FaHome
+					data-tip
+					data-for={'nav-home'}
+					style={{ marginBottom: '10px' }}
+				/>
+			</NavLinkHome>
+			<NavToolTip
+				id="nav-home"
+				place="right"
+				type="dark"
+				border
+				borderColor="darkgrey"
+				effect="solid"
+				delayHide={100}
+				className="tooltip"
+				offset={{ left: -10 }}
+			>
+				"Home"
+			</NavToolTip>
 			{chapterlinks.map((link) => (
-				<>
+				<Fragment key={link.hash}>
 					<NavLink
-						key={link.hash}
 						data-tip
 						data-for={link.hash}
 						active={link.hash === activeNavLink}
@@ -165,7 +165,7 @@ const Nav = ({ activeNavLink }: NavProps) => {
 					>
 						{link.name}
 					</NavToolTip>
-				</>
+				</Fragment>
 			))}
 		</Wrapper>
 	);

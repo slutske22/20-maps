@@ -41,7 +41,7 @@ export const PageTitle = styled.h3`
 	margin-top: 0;
 `;
 
-export const PageText = styled.p`
+export const PageText = styled.div`
 	font-size: 1.1em;
 	text-align: justify;
 `;

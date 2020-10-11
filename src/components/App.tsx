@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import { hot } from 'react-hot-loader';
 import styled from 'styled-components';
 
 import GlobalStyles from './GlobalStyles';
+import { Context, navReducer, initialState } from '../context';
 import Nav from './Nav';
 import Main from './Main';
 
@@ -17,12 +18,17 @@ const Wrapper = styled.div`
 	position: relative;
 `;
 
-const App = () => (
-	<Wrapper>
-		<GlobalStyles />
-		<Nav />
-		<Main />
-	</Wrapper>
-);
+const App = () => {
+	const [state, dispatch] = useReducer(navReducer, initialState);
+	return (
+		<Context.Provider value={{ state, dispatch }}>
+			<Wrapper>
+				<GlobalStyles />
+				<Nav />
+				<Main />
+			</Wrapper>
+		</Context.Provider>
+	);
+};
 
 export default hot(module)(App);

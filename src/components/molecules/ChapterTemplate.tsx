@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import type { ReactElement, Component } from 'react';
-import type { FunctionComponent } from 'react';
+import React, { useState, useContext, useMemo } from 'react';
+import type { ReactElement, Component, FunctionComponent } from 'react';
 import styled from 'styled-components';
-// import TrackVisibility from 'react-on-screen';
 import TrackVisibility from 'react-visibility-sensor';
+import { Context } from '../../context';
 import {
 	MapContainer,
 	SideCar,
@@ -50,56 +49,62 @@ const Chapter = ({
 	data: { metadata, customFeatures, customDOM, pages },
 }: ChapterProps) => {
 	const [currentPage, setCurrentPage] = useState(0);
+	const { dispatch } = useContext(Context);
 	const CustomMap: FunctionComponent<MapProps> = customMap || null;
 
-	return (
-		<Wrapper maptheme={metadata.theme} id={metadata.name}>
-			<SideCar floating={metadata.fullWidthMap}>
-				{pages.map((page, index) => {
-					return (
-						<Page key={`${metadata.name}-page-${index}`}>
-							<PageContent
-								theme={metadata.theme}
-								floating={metadata.fullWidthMap}
-							>
-								<TrackVisibility
-									onChange={(isVisible) =>
-										isVisible &&
-										console.log(
-											`${metadata.name} page ${index} is visible`
-										)
-									}
+	return useMemo(
+		() => (
+			<Wrapper maptheme={metadata.theme} id={metadata.name}>
+				{console.log(`rendering ${metadata.name} chapter template`)}
+				<SideCar floating={metadata.fullWidthMap}>
+					{pages.map((page, index) => {
+						return (
+							<Page key={`${metadata.name}-page-${index}`}>
+								<PageContent
+									theme={metadata.theme}
+									floating={metadata.fullWidthMap}
 								>
-									{({ isVisible }) => {
-										isVisible && setCurrentPage(index);
-										return <PageTitle>{page.title}</PageTitle>;
-									}}
-								</TrackVisibility>
-								<PageText>{page.content}</PageText>
-							</PageContent>
-						</Page>
-					);
-				})}
-			</SideCar>
+									<TrackVisibility
+										onChange={(isVisible) =>
+											isVisible &&
+											dispatch({
+												type: 'SET_NAV',
+												payload: metadata.name,
+											})
+										}
+									>
+										{({ isVisible }) => {
+											isVisible && setCurrentPage(index);
+											return <PageTitle>{page.title}</PageTitle>;
+										}}
+									</TrackVisibility>
+									<PageText>{page.content}</PageText>
+								</PageContent>
+							</Page>
+						);
+					})}
+				</SideCar>
 
-			<TrackVisibility partialVisibility>
-				{({ isVisible }) => (
-					<MapContainer
-						fullWidth={metadata.fullWidthMap}
-						className={`arcgis-map-${metadata.theme}`}
-					>
-						{isVisible && (
-							<MapTemplate
-								mapState={pages[currentPage].mapState}
-								customFeatures={customFeatures}
-								customDOM={customDOM}
-								metadata={metadata}
-							/>
-						)}
-					</MapContainer>
-				)}
-			</TrackVisibility>
-		</Wrapper>
+				<TrackVisibility partialVisibility>
+					{({ isVisible }) => (
+						<MapContainer
+							fullWidth={metadata.fullWidthMap}
+							className={`arcgis-map-${metadata.theme}`}
+						>
+							{isVisible && (
+								<MapTemplate
+									mapState={pages[currentPage].mapState}
+									customFeatures={customFeatures}
+									customDOM={customDOM}
+									metadata={metadata}
+								/>
+							)}
+						</MapContainer>
+					)}
+				</TrackVisibility>
+			</Wrapper>
+		),
+		[]
 	);
 };
 
