@@ -22,9 +22,9 @@ const Wrapper = styled.main`
 const Main = () => {
 	return (
 		<Wrapper>
+			<Header />
+			<Intro />
 			<Suspense fallback={<div>Loading...</div>}>
-				<Header />
-				<Intro />
 				<ProtestsUS />
 				<WildfiresAus />
 				<ArcticIce />
