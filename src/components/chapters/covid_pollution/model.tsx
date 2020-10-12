@@ -41,8 +41,9 @@ const model: ModelSchema = {
 		const legendExpand = new Expand({
 			view: view,
 			content: legend,
+         container: 'top-left-controls-covid_pollution'
 		});
-		view.ui.add(legendExpand, 'top-left');
+		view.ui.add(legendExpand, 'top-left-controls-covid_pollution');
 
 		const bookmarks = new Bookmarks({
 			view: view,
