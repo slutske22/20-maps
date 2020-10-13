@@ -41,6 +41,8 @@ const model: ModelSchema = {
 		const legendExpand = new Expand({
 			view: view,
 			content: legend,
+			expandTooltip: 'Map Legend',
+			collapseTooltip: 'Close',
 		});
 		view.ui.add(legendExpand, 'top-left');
 

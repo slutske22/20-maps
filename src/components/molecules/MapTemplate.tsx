@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import type { FunctionComponent } from 'react';
 import EsriMap from 'esri/Map';
 import MapView from 'esri/views/MapView';
-import Zoom from 'esri/widgets/Zoom';
+import Expand from 'esri/widgets/Expand';
 import { MapProps } from '../../types';
 
 const Map: FunctionComponent<MapProps> = ({
@@ -50,6 +50,18 @@ const Map: FunctionComponent<MapProps> = ({
 			);
 			topLeft.style.left = 'calc(30% - 10px)';
 		}
+
+		const dataSourcesDiv = document.createElement('div');
+		dataSourcesDiv.innerHTML = 'Data sources here';
+
+		const dataSourcesExpand = new Expand({
+			view: view,
+			expandIconClass: 'clipboard-icon',
+			expandTooltip: 'Data Sources',
+			collapseTooltip: 'Close',
+			content: dataSourcesDiv,
+		});
+		view.ui.add(dataSourcesExpand, 'bottom-right');
 
 		customFeatures && customFeatures({ map, view, layers });
 	}, []);
