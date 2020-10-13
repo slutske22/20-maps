@@ -38,6 +38,7 @@ type ChapterProps = {
 	customMap?: React.FunctionComponent;
 	data: {
 		metadata: MetaData;
+		sources: { name: string; url: string }[];
 		pages: PageTypes[];
 		customFeatures?: () => void;
 		customDOM?: HTMLElement | ReactElement | Component;
@@ -46,7 +47,7 @@ type ChapterProps = {
 
 const Chapter = ({
 	customMap,
-	data: { metadata, customFeatures, customDOM, pages },
+	data: { metadata, sources, customFeatures, customDOM, pages },
 }: ChapterProps) => {
 	const [currentPage, setCurrentPage] = useState(0);
 	const { dispatch } = useContext(Context);
@@ -98,6 +99,7 @@ const Chapter = ({
 									customFeatures={customFeatures}
 									customDOM={customDOM}
 									metadata={metadata}
+									sources={sources}
 								/>
 							)}
 						</MapContainer>

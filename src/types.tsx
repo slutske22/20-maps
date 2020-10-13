@@ -40,6 +40,10 @@ export type CustomFeaturesArgs = {
 
 export type ModelSchema = {
 	metadata: MetaData;
+	sources: {
+		name: string;
+		url: string;
+	}[];
 	pages: PageTypes[];
 	customFeatures?: any;
 	customDOM?: HTMLElement | ReactElement | Component;
@@ -47,6 +51,10 @@ export type ModelSchema = {
 
 export type MapProps = {
 	metadata: MetaData;
+	sources: {
+		name: string;
+		url: string;
+	}[];
 	mapState: MapState;
 	customFeatures?: (arg: {
 		map: EsriMap;

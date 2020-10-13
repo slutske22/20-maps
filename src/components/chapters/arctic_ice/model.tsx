@@ -11,6 +11,13 @@ const model: ModelSchema = {
 		theme: 'light',
 		fullWidthMap: true,
 	},
+	sources: [
+		{
+			name: 'Arctic Sea Ice Combo, 1978-2019',
+			url:
+				'https://www.arcgis.com/home/item.html?id=2c989d794b2f4ed8af313d8b4c2dadcd',
+		},
+	],
 	customFeatures: ({ map, view }) => {
 		const layerViews = [];
 		iceLayers.forEach((layerView) => {

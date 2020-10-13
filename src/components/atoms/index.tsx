@@ -6,6 +6,7 @@ import TextBlock from './TextBlock';
 import SideCar from './SideCar';
 import { Page, PageContent, PageTitle, PageText } from './Page';
 import RefLink from './RefLink';
+import DataSources from './DataSources';
 
 export {
 	Chapter,
@@ -19,4 +20,5 @@ export {
 	PageTitle,
 	PageText,
 	RefLink,
+	DataSources,
 };

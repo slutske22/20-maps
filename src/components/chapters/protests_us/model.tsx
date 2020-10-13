@@ -55,6 +55,13 @@ export const model: ModelSchema = {
 		theme: 'dark',
 		fullWidthMap: true,
 	},
+	sources: [
+		{
+			name: 'US Protests 2020',
+			url:
+				'https://www.arcgis.com/home/item.html?id=d5c9efdb1db240f0bedc8f8d96515dba',
+		},
+	],
 	customFeatures: (args) => {
 		const { map, view, layers } = args;
 

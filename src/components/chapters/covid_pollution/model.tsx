@@ -10,12 +10,14 @@ const NO2_Mean_March_2010_2019 = new TileLayer({
 	url:
 		'https://tiles.arcgis.com/tiles/WSiUmUhlFx4CtMBB/arcgis/rest/services/No2_mean_march_514_WTL1/MapServer',
 	blendMode: 'multiply',
+	maxScale: 0, // no max,
 });
 
 const NO2_March_2020 = new TileLayer({
 	url:
 		'https://tiles.arcgis.com/tiles/WSiUmUhlFx4CtMBB/arcgis/rest/services/No2_2020_march_514_WTL1/MapServer',
 	blendMode: 'multiply',
+	maxScale: 0, // no max,
 	legendEnabled: false,
 });
 
@@ -25,6 +27,18 @@ const model: ModelSchema = {
 		theme: 'light',
 		fullWidthMap: false,
 	},
+	sources: [
+		{
+			name: 'NO2 March Average 2010 - 2019',
+			url:
+				'https://www.arcgis.com/home/item.html?id=bb393224e1be4f779ff96376ef14a681',
+		},
+		{
+			name: 'NO2 March 2020',
+			url:
+				'https://www.arcgis.com/home/item.html?id=5bfd3a67876043458fb1d86867b9bfe3',
+		},
+	],
 	customFeatures: ({ view }) => {
 		var swipe = new Swipe({
 			view: view,

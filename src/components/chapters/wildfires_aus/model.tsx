@@ -18,6 +18,13 @@ const model: ModelSchema = {
 		theme: 'dark-blue',
 		fullWidthMap: false,
 	},
+	sources: [
+		{
+			name: 'Australia Bushfire Burn Extent 2019 - 2020',
+			url:
+				'https://www.arcgis.com/home/item.html?id=dc4e10544b4e46c78786d0a5b9f2cea8',
+		},
+	],
 	customFeatures: (args) => {
 		const { view } = args;
 

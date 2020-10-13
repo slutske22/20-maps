@@ -1,12 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
+import ReactDOMServer from 'react-dom/server';
 import type { FunctionComponent } from 'react';
 import EsriMap from 'esri/Map';
 import MapView from 'esri/views/MapView';
 import Expand from 'esri/widgets/Expand';
 import { MapProps } from '../../types';
+import { DataSources } from '../atoms';
 
 const Map: FunctionComponent<MapProps> = ({
 	metadata,
+	sources,
 	customFeatures,
 	customDOM,
 	mapState: { basemap, layers, position, customBehavior },
@@ -59,7 +62,9 @@ const Map: FunctionComponent<MapProps> = ({
 			expandIconClass: 'clipboard-icon',
 			expandTooltip: 'Data Sources',
 			collapseTooltip: 'Close',
-			content: dataSourcesDiv,
+			content: ReactDOMServer.renderToStaticMarkup(
+				<DataSources sources={sources} theme={metadata.theme} />
+			),
 		});
 		view.ui.add(dataSourcesExpand, 'bottom-right');
 
