@@ -17,7 +17,7 @@ export type MapState = {
 	};
 	basemap?: Basemap | string;
 	layers: Layer[];
-	customBehavior?: (...args: any[]) => any;
+	customBehavior?: ({ map: EsriMap, view: MapView }) => () => void;
 };
 
 export type PageTypes = {
@@ -28,7 +28,7 @@ export type PageTypes = {
 
 export type MetaData = {
 	name: string;
-	theme: string;
+	theme: 'light' | 'dark' | 'dark-blue' | 'dark-red';
 	fullWidthMap: boolean;
 };
 
@@ -48,6 +48,10 @@ export type ModelSchema = {
 export type MapProps = {
 	metadata: MetaData;
 	mapState: MapState;
-	customFeatures?: any;
+	customFeatures?: (arg: {
+		map: EsriMap;
+		view: MapView;
+		layers?: Layer[];
+	}) => any;
 	customDOM?: HTMLElement | ReactElement | Component;
 };
