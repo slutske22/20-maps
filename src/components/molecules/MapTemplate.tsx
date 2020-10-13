@@ -4,7 +4,6 @@ import EsriMap from 'esri/Map';
 import MapView from 'esri/views/MapView';
 import Zoom from 'esri/widgets/Zoom';
 import { MapProps } from '../../types';
-import { TopLeft } from '../atoms';
 
 const Map: FunctionComponent<MapProps> = ({
 	metadata,
@@ -28,10 +27,10 @@ const Map: FunctionComponent<MapProps> = ({
 			container: element.current,
 			map,
 			...position,
-			// highlightOptions: {
-			// 	fillOpacity: 0,
-			// 	color: [50, 50, 50],
-			// },
+			highlightOptions: {
+				fillOpacity: 0,
+				color: [50, 50, 50],
+			},
 			navigation: {
 				mouseWheelZoomEnabled: false,
 				browserTouchPanEnabled: false,
@@ -45,13 +44,12 @@ const Map: FunctionComponent<MapProps> = ({
 
 		setMapRef({ map, view });
 
-		// Home zoom in a custom container whose css is controlled based on fullWidthMap prop
-		view.ui.empty('top-left');
-
-		const zoomwidget = new Zoom({
-			view,
-			container: `top-left-controls-${metadata.name}`,
-		});
+		if (metadata.fullWidthMap) {
+			const topLeft: HTMLElement = document.querySelector(
+				`#${metadata.name} .esri-ui-top-left`
+			);
+			topLeft.style.left = 'calc(30% - 10px)';
+		}
 
 		customFeatures && customFeatures({ map, view, layers });
 	}, []);
@@ -94,10 +92,6 @@ const Map: FunctionComponent<MapProps> = ({
 	return (
 		<>
 			<div className={`arcgis-map ${metadata.name}`} ref={element} />
-			<TopLeft
-				id={`top-left-controls-${metadata.name}`}
-				floating={metadata.fullWidthMap}
-			/>
 			{customDOM && customDOM}
 		</>
 	);
