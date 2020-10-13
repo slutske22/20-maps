@@ -73,8 +73,8 @@ const GlobalStyles = createGlobalStyle`
    }
 
    .esri-swipe__container:focus {
-	outline: 1px solid grey;
-}
+      outline: 1px solid grey;
+   }
 
    .clipboard-icon::before {
 
