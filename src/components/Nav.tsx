@@ -69,8 +69,8 @@ const chapterlinks = [
 		hash: 'artic_ice',
 	},
 	{
-		name: '9',
-		hash: '9',
+		name: 'Mars: Curiosity',
+		hash: 'mars',
 	},
 	{
 		name: '10',
