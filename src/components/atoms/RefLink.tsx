@@ -21,7 +21,7 @@ const RefLink = ({ children, linkTitle, link, theme }: RefLinkProps) => {
 			<a
 				data-tip
 				data-for={link}
-				href="link"
+				href={link}
 				target="_blank"
 				rel="noopener noreferer"
 			>

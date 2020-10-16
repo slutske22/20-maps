@@ -49,5 +49,7 @@ export const PageTitle = styled.h3`
 
 export const PageText = styled.div`
 	font-size: 1.1em;
+	font-family: 'Avenir Next', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height: 1.3em;
 	text-align: justify;
 `;
