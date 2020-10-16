@@ -18,7 +18,13 @@ type RefLinkProps = {
 const RefLink = ({ children, linkTitle, link, theme }: RefLinkProps) => {
 	return (
 		<>
-			<a data-tip data-for={link}>
+			<a
+				data-tip
+				data-for={link}
+				href="link"
+				target="_blank"
+				rel="noopener noreferer"
+			>
 				{children}
 			</a>
 			<StyledToolTip

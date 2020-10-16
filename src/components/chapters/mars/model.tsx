@@ -1,10 +1,8 @@
-import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { ModelSchema } from '../../../types';
 import { mars_hypso, mars_ground, labels } from './layers';
 import Expand from 'esri/widgets/Expand';
-import * as watchUtils from 'esri/core/watchUtils';
-import { PageContent, PageText, PageTitle } from '../../atoms';
+import PageOverride from './PageOverride';
 
 const model: ModelSchema = {
 	metadata: {
@@ -29,27 +27,10 @@ const model: ModelSchema = {
 		page.style.opacity = '0';
 		page.style.pointerEvents = 'none';
 
-		const testPage = (
-			// @ts-ignore
-			<PageContent
-				floating={true}
-				theme={'dark'}
-				width="300px"
-				padding="1em"
-				margin="none"
-			>
-				<PageTitle>Mars!</PageTitle>
-				<PageText>Some stuff about mars here</PageText>
-			</PageContent>
-		);
-
-		page.style.margin = '0px';
-		page.style.width = '300px';
-
-		// create expand with page content in it
+		// create expand with custom page content in it
 		const expand = new Expand({
 			view,
-			content: ReactDOMServer.renderToString(testPage),
+			content: ReactDOMServer.renderToString(PageOverride),
 			expandIconClass: 'esri-icon-question',
 			expandTooltip: 'Information',
 			expanded: true,
