@@ -1,6 +1,10 @@
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
 import { ModelSchema } from '../../../types';
 import { mars_hypso, mars_ground, labels } from './layers';
 import Expand from 'esri/widgets/Expand';
+import * as watchUtils from 'esri/core/watchUtils';
+import { PageContent, PageText, PageTitle } from '../../atoms';
 
 const model: ModelSchema = {
 	metadata: {
@@ -19,28 +23,39 @@ const model: ModelSchema = {
 		);
 		topLeft.style.left = '';
 
-		// get page content
 		const page: HTMLElement = document.querySelector(
 			`#mars div[class^="Page__PageContent-"]`
 		);
+		page.style.opacity = '0';
+		page.style.pointerEvents = 'none';
 
-		if (page) {
-			page.style.margin = '0px';
-			page.style.width = '300px';
+		const testPage = (
+			// @ts-ignore
+			<PageContent
+				floating={true}
+				theme={'dark'}
+				width="300px"
+				padding="1em"
+				margin="none"
+			>
+				<PageTitle>Mars!</PageTitle>
+				<PageText>Some stuff about mars here</PageText>
+			</PageContent>
+		);
 
-			console.log(page);
+		page.style.margin = '0px';
+		page.style.width = '300px';
 
-			// create expand with page content in it
-			const expand = new Expand({
-				view,
-				content: page,
-				expandIconClass: 'esri-icon-question',
-				expandTooltip: 'Information',
-				expanded: true,
-			});
+		// create expand with page content in it
+		const expand = new Expand({
+			view,
+			content: ReactDOMServer.renderToString(testPage),
+			expandIconClass: 'esri-icon-question',
+			expandTooltip: 'Information',
+			expanded: true,
+		});
 
-			view.ui.add([{ component: expand, position: 'top-left', index: 0 }]);
-		}
+		view.ui.add([{ component: expand, position: 'top-left', index: 0 }]);
 	},
 	sources: [
 		{

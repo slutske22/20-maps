@@ -3,6 +3,9 @@ import styled from 'styled-components';
 type PageContentProps = {
 	floating: boolean;
 	theme: string;
+	width?: string;
+	padding?: string;
+	margin?: string;
 };
 
 export const Page = styled.div`
@@ -15,9 +18,12 @@ export const Page = styled.div`
 `;
 
 export const PageContent = styled.div<PageContentProps>`
-	padding: ${(props) => (props.floating ? '1.5em' : '2em')};
-	margin: ${(props) => (props.floating ? '15px' : '')};
+	padding: ${(props) =>
+		props.padding ? props.padding : props.floating ? '1.5em' : '2em'};
+	margin: ${(props) =>
+		props.margin ? props.margin : props.floating ? '15px' : ''};
 	height: ${(props) => (props.floating ? '' : '100%')};
+	width: ${(props) => props.width || ''};
 	background-color: ${(props) =>
 		props.theme === 'dark' || props.theme === 'dark-blue' ? '#242424' : ''};
 	color: ${(props) =>
