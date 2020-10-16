@@ -1,5 +1,6 @@
 import { ModelSchema } from '../../../types';
 import { mars_hypso, mars_ground, labels } from './layers';
+import Expand from 'esri/widgets/Expand';
 
 const model: ModelSchema = {
 	metadata: {
@@ -8,8 +9,38 @@ const model: ModelSchema = {
 		fullWidthMap: true,
 		sceneview: true,
 	},
-	customFeatures: ({ map }) => {
+	customFeatures: ({ map, view }) => {
+		// add ground layer
 		map.ground.layers.add(mars_ground);
+
+		// override default behavior and set top left back to default
+		const topLeft: HTMLElement = document.querySelector(
+			`#mars .esri-ui-top-left`
+		);
+		topLeft.style.left = '';
+
+		// get page content
+		const page: HTMLElement = document.querySelector(
+			`#mars div[class^="Page__PageContent-"]`
+		);
+
+		if (page) {
+			page.style.margin = '0px';
+			page.style.width = '300px';
+
+			console.log(page);
+
+			// create expand with page content in it
+			const expand = new Expand({
+				view,
+				content: page,
+				expandIconClass: 'esri-icon-question',
+				expandTooltip: 'Information',
+				expanded: true,
+			});
+
+			view.ui.add([{ component: expand, position: 'top-left', index: 0 }]);
+		}
 	},
 	sources: [
 		{
