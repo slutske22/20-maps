@@ -3,6 +3,7 @@ import ReactDOMServer from 'react-dom/server';
 import type { FunctionComponent } from 'react';
 import EsriMap from 'esri/Map';
 import MapView from 'esri/views/MapView';
+import SceneView from 'esri/views/SceneView';
 import Expand from 'esri/widgets/Expand';
 import { MapProps } from '../../types';
 import { DataSources } from '../atoms';
@@ -26,7 +27,7 @@ const Map: FunctionComponent<MapProps> = ({
 			layers: layers,
 		});
 
-		const view = new MapView({
+		const params = {
 			container: element.current,
 			map,
 			...position,
@@ -38,7 +39,11 @@ const Map: FunctionComponent<MapProps> = ({
 				mouseWheelZoomEnabled: false,
 				browserTouchPanEnabled: false,
 			},
-		});
+		};
+
+		const view = metadata.sceneview
+			? new SceneView(params)
+			: new MapView(params);
 
 		view.on('click', (e) => {
 			console.log('extent', view.extent);

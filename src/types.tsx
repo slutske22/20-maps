@@ -1,23 +1,29 @@
-import type { ReactElement, ReactNode, Component } from 'react';
+import type { ReactElement, Component } from 'react';
 import type EsriMap from 'esri/Map';
 import type MapView from 'esri/views/MapView';
+import SceneView from 'esri/views/SceneView';
+import Camera from 'esri/Camera';
+import Extent from 'esri/geometry/Extent';
 import type Basemap from 'esri/Basemap';
 import type Layer from 'esri/layers/Layer';
 
+export type ViewType = MapView | SceneView;
+
 export type EsriMapRefTypes = {
 	map: EsriMap;
-	view: MapView;
+	view: ViewType;
 };
 
 export type MapState = {
 	position: {
 		center?: number[];
 		zoom?: number;
-		extent?: any;
+		extent?: Extent;
+		camera?: Camera;
 	};
 	basemap?: Basemap | string;
 	layers: Layer[];
-	customBehavior?: ({ map: EsriMap, view: MapView }) => () => void;
+	customBehavior?: ({ map: EsriMap, view: ViewType }) => () => void;
 };
 
 export type PageTypes = {
@@ -30,12 +36,13 @@ export type MetaData = {
 	name: string;
 	theme: 'light' | 'dark' | 'dark-blue' | 'dark-red';
 	fullWidthMap: boolean;
+	sceneview?: boolean;
 };
 
 export type CustomFeaturesArgs = {
 	layers: Layer[];
 	map: EsriMap;
-	view: MapView;
+	view: ViewType;
 };
 
 export type ModelSchema = {
@@ -58,7 +65,7 @@ export type MapProps = {
 	mapState: MapState;
 	customFeatures?: (arg: {
 		map: EsriMap;
-		view: MapView;
+		view: ViewType;
 		layers?: Layer[];
 	}) => any;
 	customDOM?: HTMLElement | ReactElement | Component;

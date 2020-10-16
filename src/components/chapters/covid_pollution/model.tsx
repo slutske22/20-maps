@@ -116,6 +116,7 @@ const model: ModelSchema = {
 				layers: [NO2_Mean_March_2010_2019, NO2_March_2020],
 				position: {
 					extent: {
+						// @ts-ignore
 						spatialReference: {
 							wkid: 102100,
 						},

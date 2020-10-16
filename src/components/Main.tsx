@@ -10,6 +10,7 @@ const ProtestsUS = React.lazy(() => import('./chapters/protests_us'));
 const WildfiresAus = React.lazy(() => import('./chapters/wildfires_aus'));
 const ArcticIce = React.lazy(() => import('./chapters/arctic_ice'));
 const CovidPollution = React.lazy(() => import('./chapters/covid_pollution'));
+const Mars = React.lazy(() => import('./chapters/mars'));
 
 const Wrapper = styled.main`
 	height: 100%;
@@ -29,6 +30,7 @@ const Main = () => {
 				<WildfiresAus />
 				<ArcticIce />
 				<CovidPollution />
+				<Mars />
 			</Suspense>
 		</Wrapper>
 	);
