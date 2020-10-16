@@ -9,6 +9,7 @@
 ## January
 
 -  Australia Wildfires
+- Most recent datapoint for Mars Curiosity Rover
 
 ## August
 
@@ -37,6 +38,8 @@ Europe / Global protests
 
 ## Misc
 
+Locust Swarms Across Africa
 Hurricanes and Cyclones in southeast USA in late Summer
 Explosion in Lebanon
 Drop in census for animal shelters
+State of NASA plans to return to moon in 2024, in 2020
