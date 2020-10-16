@@ -1,4 +1,4 @@
-import type { ReactElement, Component } from 'react';
+import type { ReactElement, Component, Dispatch, SetStateAction } from 'react';
 import type EsriMap from 'esri/Map';
 import type MapView from 'esri/views/MapView';
 import SceneView from 'esri/views/SceneView';
@@ -57,6 +57,7 @@ export type ModelSchema = {
 };
 
 export type MapProps = {
+	setMapLoading: Dispatch<SetStateAction<boolean>>;
 	metadata: MetaData;
 	sources: {
 		name: string;

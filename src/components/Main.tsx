@@ -2,9 +2,7 @@ import React, { Suspense } from 'react';
 import styled from 'styled-components';
 import Header from './Header';
 import Intro from './Intro';
-// import Chapter2 from './chapters/protests_us/Chapter';
-// import Chapter3 from './chapters/wildfires_aus/Chapter';
-// import Chapter4 from './chapters/arctic_ice/Chapter';
+import { ChapterSpinner } from './atoms';
 
 const ProtestsUS = React.lazy(() => import('./chapters/protests_us'));
 const WildfiresAus = React.lazy(() => import('./chapters/wildfires_aus'));
@@ -25,11 +23,19 @@ const Main = () => {
 		<Wrapper>
 			<Header />
 			<Intro />
-			<Suspense fallback={<div>Loading...</div>}>
+			<Suspense fallback={<ChapterSpinner />}>
 				<ProtestsUS />
+			</Suspense>
+			<Suspense fallback={<ChapterSpinner />}>
 				<WildfiresAus />
+			</Suspense>
+			<Suspense fallback={<ChapterSpinner />}>
 				<ArcticIce />
+			</Suspense>
+			<Suspense fallback={<ChapterSpinner />}>
 				<CovidPollution />
+			</Suspense>
+			<Suspense fallback={<ChapterSpinner />}>
 				<Mars />
 			</Suspense>
 		</Wrapper>

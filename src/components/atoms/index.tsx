@@ -1,4 +1,6 @@
 import Chapter from './Chapter';
+import ChapterSpinner from './ChapterSpinner';
+import MapSpinner from './MapSpinner';
 import Container from './Container';
 import DropCaps from './DropCaps';
 import MapContainer from './MapContainer';
@@ -10,6 +12,8 @@ import DataSources from './DataSources';
 
 export {
 	Chapter,
+	ChapterSpinner,
+	MapSpinner,
 	Container,
 	DropCaps,
 	MapContainer,

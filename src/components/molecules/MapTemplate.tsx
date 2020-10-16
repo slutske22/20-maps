@@ -5,10 +5,12 @@ import EsriMap from 'esri/Map';
 import MapView from 'esri/views/MapView';
 import SceneView from 'esri/views/SceneView';
 import Expand from 'esri/widgets/Expand';
+import * as watchUtils from 'esri/core/watchUtils';
 import { MapProps } from '../../types';
 import { DataSources } from '../atoms';
 
 const Map: FunctionComponent<MapProps> = ({
+	setMapLoading,
 	metadata,
 	sources,
 	customFeatures,
@@ -20,7 +22,6 @@ const Map: FunctionComponent<MapProps> = ({
 	const [cleanupFunction, setCleaupFunction] = useState(null);
 
 	// component mount: set up map, view
-	// apply any custom behavior that persists through entire chapter
 	useEffect(() => {
 		const map = new EsriMap({
 			basemap: basemap || null,
@@ -50,8 +51,10 @@ const Map: FunctionComponent<MapProps> = ({
 			console.log('mappoint', e.mapPoint);
 		});
 
+		// save map and view to state for use in other effects
 		setMapRef({ map, view });
 
+		// if using a fullwidthmap, override esri's css to move the upper left widgets over
 		if (metadata.fullWidthMap) {
 			const topLeft: HTMLElement = document.querySelector(
 				`#${metadata.name} .esri-ui-top-left`
@@ -59,6 +62,7 @@ const Map: FunctionComponent<MapProps> = ({
 			topLeft.style.left = 'calc(30% - 10px)';
 		}
 
+		// create a data source widget on the fly with vanilla js
 		const dataSourcesDiv = document.createElement('div');
 		dataSourcesDiv.innerHTML = 'Data sources here';
 
@@ -73,6 +77,13 @@ const Map: FunctionComponent<MapProps> = ({
 		});
 		view.ui.add(dataSourcesExpand, 'bottom-right');
 
+		// watch the view to see if its currently updating, set loading icon appropriately
+		// note this only happens once per page load, not once per component load...not sure why
+		watchUtils.whenFalseOnce(view, 'updating', () => {
+			setMapLoading(false);
+		});
+
+		// apply any custom features that persist through entire map life if they exist
 		customFeatures && customFeatures({ map, view, layers });
 	}, []);
 
@@ -109,7 +120,7 @@ const Map: FunctionComponent<MapProps> = ({
 				cleanupFunction && cleanupFunction();
 			}
 		}
-	}, [customBehavior]);
+	}, [customBehavior, mapRef]);
 
 	return (
 		<>

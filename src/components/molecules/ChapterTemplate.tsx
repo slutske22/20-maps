@@ -5,6 +5,7 @@ import TrackVisibility from 'react-visibility-sensor';
 import { Context } from '../../context';
 import {
 	MapContainer,
+	MapSpinner,
 	SideCar,
 	Page,
 	PageContent,
@@ -50,13 +51,14 @@ const Chapter = ({
 	data: { metadata, sources, customFeatures, customDOM, pages },
 }: ChapterProps) => {
 	const [currentPage, setCurrentPage] = useState(0);
+	const [mapLoading, setMapLoading] = useState(true);
 	const { dispatch } = useContext(Context);
 	const CustomMap: FunctionComponent<MapProps> = customMap || null;
 
 	return useMemo(
 		() => (
 			<Wrapper maptheme={metadata.theme} id={metadata.name}>
-				{console.log(`rendering ${metadata.name} chapter template`)}
+				{/* {console.log(`rendering ${metadata.name} chapter template`)} */}
 				<SideCar floating={metadata.fullWidthMap}>
 					{pages.map((page, index) => {
 						return (
@@ -93,8 +95,10 @@ const Chapter = ({
 							fullWidth={metadata.fullWidthMap}
 							className={`arcgis-map-${metadata.theme}`}
 						>
+							{mapLoading && <MapSpinner />}
 							{isVisible && (
 								<MapTemplate
+									setMapLoading={setMapLoading}
 									mapState={pages[currentPage].mapState}
 									customFeatures={customFeatures}
 									customDOM={customDOM}
