@@ -1,9 +1,7 @@
 import React from 'react';
-import ReactDOMServer from 'react-dom/server';
 import { ModelSchema } from '../../../types';
 import { mars_hypso, mars_ground, labels } from './layers';
 import Expand from 'esri/widgets/Expand';
-import PageOverride from './PageOverride';
 import { RefLink } from '../../atoms';
 
 const model: ModelSchema = {
@@ -23,48 +21,37 @@ const model: ModelSchema = {
 		);
 		topLeft.style.left = '';
 
-		const page: HTMLElement = document.querySelector(
-			`#mars div[class^="Page__PageContent-"]`
-		);
-
 		const sidecar: HTMLElement = document.querySelector(
 			`#mars div[class^="SideCar"]`
 		);
 
 		sidecar.style.left = '40px';
-		sidecar.style.width = '400px';
-		// page.style.opacity = '0';
-		// page.style.pointerEvents = 'none';
-
-		console.log(
-			'renderToStaticMarkup',
-			ReactDOMServer.renderToStaticMarkup(PageOverride)
-		);
-		console.log(
-			'renderToString',
-			ReactDOMServer.renderToString(PageOverride)
-		);
+		sidecar.style.width = '500px';
+      sidecar.style.transition = 'all 0.5s';
 
 		// create expand with custom page content in it
 		const expand = new Expand({
 			view,
-			// content: ReactDOMServer.renderToStaticMarkup(PageOverride),
-			// content: PageOverride,
 			expandIconClass: 'esri-icon-question',
 			expandTooltip: 'Information',
 			expanded: true,
 		});
 
-		window.expand = expand;
-
 		view.ui.add([{ component: expand, position: 'top-left', index: 0 }]);
 
+      // @ts-ignore
 		expand.container.addEventListener('click', () => {
-			console.log(`expand widget is ${expand.expanded ? 'open' : 'closed'}`);
 			if (expand.expanded) {
-				sidecar.style.display = 'block';
+            sidecar.style.left = '40px';
+            sidecar.style.opacity = '1';
+            sidecar.style.pointerEvents = 'auto';
+            sidecar.style.transition = 'all 0.5s';
+
 			} else {
-				sidecar.style.display = 'none';
+            sidecar.style.left = '35px';
+            sidecar.style.opacity = '0';
+            sidecar.style.pointerEvents = 'none';
+            sidecar.style.transition = 'none';
 			}
 		});
 	},
@@ -88,9 +75,9 @@ const model: ModelSchema = {
 			content: (
 				<>
 					{' '}
-					As much as you may want to abandon Earth altogether for more
-					pristine pastures, we're still not ready to visit our red
-					neighbor. But the Curiosity Rover is still up there, making
+					2020 probably has you ready to abandon Earth altogether for more
+					pristine pastures. We're still not ready to visit our red
+					neighbor, but the Curiosity Rover is still up there, making
 					discoveries. You can see mission updates{' '}
 					<RefLink
 						linkTitle="Mars Curiosity Rover, Mission Updates, NASA"
@@ -117,7 +104,7 @@ const model: ModelSchema = {
 							y: 19, // lat
 							z: 3000000, // elevation in meters
 						},
-						tilt: 33,
+						tilt: 40,
 						heading: 217,
 					},
 				},
