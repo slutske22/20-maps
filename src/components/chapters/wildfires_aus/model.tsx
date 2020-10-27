@@ -25,6 +25,21 @@ const model: ModelSchema = {
 			url:
 				'https://www.arcgis.com/home/item.html?id=dc4e10544b4e46c78786d0a5b9f2cea8',
 		},
+		{
+			name: 'Koala Sightings in Brisbane, 2018',
+			url:
+				'https://www.arcgis.com/home/item.html?id=494241deb90f4fc6bfc893c3ad7cf226',
+		},
+		{
+			name: 'Koala Habitat Suitability Model, Before',
+			url:
+				'https://www.arcgis.com/home/item.html?id=7a881d7fb0a34300935a1d0fb19fca85',
+		},
+		{
+			name: 'Koala Habitat Suitability Model, After',
+			url:
+				'https://www.arcgis.com/home/item.html?id=a30e24d3ebd4464a86132c54b34b9de4',
+		},
 	],
 	customFeatures: (args) => {
 		const { view } = args;
@@ -101,6 +116,10 @@ const model: ModelSchema = {
 						</RefLink>
 						.
 					</p>
+					<p>
+						The red area on the map shows the acreage burned in the 2019 -
+						2020 fire season.
+					</p>
 				</>
 			),
 			mapState: {
@@ -116,9 +135,29 @@ const model: ModelSchema = {
 			title: 'Koalas in Queensland',
 			content: (
 				<>
-					We can get a sense of the density of Koalas in the Brisbane area
-					before the 2019 - 2020 fires. This map layer shows koala
-					sightnings reporting by the public in 2018.
+					Australia has roughly{' '}
+					<RefLink
+						theme="dark"
+						link="https://www.currentresults.com/Environment-Facts/Plants-Animals/number-of-species-native-to-australia.php"
+						linkTitle={`"Number of Species Native to Australia", Osborne, L., currentresults.com, Retrieved October 27, 2020`}
+					>
+						3,000 endemic species of animals and birds
+					</RefLink>
+					, meaning they are found nowhere else on earth. The most iconic
+					of these is the Koala, with the entire species containing
+					somewhere between{' '}
+					<RefLink
+						theme="dark"
+						link="https://www.savethekoala.com/about-koalas/koala-endangered-or-not"
+						linkTitle={`"The Koala - Endangered or Not?", Australian Koala Foundation, 2020, Retrieved Oct 27, 2020`}
+					>
+						50 and 100 thousand
+					</RefLink>
+					. We can get a sense of the density of Koalas in the Brisbane
+					area before the 2019 - 2020 fires. This map layer shows koala
+					sightnings reporting by the public in 2018. As you can see, the
+					greater Brisbane area was not as affected as other parts of the
+					county...
 				</>
 			),
 			mapState: {
@@ -134,8 +173,35 @@ const model: ModelSchema = {
 			title: 'Habitat Destruction',
 			content: (
 				<>
-					Use the swipe to see how their habitat has changed due to the
-					fires.
+					<p>
+						The Australian environment minister{' '}
+						<RefLink
+							theme="dark"
+							link="https://www.theguardian.com/australia-news/2019/dec/27/australias-environment-minister-says-up-to-30-of-koalas-killed-in-nsw-mid-north-coast-fires"
+							linkTitle={`"Australia's environment minister says up to 30% of koalas killed in NSW mid-north coast fires", Zhou, N., Dec 26, 2019, Retrieved Oct 27, 2020`}
+						>
+							announced <i>in Deceber</i>
+						</RefLink>{' '}
+						that an estimated 5,000 Koalas had been killed in New South
+						Wales alone, which accounts for roughly 30% of the species in
+						that state.{' '}
+					</p>
+					<p>
+						In Victoria, the effect of the fires on wildlife habitat is
+						easy to see. The difference in the{' '}
+						<RefLink
+							theme="dark"
+							link="https://www.environment.nsw.gov.au/-/media/OEH/Corporate-Site/Documents/Animals-and-plants/Threatened-species/koala-habitat-information-base-technical-guide-190534.pdf"
+							linkTitle={`"Koala Habitat Information Base Technical Guide", environment.nsw.gov.au, 2019, Retrieved October 27, 2020`}
+						>
+							Koala Habitat Suitability Model
+						</RefLink>{' '}
+						before and after the fires is stark.{' '}
+					</p>
+					<p>
+						Use the swipe to see how their habitat has changed due to the
+						fires.
+					</p>
 				</>
 			),
 			mapState: {
@@ -143,7 +209,7 @@ const model: ModelSchema = {
 					center: [148.9, -37.4],
 					zoom: 9,
 				},
-				layers: [mask, koala_HSM_before, koala_HSM_after],
+				layers: [mask, fires_layer, koala_HSM_before, koala_HSM_after],
 				basemap: 'satellite',
 				customBehavior: (mapRef) => {
 					const swipe = new Swipe({
