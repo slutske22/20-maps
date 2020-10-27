@@ -5,6 +5,7 @@ import { BiLinkExternal } from 'react-icons/bi';
 
 const StyledToolTip = styled(Tooltip)`
 	padding: 2em;
+   max-width: 60vw;
 	box-shadow: 0px 0px 10px 5px #242424;
 `;
 
