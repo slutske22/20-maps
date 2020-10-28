@@ -156,8 +156,8 @@ const model: ModelSchema = {
 					. We can get a sense of the density of Koalas in the Brisbane
 					area before the 2019 - 2020 fires. This map layer shows koala
 					sightnings reporting by the public in 2018. As you can see, the
-					greater Brisbane area was not as affected as other parts of the
-					county...
+					greater Brisbane area was not as affected by the fires as other
+					parts of the county...
 				</>
 			),
 			mapState: {
@@ -199,8 +199,10 @@ const model: ModelSchema = {
 						before and after the fires is stark.{' '}
 					</p>
 					<p>
-						Use the swipe to see how their habitat has changed due to the
-						fires.
+						Drag the swipe handle back and forth to see how their habitat
+						has changed due to the fires. The left side shows habitat
+						suitability from before the fires, and the right side from
+						after.
 					</p>
 				</>
 			),

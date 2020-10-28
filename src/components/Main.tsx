@@ -4,6 +4,7 @@ import Header from './Header';
 import Intro from './Intro';
 import { ChapterSpinner } from './atoms';
 
+const CovidGlobal = React.lazy(() => import('./chapters/covid_global'));
 const ProtestsUS = React.lazy(() => import('./chapters/protests_us'));
 const WildfiresAus = React.lazy(() => import('./chapters/wildfires_aus'));
 const ArcticIce = React.lazy(() => import('./chapters/arctic_ice'));
@@ -23,6 +24,9 @@ const Main = () => {
 		<Wrapper>
 			<Header />
 			<Intro />
+			<Suspense fallback={<ChapterSpinner />}>
+				<CovidGlobal />
+			</Suspense>
 			<Suspense fallback={<ChapterSpinner />}>
 				<ProtestsUS />
 			</Suspense>
