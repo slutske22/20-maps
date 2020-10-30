@@ -5,8 +5,9 @@ import Intro from './Intro';
 import { ChapterSpinner } from './atoms';
 
 const CovidGlobal = React.lazy(() => import('./chapters/covid_global'));
-const ProtestsUS = React.lazy(() => import('./chapters/protests_us'));
 const WildfiresAus = React.lazy(() => import('./chapters/wildfires_aus'));
+const Locusts = React.lazy(() => import('./chapters/locusts'));
+const ProtestsUS = React.lazy(() => import('./chapters/protests_us'));
 const ArcticIce = React.lazy(() => import('./chapters/arctic_ice'));
 const CovidPollution = React.lazy(() => import('./chapters/covid_pollution'));
 const Mars = React.lazy(() => import('./chapters/mars'));
@@ -24,21 +25,31 @@ const Main = () => {
 		<Wrapper>
 			<Header />
 			<Intro />
+			{/* Chapter 1 */}
 			<Suspense fallback={<ChapterSpinner />}>
 				<CovidGlobal />
 			</Suspense>
-			<Suspense fallback={<ChapterSpinner />}>
-				<ProtestsUS />
-			</Suspense>
+			{/* Chapter 2 */}
 			<Suspense fallback={<ChapterSpinner />}>
 				<WildfiresAus />
 			</Suspense>
+			{/* Chapter 3 */}
+			<Suspense fallback={<ChapterSpinner />}>
+				<Locusts />
+			</Suspense>
+			{/* Chapter 4 */}
+			<Suspense fallback={<ChapterSpinner />}>
+				<ProtestsUS />
+			</Suspense>
+			{/* Chapter 5 */}
 			<Suspense fallback={<ChapterSpinner />}>
 				<ArcticIce />
 			</Suspense>
+			{/* Chapter 6 */}
 			<Suspense fallback={<ChapterSpinner />}>
 				<CovidPollution />
 			</Suspense>
+			{/* Chapter 7 */}
 			<Suspense fallback={<ChapterSpinner />}>
 				<Mars />
 			</Suspense>

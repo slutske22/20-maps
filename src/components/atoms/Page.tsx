@@ -25,17 +25,19 @@ export const PageContent = styled.div<PageContentProps>`
 	height: ${(props) => (props.floating ? '' : '100%')};
 	width: ${(props) => props.width || ''};
 	background-color: ${(props) =>
-		props.theme === 'dark' || props.theme === 'dark-blue' ? '#242424' : ''};
+		props.theme === 'dark' || props.theme === 'dark-blue'
+			? '#242424'
+			: 'white'};
 	color: ${(props) =>
 		props.theme === 'dark' || props.theme === 'dark-blue' ? '#d1d1d1' : ''};
 	border: ${(props) =>
 		props.floating && (props.theme === 'dark' || props.theme === 'dark-blue')
 			? '1px solid darkgrey'
-			: ''};
+			: '#242424'};
 	box-shadow: ${(props) =>
 		props.floating && (props.theme === 'dark' || props.theme === 'dark-blue')
 			? '0 1px 2px rgba(0, 0, 0, 0.3)'
-			: ''};
+			: '0 1px 2px rgba(56, 56, 56, 0.4)'};
 	pointer-events: auto;
 `;
 
@@ -47,8 +49,8 @@ export const PageTitle = styled.h3`
 	margin-top: 0;
 `;
 
-export const PageText = styled.div`
-	font-size: 1.1em;
+export const PageText = styled.div<{ floating: boolean }>`
+	font-size: ${(props) => (props.floating ? '1.1em' : '1.2em')};
 	font-family: 'Avenir Next', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	line-height: 1.3em;
 	text-align: justify;

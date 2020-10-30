@@ -82,7 +82,9 @@ const Chapter = ({
 											return <PageTitle>{page.title}</PageTitle>;
 										}}
 									</TrackVisibility>
-									<PageText>{page.content}</PageText>
+									<PageText floating={metadata.fullWidthMap}>
+										{page.content}
+									</PageText>
 								</PageContent>
 							</Page>
 						);

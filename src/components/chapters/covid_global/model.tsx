@@ -97,6 +97,10 @@ const model: ModelSchema = {
 						status, quickly became the world's first panedmic in 100
 						years.
 					</p>
+					<p>
+						Press the play button in the bottom corner to watch how the
+						pandemic spread across the globe as the year progressed.
+					</p>
 				</>
 			),
 			mapState: {
