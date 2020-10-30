@@ -68,6 +68,11 @@ const Chapter = ({
 						return (
 							<Page key={`${metadata.name}-page-${index}`}>
 								<PageContent
+									onScroll={() =>
+										console.log(
+											`scrolled page ${index} on ${metadata.name}`
+										)
+									}
 									theme={metadata.theme}
 									floating={metadata.fullWidthMap}
 								>
