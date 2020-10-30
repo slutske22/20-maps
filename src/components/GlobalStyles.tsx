@@ -33,10 +33,15 @@ const GlobalStyles = createGlobalStyle`
 
    a {
       cursor: pointer;
-      color: white;
+      color: inherit;
    }
    a:hover {
-      color: lightblue;
+      color: inherit;
+   }
+
+   em.action {
+      font-style: normal;
+      color: white;
    }
 
    .top-link-button {

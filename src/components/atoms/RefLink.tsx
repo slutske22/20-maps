@@ -5,7 +5,7 @@ import { BiLinkExternal } from 'react-icons/bi';
 
 const StyledToolTip = styled(Tooltip)`
 	padding: 2em;
-   max-width: 60vw;
+	max-width: 60vw;
 	box-shadow: 0px 0px 10px 5px #242424;
 `;
 
@@ -31,6 +31,7 @@ const RefLink = ({ children, linkTitle, link, theme }: RefLinkProps) => {
 			<StyledToolTip
 				id={link}
 				place="right"
+				wrapper="span"
 				type={theme === 'light' ? 'light' : 'dark'}
 				border
 				borderColor="darkgrey"

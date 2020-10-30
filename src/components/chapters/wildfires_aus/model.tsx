@@ -117,8 +117,8 @@ const model: ModelSchema = {
 						.
 					</p>
 					<p>
-						The red area on the map shows the acreage burned in the 2019 -
-						2020 fire season.
+						<em className="action">The red area on the map</em> shows the
+						acreage burned in the 2019 - 2020 fire season.
 					</p>
 				</>
 			),
@@ -199,10 +199,12 @@ const model: ModelSchema = {
 						before and after the fires is stark.{' '}
 					</p>
 					<p>
-						Drag the swipe handle back and forth to see how their habitat
-						has changed due to the fires. The left side shows habitat
-						suitability from before the fires, and the right side from
-						after.
+						<em className="action">
+							Drag the swipe handle back and forth
+						</em>{' '}
+						to see how their habitat has changed due to the fires. The
+						left side shows habitat suitability from before the fires, and
+						the right side from after.
 					</p>
 				</>
 			),

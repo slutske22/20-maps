@@ -43,10 +43,11 @@ const model: ModelSchema = {
 			},
 			playRate: 3000,
 			stops: {
+				// @ts-ignore
 				interval: {
 					value: 1,
 					// @ts-ignore
-					unit: 'month',
+					unit: 'months',
 				},
 			},
 			tickConfigs: [
@@ -98,8 +99,9 @@ const model: ModelSchema = {
 						years.
 					</p>
 					<p>
-						Press the play button in the bottom corner to watch how the
-						pandemic spread across the globe as the year progressed.
+						<em className="action">Press the play button</em> in the
+						bottom corner to watch how the pandemic spread across the
+						globe as the year progressed.
 					</p>
 				</>
 			),
