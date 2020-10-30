@@ -57,7 +57,11 @@ const Chapter = ({
 
 	return useMemo(
 		() => (
-			<Wrapper maptheme={metadata.theme} id={metadata.name}>
+			<Wrapper
+				maptheme={metadata.theme}
+				id={metadata.name}
+				screensTall={pages.length > 1 ? pages.length : 1}
+			>
 				{/* {console.log(`rendering ${metadata.name} chapter template`)} */}
 				<SideCar floating={metadata.fullWidthMap}>
 					{pages.map((page, index) => {

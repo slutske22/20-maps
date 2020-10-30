@@ -44,6 +44,23 @@ const model: ModelSchema = {
 				},
 			},
 		},
+		{
+			title: 'Second Page',
+			content: (
+				<>
+					This is a test to see what happens when a full width map has more
+					than one page. How does the scrolling work?
+				</>
+			),
+			mapState: {
+				basemap: 'topo-vector',
+				layers: [locustsSwarms, locustBands],
+				position: {
+					center: [28, 21],
+					zoom: 4,
+				},
+			},
+		},
 	],
 };
 
