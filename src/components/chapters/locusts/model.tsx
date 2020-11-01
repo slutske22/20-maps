@@ -2,6 +2,8 @@ import React from 'react';
 import { RefLink } from '../../atoms';
 import { ModelSchema } from '../../../types';
 import FeatureLayer from 'esri/layers/FeatureLayer';
+import Legend from 'esri/widgets/Legend';
+import './styles.scss';
 
 function toDateString(date) {
 	const y = `${date.getUTCFullYear()}`;
@@ -69,6 +71,36 @@ const model: ModelSchema = {
 				'https://www.arcgis.com/home/item.html?id=969749ccd9f546d29730a60f72bebb42',
 		},
 	],
+	customFeatures: ({ view }) => {
+		const legend = new Legend({
+			view,
+			layout: 'side-by-side',
+			layerInfos: [
+				// @ts-ignore
+				{
+					layer: locustsSwarms,
+					title: 'Swarms',
+				},
+				// @ts-ignore
+				{
+					layer: locustBands,
+					title: 'Bands',
+				},
+				// @ts-ignore
+				{
+					layer: locustAdults,
+					title: 'Adults',
+				},
+				// @ts-ignore
+				{
+					layer: locustHoppers,
+					title: 'Hoppers',
+				},
+			],
+		});
+
+		view.ui.add(legend, 'top-right');
+	},
 	pages: [
 		{
 			title: 'Locusts in Africa',
@@ -77,7 +109,7 @@ const model: ModelSchema = {
 				basemap: 'topo-vector',
 				layers: [locustsSwarms, locustBands, locustAdults, locustHoppers],
 				position: {
-					center: [28, 21],
+					center: [35, 21],
 					zoom: 4,
 				},
 			},
@@ -94,7 +126,7 @@ const model: ModelSchema = {
 				basemap: 'topo-vector',
 				layers: [locustsSwarms, locustBands, locustAdults, locustHoppers],
 				position: {
-					center: [28, 21],
+					center: [35, 21],
 					zoom: 4,
 				},
 			},
