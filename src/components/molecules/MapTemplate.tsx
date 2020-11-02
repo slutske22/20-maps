@@ -120,8 +120,9 @@ const Map: FunctionComponent<MapProps> = ({
 	useEffect(() => {
 		if (mapRef) {
 			if (customBehavior) {
+				const { map, view } = mapRef;
 				cleanupFunction && cleanupFunction();
-				const cleanup = customBehavior(mapRef);
+				const cleanup = customBehavior({ map, view });
 				setCleaupFunction(() => cleanup);
 			} else {
 				cleanupFunction && cleanupFunction();

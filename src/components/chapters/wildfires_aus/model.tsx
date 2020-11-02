@@ -215,16 +215,16 @@ const model: ModelSchema = {
 				},
 				layers: [mask, fires_layer, koala_HSM_before, koala_HSM_after],
 				basemap: 'satellite',
-				customBehavior: (mapRef) => {
+				customBehavior: ({ view }) => {
 					const swipe = new Swipe({
 						leadingLayers: [koala_HSM_before],
 						trailingLayers: [koala_HSM_after],
-						view: mapRef.view,
+						view,
 						position: 50,
 					});
-					mapRef.view.ui.add(swipe);
+					view.ui.add(swipe);
 					return () => {
-						mapRef.view.ui.remove(swipe);
+						view.ui.remove(swipe);
 					};
 				},
 			},

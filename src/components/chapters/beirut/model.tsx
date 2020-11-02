@@ -1,13 +1,22 @@
 import React from 'react';
 import TileLayer from 'esri/layers/TileLayer';
 import FeatureLayer from 'esri/layers/FeatureLayer';
+import Legend from 'esri/widgets/Legend';
 import Swipe from 'esri/widgets/Swipe';
 import { RefLink } from '../../atoms';
 import { ModelSchema } from '../../../types';
+import './styles.scss';
 
 const blastImagery = new TileLayer({
 	url:
 		'https://tiles.arcgis.com/tiles/WOCTeelWa8YfhXRF/arcgis/rest/services/Beirut_Port_05082020/MapServer',
+	legendEnabled: false,
+});
+
+const darkGreyBasemap = new TileLayer({
+	url:
+		'https://services.arcgisonline.com/arcgis/rest/services/Canvas/World_Dark_Gray_Base/MapServer',
+	legendEnabled: false,
 });
 
 const buildings = new FeatureLayer({
@@ -20,15 +29,19 @@ const groundZero = new FeatureLayer({
 		'https://services3.arcgis.com/XOPMTBFysfgZfKqL/arcgis/rest/services/Location_of_Explosion/FeatureServer',
 	renderer: {
 		// @ts-ignore
-		type: 'simple',
-		symbols: {
-			type: 'picture-marker',
-			url:
-				'https://arcgis.github.io/arcgis-samples-javascript/sample-data/cat3.png',
-			width: 46,
-			height: 46,
+		type: 'simple', // autocasts as new SimpleRenderer()
+		symbol: {
+			type: 'simple-marker', // autocasts as new SimpleMarkerSymbol()
+			size: 6,
+			color: 'transparent',
+			outline: {
+				// autocasts as new SimpleLineSymbol()
+				width: 0.1,
+				color: 'red',
+			},
 		},
 	},
+	legendEnabled: false,
 });
 
 const model: ModelSchema = {
@@ -64,16 +77,18 @@ const model: ModelSchema = {
 					zoom: 16,
 				},
 				layers: [blastImagery],
-				customBehavior: (mapRef) => {
+				customBehavior: ({ view }) => {
 					const swipe = new Swipe({
 						leadingLayers: [],
 						trailingLayers: [blastImagery],
-						view: mapRef.view,
+						view,
 						position: 50,
 					});
-					mapRef.view.ui.add(swipe);
+
+					view.ui.add(swipe);
+
 					return () => {
-						mapRef.view.ui.remove(swipe);
+						view.ui.remove(swipe);
 					};
 				},
 			},
@@ -90,12 +105,23 @@ const model: ModelSchema = {
 				</>
 			),
 			mapState: {
-				basemap: 'dark-gray',
+				basemap: 'satellite',
 				position: {
 					center: [35.51590370237112, 33.891530792835745],
 					zoom: 14,
 				},
-				layers: [buildings, groundZero],
+				layers: [darkGreyBasemap, buildings, groundZero],
+				customBehavior: ({ view }) => {
+					const legend = new Legend({
+						view,
+					});
+
+					view.ui.add(legend, 'bottom-right');
+
+					return () => {
+						view.ui.remove(legend);
+					};
+				},
 			},
 		},
 	],
