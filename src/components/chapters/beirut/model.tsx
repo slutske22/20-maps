@@ -3,6 +3,7 @@ import TileLayer from 'esri/layers/TileLayer';
 import FeatureLayer from 'esri/layers/FeatureLayer';
 import Legend from 'esri/widgets/Legend';
 import Swipe from 'esri/widgets/Swipe';
+import * as watchUtils from 'esri/core/watchUtils';
 import { RefLink } from '../../atoms';
 import { ModelSchema } from '../../../types';
 import './styles.scss';
@@ -115,6 +116,24 @@ const model: ModelSchema = {
 					const legend = new Legend({
 						view,
 					});
+
+					// view.when(() => {
+					// 	watchUtils.when(legend, 'container', function () {
+					// 		const rows = document.querySelectorAll<HTMLElement>(
+					// 			`#beirut .esri-legend__layer-row`
+					// 		);
+					// 		const lastRow = rows[rows.length - 1];
+					// 		if (lastRow) {
+					// 			lastRow.style.display = 'none';
+					// 		}
+
+					// 		if (
+					// 			lastRow.querySelector('.esri-legend__layer-cell--info')
+					// 				.innerHTML === '<all other values>'
+					// 		) {
+					// 		}
+					// 	});
+					// });
 
 					view.ui.add(legend, 'bottom-right');
 
