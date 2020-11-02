@@ -94,6 +94,13 @@ const Map: FunctionComponent<MapProps> = ({
 		}
 	}, [layers]);
 
+	// change basemap if needed
+	useEffect(() => {
+		if (mapRef) {
+			mapRef.map.basemap = basemap;
+		}
+	}, [basemap, mapRef]);
+
 	// view change - set center and zoom if different
 	useEffect(() => {
 		if (mapRef) {

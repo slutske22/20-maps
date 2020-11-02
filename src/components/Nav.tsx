@@ -126,11 +126,7 @@ const Nav = () => {
 	return (
 		<Wrapper>
 			<NavLinkHome active={activeNavLink === 'home'}>
-				<FaHome
-					data-tip
-					data-for={'nav-home'}
-					style={{ marginBottom: '10px' }}
-				/>
+				<FaHome data-tip data-for={'nav-home'} />
 			</NavLinkHome>
 			<NavToolTip
 				id="nav-home"
