@@ -7,6 +7,7 @@ import { ChapterSpinner } from './atoms';
 const CovidGlobal = React.lazy(() => import('./chapters/covid_global'));
 const WildfiresAus = React.lazy(() => import('./chapters/wildfires_aus'));
 const Locusts = React.lazy(() => import('./chapters/locusts'));
+const CovidItaly = React.lazy(() => import('./chapters/covid_italy'));
 const ProtestsUS = React.lazy(() => import('./chapters/protests_us'));
 const ArcticIce = React.lazy(() => import('./chapters/arctic_ice'));
 const Beirut = React.lazy(() => import('./chapters/beirut'));
@@ -37,6 +38,10 @@ const Main = () => {
 			{/* Chapter 3 */}
 			<Suspense fallback={<ChapterSpinner />}>
 				<Locusts />
+			</Suspense>
+			{/* Chapter 3 */}
+			<Suspense fallback={<ChapterSpinner />}>
+				<CovidItaly />
 			</Suspense>
 			{/* Chapter 4 */}
 			<Suspense fallback={<ChapterSpinner />}>
