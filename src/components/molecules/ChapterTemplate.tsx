@@ -1,5 +1,5 @@
-import React, { useState, useContext, useMemo } from 'react';
-import type { ReactElement, Component, FunctionComponent } from 'react';
+import React, { useState, useContext, useMemo, useEffect } from 'react';
+import type { ReactElement, Component } from 'react';
 import styled from 'styled-components';
 import TrackVisibility from 'react-visibility-sensor';
 import { Context } from '../../context';
@@ -53,7 +53,12 @@ const Chapter = ({
 	const [currentPage, setCurrentPage] = useState(0);
 	const [mapLoading, setMapLoading] = useState(true);
 	const { dispatch } = useContext(Context);
-	const CustomMap: FunctionComponent<MapProps> = customMap || null;
+
+	const pageRefs = {};
+
+	// useEffect(() => {
+	// 	console.log('pageRefs', pageRefs);
+	// }, []);
 
 	return useMemo(
 		() => (
@@ -66,7 +71,10 @@ const Chapter = ({
 				<SideCar floating={metadata.fullWidthMap}>
 					{pages.map((page, index) => {
 						return (
-							<Page key={`${metadata.name}-page-${index}`}>
+							<Page
+								ref={(ref) => (pageRefs[index] = ref)}
+								key={`${metadata.name}-page-${index}`}
+							>
 								<PageContent
 									theme={metadata.theme}
 									floating={metadata.fullWidthMap}
@@ -110,6 +118,7 @@ const Chapter = ({
 									customDOM={customDOM}
 									metadata={metadata}
 									sources={sources}
+									pageRefs={pageRefs}
 								/>
 							)}
 						</MapContainer>

@@ -15,6 +15,7 @@ const Map: FunctionComponent<MapProps> = ({
 	sources,
 	customFeatures,
 	customDOM,
+	pageRefs,
 	mapState: { basemap, layers, position, customBehavior },
 }: MapProps) => {
 	const element = useRef(null);
@@ -83,8 +84,9 @@ const Map: FunctionComponent<MapProps> = ({
 			setMapLoading(false);
 		});
 
+		console.log('pageRefs', pageRefs);
 		// apply any custom features that persist through entire map life if they exist
-		customFeatures && customFeatures({ map, view, layers });
+		customFeatures && customFeatures({ map, view, layers, pageRefs });
 	}, []);
 
 	// layer change - add and remove layers

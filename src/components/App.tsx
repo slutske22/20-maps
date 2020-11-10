@@ -22,7 +22,7 @@ const App = () => {
 	const [state, dispatch] = useReducer(navReducer, initialState);
 	return (
 		<Context.Provider value={{ state, dispatch }}>
-			<Wrapper>
+			<Wrapper className="App">
 				<GlobalStyles />
 				<Nav />
 				<Main />

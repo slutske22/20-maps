@@ -40,9 +40,10 @@ export type MetaData = {
 };
 
 export type CustomFeaturesArgs = {
-	layers: Layer[];
+	layers?: Layer[];
 	map: EsriMap;
 	view: ViewType;
+	pageRefs?: { [key: string]: HTMLElement };
 };
 
 export type ModelSchema = {
@@ -64,10 +65,7 @@ export type MapProps = {
 		url: string;
 	}[];
 	mapState: MapState;
-	customFeatures?: (arg: {
-		map: EsriMap;
-		view: ViewType;
-		layers?: Layer[];
-	}) => any;
+	customFeatures?: (arg: CustomFeaturesArgs) => any;
 	customDOM?: HTMLElement | ReactElement | Component;
+	pageRefs: { [key: string]: HTMLElement };
 };
