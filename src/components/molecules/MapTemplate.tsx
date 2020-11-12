@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
-import ReactDOMServer from 'react-dom/server';
 import type { FunctionComponent } from 'react';
+import ReactDOMServer from 'react-dom/server';
+
 import EsriMap from 'esri/Map';
 import MapView from 'esri/views/MapView';
 import SceneView from 'esri/views/SceneView';
 import Expand from 'esri/widgets/Expand';
 import * as watchUtils from 'esri/core/watchUtils';
+
 import { MapProps } from '../../types';
 import { DataSources } from '../atoms';
 
@@ -107,7 +109,7 @@ const Map: FunctionComponent<MapProps> = ({
 
 	// view change - set center and zoom if different
 	useEffect(() => {
-		if (mapRef) {
+		if (mapRef && position) {
 			mapRef.view.goTo(
 				{
 					target: position.center,

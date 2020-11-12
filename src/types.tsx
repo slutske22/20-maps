@@ -15,7 +15,7 @@ export type EsriMapRefTypes = {
 };
 
 export type MapState = {
-	position: {
+	position?: {
 		center?: number[];
 		zoom?: number;
 		extent?: Extent;
