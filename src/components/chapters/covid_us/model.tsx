@@ -85,27 +85,7 @@ const model: ModelSchema = {
 
 		const layers = [totCases, Deaths, Cases100k, totCases, Deaths];
 
-		// const swipes = Object.keys(pageRefs).map(
-		// 	(page, index) =>
-		// 		new Swipe({
-		// 			view: view,
-		// 			disabled: true,
-		// 			position: 100,
-		// 			direction: 'vertical',
-		// 			trailingLayers: [layers[index]],
-		// 			visibleElements: {
-		// 				handle: false,
-		// 				divider: true,
-		// 			},
-		// 		})
-		// );
-
-		// swipes.forEach((swipe) => {
-		// 	view.ui.add(swipe);
-		// });
-
 		const existingSwipe = view.ui.find('swipe');
-		console.log('existingSwipe', existingSwipe);
 
 		const swipe =
 			existingSwipe ||
@@ -122,14 +102,11 @@ const model: ModelSchema = {
 				},
 			});
 
-		// console.log('view.ui', view.ui);
-
 		if (!existingSwipe) {
 			view.ui.add(swipe);
 		}
 
 		const scrollListener = () => {
-			// console.log('scrolling', 'currentPage', currentPage);
 			if (currentPage > 0) {
 				const page = pageRefs[currentPage];
 				const { top } = page.getBoundingClientRect();
@@ -138,8 +115,6 @@ const model: ModelSchema = {
 
 				if (top < 0 || position < 0) {
 				} else {
-					// console.log(`page ${currentPage} percent:`, `${percent}%`);
-					// swipes[currentPage].position = clamp(percent, 0, 100);
 					swipe.position = clamp(percent, 0, 100);
 					swipe.leadingLayers = [layers[currentPage - 1]];
 					swipe.trailingLayers = [layers[currentPage]];
