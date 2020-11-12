@@ -44,6 +44,7 @@ export type CustomFeaturesArgs = {
 	map: EsriMap;
 	view: ViewType;
 	pageRefs?: { [key: string]: HTMLElement };
+	currentPage?: number;
 };
 
 export type ModelSchema = {
@@ -54,6 +55,7 @@ export type ModelSchema = {
 	}[];
 	pages: PageTypes[];
 	customFeatures?: any;
+	customFeaturesPerPage?: any;
 	customDOM?: HTMLElement | ReactElement | Component;
 };
 
@@ -66,6 +68,8 @@ export type MapProps = {
 	}[];
 	mapState: MapState;
 	customFeatures?: (arg: CustomFeaturesArgs) => any;
+	customFeaturesPerPage?: (arg: CustomFeaturesArgs) => any;
 	customDOM?: HTMLElement | ReactElement | Component;
 	pageRefs: { [key: string]: HTMLElement };
+	currentPage: number;
 };

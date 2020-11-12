@@ -8,6 +8,7 @@ const CovidGlobal = React.lazy(() => import('./chapters/covid_global'));
 const WildfiresAus = React.lazy(() => import('./chapters/wildfires_aus'));
 const Locusts = React.lazy(() => import('./chapters/locusts'));
 const CovidItaly = React.lazy(() => import('./chapters/covid_italy'));
+const CovidUS = React.lazy(() => import('./chapters/covid_us'));
 const ProtestsUS = React.lazy(() => import('./chapters/protests_us'));
 const ArcticIce = React.lazy(() => import('./chapters/arctic_ice'));
 const Beirut = React.lazy(() => import('./chapters/beirut'));
@@ -27,6 +28,10 @@ const Main = () => {
 		<Wrapper>
 			<Header />
 			<Intro />
+			{/* Chapter 1 */}
+			<Suspense fallback={<ChapterSpinner />}>
+				<CovidUS />
+			</Suspense>
 			{/* Chapter 1 */}
 			<Suspense fallback={<ChapterSpinner />}>
 				<CovidGlobal />

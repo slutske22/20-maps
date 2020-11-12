@@ -42,12 +42,6 @@ const model: ModelSchema = {
 		},
 	],
 	customFeatures: (args) => {
-		const app = document.querySelector('.App');
-		console.log('app', app);
-		app.addEventListener('scroll', () => {
-			console.log('scrolling');
-		});
-
 		const { view } = args;
 
 		const legend = new Legend({

@@ -42,23 +42,26 @@ type ChapterProps = {
 		sources: { name: string; url: string }[];
 		pages: PageTypes[];
 		customFeatures?: () => void;
+		customFeaturesPerPage?: () => any;
 		customDOM?: HTMLElement | ReactElement | Component;
 	};
 };
 
 const Chapter = ({
 	customMap,
-	data: { metadata, sources, customFeatures, customDOM, pages },
+	data: {
+		metadata,
+		sources,
+		customFeatures,
+		customFeaturesPerPage,
+		customDOM,
+		pages,
+	},
 }: ChapterProps) => {
 	const [currentPage, setCurrentPage] = useState(0);
 	const [mapLoading, setMapLoading] = useState(true);
 	const { dispatch } = useContext(Context);
-
 	const pageRefs = {};
-
-	// useEffect(() => {
-	// 	console.log('pageRefs', pageRefs);
-	// }, []);
 
 	return useMemo(
 		() => (
@@ -115,10 +118,12 @@ const Chapter = ({
 									setMapLoading={setMapLoading}
 									mapState={pages[currentPage].mapState}
 									customFeatures={customFeatures}
+									customFeaturesPerPage={customFeaturesPerPage}
 									customDOM={customDOM}
 									metadata={metadata}
 									sources={sources}
 									pageRefs={pageRefs}
+									currentPage={currentPage}
 								/>
 							)}
 						</MapContainer>

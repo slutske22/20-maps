@@ -14,8 +14,10 @@ const Map: FunctionComponent<MapProps> = ({
 	metadata,
 	sources,
 	customFeatures,
+	customFeaturesPerPage,
 	customDOM,
 	pageRefs,
+	currentPage,
 	mapState: { basemap, layers, position, customBehavior },
 }: MapProps) => {
 	const element = useRef(null);
@@ -84,9 +86,9 @@ const Map: FunctionComponent<MapProps> = ({
 			setMapLoading(false);
 		});
 
-		console.log('pageRefs', pageRefs);
 		// apply any custom features that persist through entire map life if they exist
-		customFeatures && customFeatures({ map, view, layers, pageRefs });
+		// should only run on mount
+		customFeatures && customFeatures({ map, view, layers });
 	}, []);
 
 	// layer change - add and remove layers
@@ -131,6 +133,24 @@ const Map: FunctionComponent<MapProps> = ({
 			}
 		}
 	}, [customBehavior, mapRef]);
+
+	// rare case: apply customFeaturesPerPage if it exists
+	useEffect(() => {
+		if (mapRef && customFeaturesPerPage) {
+			const { view, map } = mapRef;
+			let cleanup = customFeaturesPerPage({
+				map,
+				view,
+				layers,
+				pageRefs,
+				currentPage,
+			});
+
+			if (cleanup) {
+				return cleanup;
+			}
+		}
+	}, [mapRef, currentPage, customFeaturesPerPage]);
 
 	return (
 		<>
