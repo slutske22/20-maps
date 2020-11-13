@@ -142,6 +142,8 @@ const model: ModelSchema = {
 			}
 			if (currentPage !== 0 && currentPage !== 1) {
 				layers[0].opacity = 0;
+			} else {
+				layers[0].opacity = 1;
 			}
 		}
 
