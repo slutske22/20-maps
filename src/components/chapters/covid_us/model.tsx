@@ -40,6 +40,10 @@ const model: ModelSchema = {
 			mapState: {
 				basemap: 'gray-vector',
 				layers: [totCases, Deaths],
+				position: {
+					center: [-100, 38],
+					zoom: 4,
+				},
 			},
 		},
 		{
@@ -48,6 +52,10 @@ const model: ModelSchema = {
 			mapState: {
 				basemap: 'gray-vector',
 				layers: [Deaths, Cases100k],
+				position: {
+					center: [-100, 38],
+					zoom: 4,
+				},
 			},
 		},
 		{
@@ -56,6 +64,10 @@ const model: ModelSchema = {
 			mapState: {
 				basemap: 'gray-vector',
 				layers: [Cases100k, totCases],
+				position: {
+					center: [-100, 38],
+					zoom: 4,
+				},
 			},
 		},
 		{
@@ -64,6 +76,10 @@ const model: ModelSchema = {
 			mapState: {
 				basemap: 'gray-vector',
 				layers: [totCases, Deaths],
+				position: {
+					center: [-100, 38],
+					zoom: 4,
+				},
 			},
 		},
 	],
