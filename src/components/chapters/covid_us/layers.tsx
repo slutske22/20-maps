@@ -28,3 +28,15 @@ export const Cases100k = new FeatureLayer({
 	// @ts-ignore
 	renderer: renderers.Case100K(),
 });
+
+export const socialDistancingScore = new FeatureLayer({
+	url:
+		'https://services.arcgis.com/DO4gTjwJVIJ7O9Ca/arcgis/rest/services/Unacast_Latest_Available__Visitation_and_Distance_/FeatureServer',
+	outFields: ['*'],
+});
+
+export const unemployment = new FeatureLayer({
+	url:
+		'https://services.arcgis.com/P3ePLMYs2RVChkJx/ArcGIS/rest/services/BLS_Monthly_Unemployment_Current_14_Months/FeatureServer/2',
+	outFields: ['*'],
+});

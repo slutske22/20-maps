@@ -1,5 +1,11 @@
 import React from 'react';
-import { totCases, Deaths, Cases100k } from './layers';
+import {
+	totCases,
+	Deaths,
+	Cases100k,
+	socialDistancingScore,
+	unemployment,
+} from './layers';
 import * as renderers from './renderers';
 import Legend from 'esri/widgets/Legend';
 import Swipe from 'esri/widgets/Swipe';
@@ -7,6 +13,14 @@ import classBreaks from 'esri/smartMapping/statistics/classBreaks';
 import { RefLink } from '../../atoms';
 import { clamp } from '../../../utils/utils';
 import { ModelSchema } from '../../../types';
+
+const layers = [
+	totCases,
+	Deaths,
+	Cases100k,
+	socialDistancingScore,
+	unemployment,
+];
 
 const model: ModelSchema = {
 	metadata: {
@@ -27,7 +41,7 @@ const model: ModelSchema = {
 			content: <>Some content in here</>,
 			mapState: {
 				basemap: 'gray-vector',
-				layers: [totCases],
+				layers,
 				position: {
 					center: [-100, 38],
 					zoom: 4,
@@ -39,7 +53,7 @@ const model: ModelSchema = {
 			content: <>Some content in here</>,
 			mapState: {
 				basemap: 'gray-vector',
-				layers: [totCases, Deaths],
+				layers,
 				position: {
 					center: [-100, 38],
 					zoom: 4,
@@ -51,7 +65,7 @@ const model: ModelSchema = {
 			content: <>Some content in here</>,
 			mapState: {
 				basemap: 'gray-vector',
-				layers: [Deaths, Cases100k],
+				layers,
 				position: {
 					center: [-100, 38],
 					zoom: 4,
@@ -63,7 +77,7 @@ const model: ModelSchema = {
 			content: <>Some content in here</>,
 			mapState: {
 				basemap: 'gray-vector',
-				layers: [Cases100k, totCases],
+				layers,
 				position: {
 					center: [-100, 38],
 					zoom: 4,
@@ -75,7 +89,7 @@ const model: ModelSchema = {
 			content: <>Some content in here</>,
 			mapState: {
 				basemap: 'gray-vector',
-				layers: [totCases, Deaths],
+				layers,
 				position: {
 					center: [-100, 38],
 					zoom: 4,
@@ -99,8 +113,6 @@ const model: ModelSchema = {
 		// add event listener to scrolling main to control swipes
 		const app = document.querySelector('.App');
 
-		const layers = [totCases, Deaths, Cases100k, totCases, Deaths];
-
 		const existingSwipe = view.ui.find('swipe');
 
 		const swipe =
@@ -121,6 +133,24 @@ const model: ModelSchema = {
 		if (!existingSwipe) {
 			view.ui.add(swipe);
 		}
+
+		for (let i = 1; i < layers.length; i++) {
+			if (i === currentPage || i === currentPage - 1) {
+				layers[i].opacity = 1;
+			} else {
+				layers[i].opacity = 0;
+			}
+			if (currentPage !== 0 && currentPage !== 1) {
+				layers[0].opacity = 0;
+			}
+		}
+
+		console.log(
+			'currentPage',
+			currentPage,
+			'layers opacity',
+			layers.map((l) => l.opacity)
+		);
 
 		const scrollListener = () => {
 			if (currentPage > 0) {
