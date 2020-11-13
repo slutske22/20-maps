@@ -35,6 +35,15 @@ const Wrapper = styled.section<WrapperProps>`
 	scroll-snap-align: start;
 `;
 
+const Trigger = styled.div`
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 3px;
+	width: 3px;
+	pointer-events: none;
+`;
+
 type ChapterProps = {
 	customMap?: React.FunctionComponent;
 	data: {
@@ -70,7 +79,6 @@ const Chapter = ({
 				id={metadata.name}
 				screensTall={pages.length > 1 ? pages.length : 1}
 			>
-				{/* {console.log(`rendering ${metadata.name} chapter template`)} */}
 				<SideCar floating={metadata.fullWidthMap}>
 					{pages.map((page, index) => {
 						return (
@@ -83,25 +91,26 @@ const Chapter = ({
 									theme={metadata.theme}
 									floating={metadata.fullWidthMap}
 								>
-									<TrackVisibility
-										onChange={(isVisible) => {
-											if (isVisible) {
-												dispatch({
-													type: 'SET_NAV',
-													payload: metadata.name,
-												});
-												setCurrentPage(index);
-											}
-										}}
-									>
-										{({ isVisible }) => {
-											return <PageTitle>{page.title}</PageTitle>;
-										}}
-									</TrackVisibility>
+									<PageTitle>{page.title}</PageTitle>
 									<PageText floating={metadata.fullWidthMap}>
 										{page.content}
 									</PageText>
 								</PageContent>
+								<TrackVisibility
+									onChange={(isVisible) => {
+										if (isVisible) {
+											dispatch({
+												type: 'SET_NAV',
+												payload: metadata.name,
+											});
+											setCurrentPage(index);
+										}
+									}}
+								>
+									{({ isVisible }) => {
+										return <Trigger />;
+									}}
+								</TrackVisibility>
 							</Page>
 						);
 					})}
