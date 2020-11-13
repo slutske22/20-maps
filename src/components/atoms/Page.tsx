@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+type PageProps = {
+	floating: boolean;
+	padding?: string;
+	margin?: string;
+};
+
 type PageContentProps = {
 	floating: boolean;
 	theme: string;
@@ -8,20 +14,20 @@ type PageContentProps = {
 	margin?: string;
 };
 
-export const Page = styled.div`
+export const Page = styled.div<PageProps>`
 	position: relative;
 	width: 100%;
 	height: 100vh;
 	min-height: 500px;
 	max-height: 1200px;
+	padding: ${(props) =>
+		props.padding ? props.padding : props.floating ? '15px' : ''};
 	// border: 2px solid yellow;
 `;
 
 export const PageContent = styled.div<PageContentProps>`
 	padding: ${(props) =>
 		props.padding ? props.padding : props.floating ? '1.5em' : '2em'};
-	margin: ${(props) =>
-		props.margin ? props.margin : props.floating ? '15px' : ''};
 	height: ${(props) => (props.floating ? '' : '100%')};
 	width: ${(props) => props.width || ''};
 	background-color: ${(props) =>

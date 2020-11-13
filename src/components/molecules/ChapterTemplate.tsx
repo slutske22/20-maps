@@ -75,6 +75,7 @@ const Chapter = ({
 					{pages.map((page, index) => {
 						return (
 							<Page
+								floating={metadata.fullWidthMap}
 								ref={(ref) => (pageRefs[index] = ref)}
 								key={`${metadata.name}-page-${index}`}
 							>
