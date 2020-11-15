@@ -22,7 +22,8 @@ export const Page = styled.div<PageProps>`
 	max-height: 1200px;
 	padding: ${(props) =>
 		props.padding ? props.padding : props.floating ? '15px' : ''};
-	// border: 2px solid yellow;
+	scroll-snap-stop: always;
+	scroll-snap-align: start;
 `;
 
 export const PageContent = styled.div<PageContentProps>`

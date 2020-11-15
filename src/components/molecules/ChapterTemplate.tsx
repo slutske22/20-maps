@@ -31,8 +31,8 @@ const Wrapper = styled.section<WrapperProps>`
 	flex-direction: row;
 	background-color: ${(props) =>
 		props.maptheme === 'light' ? '' : '#242424'};
-	scroll-snap-stop: always;
-	scroll-snap-align: start;
+	/* scroll-snap-stop: always;
+	scroll-snap-align: start; */
 `;
 
 const Trigger = styled.div`

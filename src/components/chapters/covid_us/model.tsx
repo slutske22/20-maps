@@ -147,12 +147,39 @@ const model: ModelSchema = {
 			}
 		}
 
-		console.log(
-			'currentPage',
-			currentPage,
-			'layers opacity',
-			layers.map((l) => l.opacity)
-		);
+		// console.log(
+		// 	// 'currentPage',
+		// 	// currentPage,
+		// 	// 'layers opacity',
+		// 	// layers.map((l) => l.opacity)
+		// 	pageRefs[currentPage].childNodes[0]
+		// );
+
+		const existingLegend: HTMLElement = pageRefs[
+			currentPage
+		].childNodes[0].querySelector('.legend');
+
+		if (existingLegend) {
+			existingLegend.remove();
+		}
+
+		const legendDiv = document.createElement('div');
+		legendDiv.className = 'legend arcgis-map-light';
+		legendDiv.style.border = '1px solid grey';
+
+		const legend = new Legend({
+			id: `legend-${currentPage}`,
+			container: legendDiv,
+			view,
+			layerInfos: [
+				// @ts-ignore
+				{
+					layer: layers[currentPage],
+				},
+			],
+		});
+
+		pageRefs[currentPage].childNodes[0].appendChild(legendDiv);
 
 		const scrollListener = () => {
 			if (currentPage > 0) {

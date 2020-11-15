@@ -1,4 +1,3 @@
-import Chapter from './Chapter';
 import ChapterSpinner from './ChapterSpinner';
 import MapSpinner from './MapSpinner';
 import Container from './Container';
@@ -11,7 +10,6 @@ import RefLink from './RefLink';
 import DataSources from './DataSources';
 
 export {
-	Chapter,
 	ChapterSpinner,
 	MapSpinner,
 	Container,
