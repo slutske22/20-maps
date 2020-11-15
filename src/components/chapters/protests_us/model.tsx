@@ -155,7 +155,7 @@ export const model: ModelSchema = {
 			});
 		});
 	},
-	customDOM: CustomLegend,
+	customMapDOM: CustomLegend,
 	pages: [
 		{
 			title: 'United States Protests',

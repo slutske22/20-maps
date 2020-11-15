@@ -17,7 +17,7 @@ const Map: FunctionComponent<MapProps> = ({
 	sources,
 	customFeatures,
 	customFeaturesPerPage,
-	customDOM,
+	customMapDOM,
 	pageRefs,
 	currentPage,
 	mapState: { basemap, layers, position, customBehavior },
@@ -157,7 +157,7 @@ const Map: FunctionComponent<MapProps> = ({
 	return (
 		<>
 			<div className={`arcgis-map ${metadata.name}`} ref={element} />
-			{customDOM && customDOM}
+			{customMapDOM && customMapDOM}
 		</>
 	);
 };

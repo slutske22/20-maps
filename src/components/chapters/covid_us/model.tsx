@@ -12,6 +12,7 @@ import Swipe from 'esri/widgets/Swipe';
 import classBreaks from 'esri/smartMapping/statistics/classBreaks';
 import { RefLink } from '../../atoms';
 import { clamp } from '../../../utils/utils';
+import Slides from './Slides';
 import { ModelSchema } from '../../../types';
 
 const layers = [
@@ -38,7 +39,13 @@ const model: ModelSchema = {
 	pages: [
 		{
 			title: 'COVID19 in the US',
-			content: <>Some content in here</>,
+			content: (
+				<>
+					Coronavirus hit the United States hard, starting in New York and
+					Seattle, slowly working its way to every county in the country.
+					You can see the total cases per county in this map.
+				</>
+			),
 			mapState: {
 				basemap: 'gray-vector',
 				layers,
@@ -50,7 +57,7 @@ const model: ModelSchema = {
 		},
 		{
 			title: 'Total Deaths',
-			content: <>Some content in here</>,
+			content: <>Here we see the deaths per county.</>,
 			mapState: {
 				basemap: 'gray-vector',
 				layers,
@@ -62,7 +69,13 @@ const model: ModelSchema = {
 		},
 		{
 			title: 'Cases per 100K Popuplation',
-			content: <>Some content in here</>,
+			content: (
+				<>
+					Viewing the number of cases per 100 thousand population gives
+					insight into how counties were able to control COVID's spread
+					within their population.
+				</>
+			),
 			mapState: {
 				basemap: 'gray-vector',
 				layers,
@@ -74,7 +87,14 @@ const model: ModelSchema = {
 		},
 		{
 			title: 'Social Distancing Scores',
-			content: <>Some content in here</>,
+			content: (
+				<>
+					The biggest secondary effect from COVID has been the need to stay
+					away from one another to avoid spreading the virus. This map
+					shows how successful each county has been in their ability to
+					social distance.
+				</>
+			),
 			mapState: {
 				basemap: 'gray-vector',
 				layers,
@@ -86,7 +106,14 @@ const model: ModelSchema = {
 		},
 		{
 			title: 'Unemployment',
-			content: <>Some content in here</>,
+			content: (
+				<>
+					And with social distancing and forced shutdowns, unemployment has
+					been higher than its been in years. This map shows unemployment
+					over the last 14 months. Click on a county to see how
+					unemployment has evolved in that time period.
+				</>
+			),
 			mapState: {
 				basemap: 'gray-vector',
 				layers,
@@ -155,9 +182,14 @@ const model: ModelSchema = {
 		// 	pageRefs[currentPage].childNodes[0]
 		// );
 
-		const existingLegend: HTMLElement = pageRefs[
-			currentPage
-		].childNodes[0].querySelector('.legend');
+		// @ts-ignore
+		const cards: HTMLElement[] = document.querySelectorAll(
+			`#covid_us div[class^="Slides__Page"]`
+		);
+
+		const existingLegend: HTMLElement = cards[currentPage].querySelector(
+			'.legend'
+		);
 
 		if (existingLegend) {
 			existingLegend.remove();
@@ -165,7 +197,7 @@ const model: ModelSchema = {
 
 		const legendDiv = document.createElement('div');
 		legendDiv.className = 'legend arcgis-map-light';
-		legendDiv.style.border = '1px solid grey';
+		legendDiv.style.backgroundColor = 'white';
 
 		const legend = new Legend({
 			id: `legend-${currentPage}`,
@@ -179,7 +211,7 @@ const model: ModelSchema = {
 			],
 		});
 
-		pageRefs[currentPage].childNodes[0].appendChild(legendDiv);
+		cards[currentPage].appendChild(legendDiv);
 
 		const scrollListener = () => {
 			if (currentPage > 0) {
@@ -203,6 +235,7 @@ const model: ModelSchema = {
 			app.removeEventListener('scroll', scrollListener);
 		};
 	},
+	customChapterDOM: <Slides screens={layers.length} />,
 };
 
 export default model;

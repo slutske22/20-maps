@@ -56,7 +56,8 @@ export type ModelSchema = {
 	pages: PageTypes[];
 	customFeatures?: any;
 	customFeaturesPerPage?: any;
-	customDOM?: HTMLElement | ReactElement | Component;
+	customMapDOM?: HTMLElement | ReactElement | Component;
+	customChapterDOM?: HTMLElement | ReactElement | Component;
 };
 
 export type MapProps = {
@@ -69,7 +70,7 @@ export type MapProps = {
 	mapState: MapState;
 	customFeatures?: (arg: CustomFeaturesArgs) => any;
 	customFeaturesPerPage?: (arg: CustomFeaturesArgs) => any;
-	customDOM?: HTMLElement | ReactElement | Component;
+	customMapDOM?: HTMLElement | ReactElement | Component;
 	pageRefs: { [key: string]: HTMLElement };
 	currentPage: number;
 };

@@ -52,7 +52,8 @@ type ChapterProps = {
 		pages: PageTypes[];
 		customFeatures?: () => void;
 		customFeaturesPerPage?: () => any;
-		customDOM?: HTMLElement | ReactElement | Component;
+		customMapDOM?: HTMLElement | ReactElement | Component;
+		customChapterDOM?: HTMLElement | ReactElement | Component;
 	};
 };
 
@@ -63,7 +64,8 @@ const Chapter = ({
 		sources,
 		customFeatures,
 		customFeaturesPerPage,
-		customDOM,
+		customMapDOM,
+		customChapterDOM,
 		pages,
 	},
 }: ChapterProps) => {
@@ -129,7 +131,7 @@ const Chapter = ({
 									mapState={pages[currentPage].mapState}
 									customFeatures={customFeatures}
 									customFeaturesPerPage={customFeaturesPerPage}
-									customDOM={customDOM}
+									customMapDOM={customMapDOM}
 									metadata={metadata}
 									sources={sources}
 									pageRefs={pageRefs}
@@ -139,6 +141,7 @@ const Chapter = ({
 						</MapContainer>
 					)}
 				</TrackVisibility>
+				{customChapterDOM && customChapterDOM}
 			</Wrapper>
 		),
 		[currentPage]
