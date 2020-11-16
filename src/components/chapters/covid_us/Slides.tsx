@@ -29,7 +29,7 @@ interface SlidesProps {
 const Slides = ({ screens }: SlidesProps) => {
 	let pages = [];
 	for (let i = 0; i < screens; i++) {
-		pages.push(<Page />);
+		pages.push(<Page key={`SlidePage=${i}`} />);
 	}
 
 	return <Wrapper screens={screens}>{pages}</Wrapper>;

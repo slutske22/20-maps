@@ -101,7 +101,7 @@ const model: ModelSchema = {
 						</RefLink>
 						.
 					</p>
-					<p>Click a state for details.</p>
+					<p>Hover over a state for details.</p>
 				</>
 			),
 			mapState: {
@@ -116,11 +116,52 @@ const model: ModelSchema = {
 		},
 	],
 	customFeatures: ({ view }) => {
+		// add legend
 		const legend = new Legend({
 			view,
 		});
 
 		view.ui.add(legend, 'bottom-right');
+
+		// add hitTest for popup open on hover
+		view.whenLayerView(turnout).then(function (layerView) {
+			let highlight;
+			// listen for the pointer-move event on the View
+			view.on('pointer-move', function (event) {
+				// Perform a hitTest on the View
+				view.hitTest(event).then(function (event) {
+					// Make sure graphic has a popupTemplate
+					let results = event.results.filter(function (result) {
+						return result.graphic.layer.popupTemplate;
+					});
+					let result = results[0];
+
+               console.log('result', result);
+               console.log('view.popup.features', view.popup.features);
+
+					if (result) {
+						if (
+							!view.popup.features.length ||
+							(view.popup.features.length &&
+								view.popup.features[0].attributes.STATE_NAME !==
+									result.graphic.attributes.STATE_NAME)
+						) {
+							highlight && highlight.remove();
+							// Update the graphic of the Feature widget
+							// on pointer-move with the result
+							highlight = layerView.highlight(result.graphic);
+							view.popup.open({
+								features: [result.graphic],
+								location: result.graphic.geometry.centroid,
+							});
+						}
+					} else {
+						highlight && highlight.remove();
+						view.popup.close();
+					}
+				});
+			});
+		});
 	},
 };
 
