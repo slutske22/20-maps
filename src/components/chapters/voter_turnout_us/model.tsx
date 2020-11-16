@@ -60,8 +60,8 @@ const model: ModelSchema = {
 						>
 							Younger and first-time voters showed up in large numbers
 						</RefLink>
-						, contributing to the high voter turnout. Notable first time
-						voters include{' '}
+						, contributing to the high numbers. Notable first time voters
+						include{' '}
 						<RefLink
 							theme="light"
 							link="https://www.usatoday.com/story/entertainment/celebrities/2020/06/06/snoop-dogg-says-2020-elections-first-time-he-votes/3163823001/"
@@ -103,7 +103,7 @@ const model: ModelSchema = {
 						.
 					</p>
 					<p>Hover over a state for details.</p>
-               <div id="voter-turnout-info-div"></div>
+					<div id="voter-turnout-info-div"></div>
 				</>
 			),
 			mapState: {
@@ -125,15 +125,15 @@ const model: ModelSchema = {
 
 		view.ui.add(legend, 'bottom-right');
 
-      const infoDiv = document.getElementById('voter-turnout-info-div')
-      const feature = new Feature({
-         container: 'voter-turnout-info-div',
-         graphic: {
-            popupTemplate
-         },
-         map,
-         spatialReference: view.spatialReference
-      });
+		const infoDiv = document.getElementById('voter-turnout-info-div');
+		const feature = new Feature({
+			container: 'voter-turnout-info-div',
+			graphic: {
+				popupTemplate,
+			},
+			map,
+			spatialReference: view.spatialReference,
+		});
 
 		// add hitTest for popup open on hover
 		view.whenLayerView(turnout).then(function (layerView) {
@@ -148,9 +148,6 @@ const model: ModelSchema = {
 					});
 					let result = results[0];
 
-               console.log('result', result);
-               console.log('view.popup.features', view.popup.features);
-
 					if (result) {
 						if (
 							!view.popup.features.length ||
@@ -162,18 +159,12 @@ const model: ModelSchema = {
 							// Update the graphic of the Feature widget
 							// on pointer-move with the result
 							highlight = layerView.highlight(result.graphic);
-							// view.popup.open({
-							// 	features: [result.graphic],
-							// 	location: result.graphic.geometry.centroid,
-							// });
-                     infoDiv.style.display = 'block'
-                     feature.graphic = result.graphic;
+
+							infoDiv.style.display = 'block';
+							feature.graphic = result.graphic;
 						}
 					} else {
 						highlight && highlight.remove();
-						// view.popup.close();
-                  // feature.graphic = null;
-                  // infoDiv.style.display = 'none'
 					}
 				});
 			});

@@ -1,6 +1,6 @@
 import FeatureLayer from 'esri/layers/FeatureLayer';
 import * as renderers from './renderers';
-import popupTemplate from './popupTemplates';
+import popupTemplate, { unemploymentPopup } from './popupTemplates';
 
 export const totCases = new FeatureLayer({
 	url:
@@ -39,4 +39,6 @@ export const unemployment = new FeatureLayer({
 	url:
 		'https://services.arcgis.com/P3ePLMYs2RVChkJx/ArcGIS/rest/services/BLS_Monthly_Unemployment_Current_14_Months/FeatureServer/2',
 	outFields: ['*'],
+	// @ts-ignore
+	popupTemplate: unemploymentPopup,
 });

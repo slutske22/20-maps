@@ -1,3 +1,39 @@
+import LineChartMediaInfo from 'esri/popup/content/LineChartMediaInfo';
+import ChartMediaInfoValue from 'esri/popup/content/support/ChartMediaInfoValue';
+import MediaContent from 'esri/popup/content/MediaContent';
+
+let lineChartValue = new ChartMediaInfoValue({
+	fields: [
+		'PctUnemployed_CurrentMonth',
+		'PctUnemployed_01Month',
+		'PctUnemployed_02Month',
+		'PctUnemployed_03Month',
+		'PctUnemployed_04Month',
+		'PctUnemployed_05Month',
+		'PctUnemployed_06Month',
+		'PctUnemployed_07Month',
+		'PctUnemployed_08Month',
+		'PctUnemployed_09Month',
+		'PctUnemployed_10Month',
+		'PctUnemployed_11Month',
+		'PctUnemployed_12Month',
+		'PctUnemployed_13Month',
+	],
+	normalizeField: null,
+	// tooltipField: '<field name>',
+});
+
+let lineChart = new LineChartMediaInfo({
+	title: '<b>Count by type</b>',
+	caption: 'Per block',
+	value: lineChartValue,
+});
+
+// Create the MediaContent
+let mediaElement = new MediaContent({
+	mediaInfos: [lineChart],
+});
+
 const popupTemplate = {
 	title: '{Cty_NAME}, {ST_ABBREV}',
 	content: `
@@ -52,6 +88,40 @@ const popupTemplate = {
 				digitSeparator: true,
 				places: 0,
 			},
+		},
+	],
+};
+
+export const unemploymentPopup = {
+	content: [
+		{
+			type: 'media',
+			mediaInfos: [
+				{
+					title: 'Unemployment',
+					type: 'line-chart',
+					value: {
+						fields: [
+							'PctUnemployed_CurrentMonth',
+							'PctUnemployed_01Month',
+							'PctUnemployed_02Month',
+							'PctUnemployed_03Month',
+							'PctUnemployed_04Month',
+							'PctUnemployed_05Month',
+							'PctUnemployed_06Month',
+							'PctUnemployed_07Month',
+							'PctUnemployed_08Month',
+							'PctUnemployed_09Month',
+							'PctUnemployed_10Month',
+							'PctUnemployed_11Month',
+							'PctUnemployed_12Month',
+							'PctUnemployed_13Month',
+						],
+						normalizeField: null,
+						// tooltipField: '<field name>',
+					},
+				},
+			],
 		},
 	],
 };

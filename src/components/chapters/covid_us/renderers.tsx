@@ -36,7 +36,7 @@ export const totCases = (minValue = 0, maxValue = 1000000) => ({
 				},
 				{
 					value: maxValue,
-					color: '#002624',
+					color: '#3d2323',
 					label: maxValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','), // format number with commas
 				},
 			],
@@ -44,7 +44,7 @@ export const totCases = (minValue = 0, maxValue = 1000000) => ({
 	],
 });
 
-export const Case100K = (minValue = 0, maxValue = 1000000) => ({
+export const Case100K = (minValue = 0, maxValue = 10000) => ({
 	type: 'simple',
 	symbol: defaultSymbol,
 	label: 'US County',
@@ -62,9 +62,9 @@ export const Case100K = (minValue = 0, maxValue = 1000000) => ({
 					label: '0',
 				},
 				{
-					value: 1000,
+					value: 1500,
 					color: '#436480',
-					label: '1,000',
+					label: '1,500',
 				},
 				{
 					value: maxValue,
@@ -79,7 +79,7 @@ export const Case100K = (minValue = 0, maxValue = 1000000) => ({
 	],
 });
 
-export const Deaths = (minValue = 0, maxValue = 100) => ({
+export const Deaths = (minValue = 0, maxValue = 5000) => ({
 	type: 'simple',
 	symbol: defaultSymbol,
 	label: 'US County',
@@ -98,12 +98,12 @@ export const Deaths = (minValue = 0, maxValue = 100) => ({
 				},
 				{
 					value: 1000,
-					color: '#a6004e',
+					color: '#990b0b',
 					label: '1,000',
 				},
 				{
 					value: maxValue,
-					color: '#990b0b',
+					color: '#570303',
 					label: maxValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','), // format number with commas
 				},
 			],
