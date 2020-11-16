@@ -84,7 +84,7 @@ const Map: FunctionComponent<MapProps> = ({
 
 		// watch the view to see if its currently updating, set loading icon appropriately
 		// note this only happens once per page load, not once per component load...not sure why
-		watchUtils.whenNotOnce(view, 'updating', () => {
+		watchUtils.whenFalseOnce(view, 'updating', () => {
 			setMapLoading(false);
 		});
 
@@ -136,7 +136,8 @@ const Map: FunctionComponent<MapProps> = ({
 		}
 	}, [customBehavior, mapRef]);
 
-	// rare case: apply customFeaturesPerPage if it exists
+	// rare case: apply customFeaturesPerPage if it exists, which is like customFeatures
+	// except that it runs each time currentPage updates
 	useEffect(() => {
 		if (mapRef && customFeaturesPerPage) {
 			const { view, map } = mapRef;

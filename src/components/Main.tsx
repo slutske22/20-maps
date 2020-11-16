@@ -14,6 +14,7 @@ const ArcticIce = React.lazy(() => import('./chapters/arctic_ice'));
 const Beirut = React.lazy(() => import('./chapters/beirut'));
 const CovidPollution = React.lazy(() => import('./chapters/covid_pollution'));
 const Mars = React.lazy(() => import('./chapters/mars'));
+const VoterTurnout = React.lazy(() => import('./chapters/voter_turnout_us'));
 
 const Wrapper = styled.main`
 	height: 100%;
@@ -28,6 +29,10 @@ const Main = () => {
 		<Wrapper>
 			<Header />
 			<Intro />
+			{/* Chapter 1 */}
+			<Suspense fallback={<ChapterSpinner />}>
+				<VoterTurnout />
+			</Suspense>
 			{/* Chapter 1 */}
 			<Suspense fallback={<ChapterSpinner />}>
 				<CovidUS />

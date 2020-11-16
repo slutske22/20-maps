@@ -3,10 +3,13 @@ import styled from 'styled-components';
 import Tooltip from 'react-tooltip';
 import { BiLinkExternal } from 'react-icons/bi';
 
-const StyledToolTip = styled(Tooltip)`
+const StyledToolTip = styled(Tooltip)<{ theme: string }>`
 	padding: 2em;
 	max-width: 60vw;
-	box-shadow: 0px 0px 10px 5px #242424;
+	box-shadow: ${(props) =>
+		props.theme === 'light'
+			? '0px 0px 10px 5px rgba(220,220,220,0.5)'
+			: '0px 0px 10px 5px #242424'};
 `;
 
 type RefLinkProps = {
@@ -33,6 +36,7 @@ const RefLink = ({ children, linkTitle, link, theme }: RefLinkProps) => {
 				place="right"
 				wrapper="span"
 				type={theme === 'light' ? 'light' : 'dark'}
+				theme={theme}
 				border
 				borderColor="darkgrey"
 				effect="solid"
