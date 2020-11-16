@@ -4,6 +4,7 @@ import { RefLink } from '../../atoms';
 import FeatureLayer from 'esri/layers/FeatureLayer';
 import Basemap from 'esri/Basemap';
 import Legend from 'esri/widgets/Legend';
+import Feature from 'esri/widgets/Feature';
 import { turnoutRenderer } from './renderers';
 import popupTemplate from './popupTemplate';
 
@@ -102,6 +103,7 @@ const model: ModelSchema = {
 						.
 					</p>
 					<p>Hover over a state for details.</p>
+               <div id="voter-turnout-info-div"></div>
 				</>
 			),
 			mapState: {
@@ -115,13 +117,23 @@ const model: ModelSchema = {
 			},
 		},
 	],
-	customFeatures: ({ view }) => {
+	customFeatures: ({ view, map }) => {
 		// add legend
 		const legend = new Legend({
 			view,
 		});
 
 		view.ui.add(legend, 'bottom-right');
+
+      const infoDiv = document.getElementById('voter-turnout-info-div')
+      const feature = new Feature({
+         container: 'voter-turnout-info-div',
+         graphic: {
+            popupTemplate
+         },
+         map,
+         spatialReference: view.spatialReference
+      });
 
 		// add hitTest for popup open on hover
 		view.whenLayerView(turnout).then(function (layerView) {
@@ -150,14 +162,18 @@ const model: ModelSchema = {
 							// Update the graphic of the Feature widget
 							// on pointer-move with the result
 							highlight = layerView.highlight(result.graphic);
-							view.popup.open({
-								features: [result.graphic],
-								location: result.graphic.geometry.centroid,
-							});
+							// view.popup.open({
+							// 	features: [result.graphic],
+							// 	location: result.graphic.geometry.centroid,
+							// });
+                     infoDiv.style.display = 'block'
+                     feature.graphic = result.graphic;
 						}
 					} else {
 						highlight && highlight.remove();
-						view.popup.close();
+						// view.popup.close();
+                  // feature.graphic = null;
+                  // infoDiv.style.display = 'none'
 					}
 				});
 			});

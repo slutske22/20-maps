@@ -22,12 +22,6 @@ const popupTemplate = {
                <td>Total Ballots Cast</td>
                <td>{Total_Ballots_Counted__Estimate}</td>
             </tr>
-            <tr>
-               <td>
-               </td>
-               <td>
-               </td>
-            </tr>
          </table>
       </div>`,
 	fieldInfos: [

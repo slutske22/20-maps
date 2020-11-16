@@ -1,13 +1,34 @@
-.voter-turnout-popup {
+// ..voter-turnout-popup,
+#voter-turnout-info-div {
+
+   .esri-feature__title {
+      margin: 0;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+   }
+
+   display: none;
+   border: 1px solid lightgray;
+   padding: 1em;
 
    table {
-      min-width: 300px;
+      width: 100%;
+
+      tr:nth-child(2n){
+         background-color: lightgray;
+      }
+
+      td {
+         border-collapse: collapse;
+         border-spacing:0px;
+      }
    }
 
    h3 {
       margin-bottom: 1em;
-      font-size: 1.4em;
+      font-size: 1.4em !important;
       text-align: center;
+      color: darkblue
    }
 
 }
