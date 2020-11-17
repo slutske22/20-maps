@@ -119,6 +119,8 @@ const chapterlinks = [
 ];
 
 const Nav = () => {
+	const { dispatch } = useContext(Context);
+
 	const {
 		state: { activeNavLink },
 	} = useContext(Context);
@@ -126,12 +128,24 @@ const Nav = () => {
 	const scroll = (hash) => {
 		const app = document.querySelector('.App');
 		const hashDiv: HTMLElement = document.querySelector(`section#${hash}`);
-		app.scrollTop = hashDiv.offsetTop;
+		if (hash === 'home') {
+			app.scrollTop = 0;
+			dispatch({
+				type: 'SET_NAV',
+				payload: 'home',
+			});
+		} else {
+			app.scrollTop = hashDiv.offsetTop;
+		}
 	};
 
 	return (
 		<Wrapper>
-			<NavLinkHome active={activeNavLink === 'home'}>
+			<NavLinkHome
+				active={activeNavLink === 'home'}
+				href={`#home`}
+				onClick={() => scroll('home')}
+			>
 				<FaHome data-tip data-for={'nav-home'} />
 			</NavLinkHome>
 			<NavToolTip
