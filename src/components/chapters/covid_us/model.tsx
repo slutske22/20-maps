@@ -7,6 +7,11 @@ import {
 	unemployment,
 } from './layers';
 import * as renderers from './renderers';
+import {
+	covidPopup,
+	socialDistancingPopup,
+	unemploymentPopup,
+} from './popupTemplates';
 import Legend from 'esri/widgets/Legend';
 import Swipe from 'esri/widgets/Swipe';
 import classBreaks from 'esri/smartMapping/statistics/classBreaks';
@@ -21,6 +26,14 @@ const layers = [
 	Cases100k,
 	socialDistancingScore,
 	unemployment,
+];
+
+const popupTemplates = [
+	covidPopup,
+	covidPopup,
+	covidPopup,
+	socialDistancingPopup,
+	unemploymentPopup,
 ];
 
 const model: ModelSchema = {
@@ -92,7 +105,15 @@ const model: ModelSchema = {
 					The biggest secondary effect from COVID has been the need to stay
 					away from one another to avoid spreading the virus. This map
 					shows how successful each county has been in their ability to
-					social distance.
+					social distance. Unacast offers a{' '}
+					<RefLink
+						theme="light"
+						link="https://www.unacast.com/post/rounding-out-the-social-distancing-scoreboard"
+						linkTitle={`"Rounding out the Social Distancing Scoreboard", Ngo, M., Retrieved November 17, 2020`}
+					>
+						social distancing score
+					</RefLink>
+					, updated
 				</>
 			),
 			mapState: {
@@ -162,15 +183,29 @@ const model: ModelSchema = {
 		}
 
 		for (let i = 1; i < layers.length; i++) {
+			// set opacity for layer of current page or prev page to 1
+			// other layers to 0
 			if (i === currentPage || i === currentPage - 1) {
 				layers[i].opacity = 1;
 			} else {
 				layers[i].opacity = 0;
 			}
+			// cover case for first/second page
+			// if current page is not first or second, make invisible
 			if (currentPage !== 0 && currentPage !== 1) {
 				layers[0].opacity = 0;
 			} else {
 				layers[0].opacity = 1;
+			}
+		}
+
+		// set popup for current layer
+		for (let i = 0; i < layers.length; i++) {
+			if (i === currentPage) {
+				// @ts-ignore
+				layers[i].popupTemplate = popupTemplates[i];
+			} else {
+				layers[i].popupTemplate = null;
 			}
 		}
 

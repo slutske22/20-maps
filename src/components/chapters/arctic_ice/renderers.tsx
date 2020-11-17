@@ -25,3 +25,31 @@ export const summerIce = {
 		},
 	},
 };
+
+export const winterIce1979 = {
+	type: 'simple',
+	symbol: {
+		type: 'simple-fill',
+		color: [255, 255, 255, 0],
+		style: 'solid',
+		outline: {
+			// autocasts as new SimpleLineSymbol()
+			width: 1,
+			color: [37, 124, 163, 1],
+		},
+	},
+};
+
+export const summerIce1979 = {
+	type: 'simple',
+	symbol: {
+		type: 'simple-fill',
+		color: [194, 224, 249, 0],
+		style: 'solid',
+		outline: {
+			// autocasts as new SimpleLineSymbol()
+			width: 1,
+			color: [255, 255, 255, 1],
+		},
+	},
+};

@@ -77,6 +77,7 @@ const model: ModelSchema = {
 						>
 							Selena Gomez
 						</RefLink>
+						,{' '}
 						<RefLink
 							theme="light"
 							link="https://www.cnbc.com/2020/10/12/why-shaquille-oneal-voted-for-the-first-time.html"

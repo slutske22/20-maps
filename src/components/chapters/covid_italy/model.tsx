@@ -21,8 +21,13 @@ const model: ModelSchema = {
 	},
 	sources: [
 		{
-			name: '',
-			url: '',
+			name: 'COVID Map of Italy',
+			url:
+				'https://www.arcgis.com/home/item.html?id=9aae48881351444a8d25d65a667b8f20',
+		},
+		{
+			name: 'Jons Hopkins COVID Dashboard',
+			url: 'https://coronavirus.jhu.edu/map.html',
 		},
 	],
 	customFeatures: ({ view }) => {
@@ -78,8 +83,27 @@ const model: ModelSchema = {
 						</RefLink>{' '}
 						to come down with a serious case of Coronavirus. Before Italy,
 						most of the world outside of China did not yet consider
-						COVID19 a serious threat.
+						COVID19 a serious threat. We watched as Italy's{' '}
+						<RefLink
+							theme="dark"
+							link="https://www.advisory.com/daily-briefing/2020/03/19/italian-hospitals"
+							linkTitle={`"How coronavirus overwhelmed one of Italy's premier hospitals", advisory.com, March 19, 2020, Retrieved November 17, 2020`}
+						>
+							hospitals became overwhelmed
+						</RefLink>{' '}
+						with patients in March. New York City quickly{' '}
+						<RefLink
+							theme="dark"
+							link="https://www.newscientist.com/article/2239247-new-york-citys-coronavirus-outbreak-is-already-overwhelming-hospitals/"
+							linkTitle={`"New York City’s coronavirus outbreak is already overwhelming hospitals", Arnold C., NewScientist, March 31, 2020, Retrieved November 17, 2020`}
+						>
+							followed
+						</RefLink>
+						, along with the rest of the world. Although it originated in
+						China, it was Italy that led the rest of the world in the
+						plunge into the COVID pandemic.
 					</p>
+					<p>Click the map for regional Coronavirus details.</p>
 				</>
 			),
 			mapState: {
