@@ -65,18 +65,36 @@ const model: ModelSchema = {
 	pages: [
 		{
 			title: 'COVID in Italy',
-			content: <>Some content here</>,
+			content: (
+				<>
+					<p>
+						Italy was the{' '}
+						<RefLink
+							theme="dark"
+							link="https://www.unionleader.com/news/health/coronavirus-cases-surge-outside-china-italy-is-hardest-hit-in-europe/article_85f9684c-e80c-5923-9994-b4761d470c37.html"
+							linkTitle={`"Coronavirus cases surge outside China; Italy is hardest-hit in Europe", Crossley, G., New Hampshire Union Leader, February 24, 2020, Retrieved November 16, 2020`}
+						>
+							first western country
+						</RefLink>{' '}
+						to come down with a serious case of Coronavirus. Before Italy,
+						most of the world outside of China did not yet consider
+						COVID19 a serious threat.
+					</p>
+				</>
+			),
 			mapState: {
 				position: {
-					extent: new Extent({
-						xmax: 2401060.315701193,
-						xmin: 270607.4633373271,
-						ymax: 5998729.274054984,
-						ymin: 4323229.614044366,
-						spatialReference: {
-							wkid: 102100,
-						},
-					}),
+					// extent: new Extent({
+					// 	xmax: 2401060.315701193,
+					// 	xmin: 270607.4633373271,
+					// 	ymax: 5998729.274054984,
+					// 	ymin: 4323229.614044366,
+					// 	spatialReference: {
+					// 		wkid: 102100,
+					// 	},
+					// }),
+					center: [15, 42],
+					zoom: 6,
 				},
 				layers: [grayBase, bordersAndLabels, allLayers],
 			},

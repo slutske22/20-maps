@@ -123,6 +123,12 @@ const Nav = () => {
 		state: { activeNavLink },
 	} = useContext(Context);
 
+	const scroll = (hash) => {
+		const app = document.querySelector('.App');
+		const hashDiv: HTMLElement = document.querySelector(`section#${hash}`);
+		app.scrollTop = hashDiv.offsetTop;
+	};
+
 	return (
 		<Wrapper>
 			<NavLinkHome active={activeNavLink === 'home'}>
@@ -147,6 +153,8 @@ const Nav = () => {
 						data-tip
 						data-for={link.hash}
 						active={link.hash === activeNavLink}
+						href={`#${link.hash}`}
+						onClick={() => scroll(link.hash)}
 					/>
 					<NavToolTip
 						id={link.hash}
