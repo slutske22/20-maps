@@ -72,11 +72,20 @@ export const socialDistancingPopup = {
 export const unemploymentPopup = {
 	content: [
 		{
+			type: 'text',
+			text: `
+						<div>
+							<h2>{NAME}</h2>
+							<h3>BLS Unemployment Statistics, past 14 months<h3>
+						</div>
+					`,
+		},
+		{
 			type: 'media',
 			mediaInfos: [
 				{
-					title: 'Unemployment',
 					type: 'line-chart',
+					caption: '% of popuplation unemployed, last 14 months',
 					value: {
 						fields: [
 							'PctUnemployed_CurrentMonth',
@@ -95,7 +104,6 @@ export const unemploymentPopup = {
 							'PctUnemployed_13Month',
 						],
 						normalizeField: null,
-						// tooltipField: '<field name>',
 					},
 				},
 			],

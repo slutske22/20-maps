@@ -19,6 +19,7 @@ import { RefLink } from '../../atoms';
 import { clamp } from '../../../utils/utils';
 import Slides from './Slides';
 import { ModelSchema } from '../../../types';
+import './styles.scss';
 
 const layers = [
 	totCases,
