@@ -63,8 +63,8 @@ export const socialDistancingPopup = {
          <h3>Social Distancing Score: {grade_total}</h3>
          <p>Daily Distance Differential*: {daily_distance_diff}</p>
          <p>Daily Visitation Differential**: {daily_visitation_diff}</p>
-         <p>More information <a href="https://www.unacast.com/post/rounding-out-the-social-distancing-scoreboard" target="_blank" rel="noopener noreferrer">here</a>.
-         <sub>* Reduction in daily distance travel as compared to pre-COVID times</sub>
+         <p>More information <a href="https://www.unacast.com/post/rounding-out-the-social-distancing-scoreboard" target="_blank" rel="noopener noreferrer">here</a>.<br>
+         <sub>* Reduction in daily distance travel as compared to pre-COVID times</sub><br>
          <sub>** Reduction in visitation to non-essential venues as compared to pre-COVID times</sub>
       </div>`,
 };
