@@ -36,6 +36,12 @@ const SubTitle = styled.h2`
 	margin-top: 0;
 `;
 
+const TimeTitle = styled.h2`
+	font-weight: normal;
+	font-size: 1.3em;
+	margin-top: 0;
+`;
+
 const ByLine = styled.h3`
 	position: absolute;
 	font-style: italic;
@@ -53,6 +59,7 @@ const Header = () => (
 				Global Upheaval is Far More Palatable When you Choose a Pretty Color
 				Gradient
 			</SubTitle>
+			<TimeTitle>🕑 20 minute read</TimeTitle>
 		</TitleBlock>
 		<ByLine>
 			by Seth Lutske <br />

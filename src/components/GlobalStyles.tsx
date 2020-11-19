@@ -115,6 +115,10 @@ const GlobalStyles = createGlobalStyle`
       }
    }
 
+   .esri-popup__main-container {
+		max-height: 800px !important;
+	}
+
 
 `;
 
