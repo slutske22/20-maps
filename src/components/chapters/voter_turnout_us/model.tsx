@@ -10,7 +10,7 @@ import popupTemplate from './popupTemplate';
 
 const turnout = new FeatureLayer({
 	url:
-		'https://services3.arcgis.com/U26uBjSD32d7xvm2/arcgis/rest/services/2020_US_General_Election_Voter_Turnout/FeatureServer',
+		'https://services6.arcgis.com/VqchQRhgtql2vsmO/arcgis/rest/services/US_Voter_Turnout_General_Elections_2020/FeatureServer',
 	outFields: ['*'],
 	// @ts-ignore
 	renderer: turnoutRenderer,
