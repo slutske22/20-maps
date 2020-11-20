@@ -32,7 +32,7 @@ export const MISRImagery = new ImageryLayer({
 
 export const SC2Sept29 = new MapImageLayer({
 	url:
-		'maps.disasters.nasa.gov/ags04/rest/services/ca_fires_202008/sentinel2/MapServer/547',
+		'https://maps.disasters.nasa.gov/ags04/rest/services/ca_fires_202008/sentinel2/MapServer/547',
 	// sublayers: [
 	// 	{
 	// 		id: 976,
