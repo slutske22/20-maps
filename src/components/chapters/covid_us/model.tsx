@@ -48,6 +48,16 @@ const model: ModelSchema = {
 			url:
 				'https://www.arcgis.com/home/item.html?id=49c25e0ce50340e08fcfe51fe6f26d1e',
 		},
+		{
+			name: 'Unacast Social Distancing Score, Latest Available',
+			url:
+				'https://www.arcgis.com/home/item.html?id=ab72fb3e9bf24d9594f0b942718bffeb',
+		},
+		{
+			name: 'BLS Monthly Unemployment, Last 14 Months',
+			url:
+				'https://www.arcgis.com/home/item.html?id=993b8c64a67a4c6faa44a91846547786',
+		},
 	],
 	pages: [
 		{
