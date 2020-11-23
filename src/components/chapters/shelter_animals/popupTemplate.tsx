@@ -21,16 +21,23 @@ let mediaElement = new MediaContent({
 });
 
 export const popupTemplate = {
-	content: [
-		// {
-		// 	type: 'text',
-		// 	text: `
-		// 				<div>
-		// 					<h2>{STATE_NAME}</h2>
-		// 					<h3>Animal Intake Count<h3>
-		// 				</div>
-		// 			`,
-		// },
-		mediaElement,
+	content: [mediaElement],
+	fieldInfos: [
+		{
+			fieldName: 'F3_year_average_9_months',
+			label: '2017 - 2019 Average, Jan - October',
+			format: {
+				digitSeparator: true,
+				places: 0,
+			},
+		},
+		{
+			fieldName: 'F2020_Count',
+			label: '2020 Count, Jan - October',
+			format: {
+				digitSeparator: true,
+				places: 0,
+			},
+		},
 	],
 };
