@@ -25,3 +25,15 @@ With help from [this tutorial](https://www.youtube.com/watch?v=gTFZgLYegDY), I i
 The page is comprised of 20 `<Chapter />`s, each chapter repreenting one map. Each `Chapter` is built from the `ChapterTemplate`, which ingests a `model`, unique to each chapter. The `ChapterTemplate` transforms the `model` into an esri map, in the form of the `<MapTemplate />`. A chapter may have multiple `<Page />`s, each page with its own map state. `react-visibility-sensor` is used to determine which pages is in view, and triggers event handlers in the `MapTemplate` to modify the map's state based on the `mapState` object in that particular page. Each event handler has its own `useEffect` - for example, when the `layers` differ from one page to the next, a `useEffect` which depends on the `layers` array will alter the layers present on the map.  The same is true for the map's position (i.e. `center` and `zoom`, or `extent`).  
 
 Each map can be heavily customized using the `customFeatures` property of the `model`.  `customFeatures` takes as an argument an object containing the `view`, `map`, and `layers` of the map, and uses these properties to add widgets or modify layer renderers.  Each page may have its own custom behavior as well if it contains a `customBehavior` function, which works much like `customFeatures`, but is only active for a given page.  Each `customBehavior` function returns a cleanup function which tears down the custom behavior when the page scrolls out of view.  A `useEffect` in the `MapTemplate` checks for the existence of `customBehavior` on each page, and runs it if it exists.  It also saves the returned cleanup function in a state variable, and runs the cleanup function when needed.
+
+### Custom Built CSS
+
+In order to have multiple maps on the same webpage with different [themes](https://developers.arcgis.com/javascript/latest/guide/styling/), I used Esri's [JSAPI Styles](https://github.com/jcfranco/jsapi-styles) application to create custom builds of the ArcGIS JS API CSS.  Each `<Chapter />` has a `metadata.theme` prop, which is assigned the `className` of the outermost html wrapper element.  I wrapped each theme in a custom selector based on the wrapper elements theme:
+
+```scss
+.wrapper-selector-<theme> {
+  @import './somestyles.scss'
+}
+```
+
+The exact details are explained in the issue [Multiple maps on same page with different themes - wrap theme in custom selector](https://github.com/jcfranco/jsapi-styles/issues/10).
