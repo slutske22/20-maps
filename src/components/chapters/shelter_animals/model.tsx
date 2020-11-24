@@ -27,7 +27,7 @@ const model: ModelSchema = {
 	metadata: {
 		name: 'shelter_animals',
 		theme: 'light',
-		fullWidthMap: false,
+		fullWidthMap: true,
 	},
 	sources: [
 		{
