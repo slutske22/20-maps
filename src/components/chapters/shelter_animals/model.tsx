@@ -27,7 +27,7 @@ const model: ModelSchema = {
 	metadata: {
 		name: 'shelter_animals',
 		theme: 'light',
-		fullWidthMap: true,
+		fullWidthMap: false,
 	},
 	sources: [
 		{
@@ -42,7 +42,7 @@ const model: ModelSchema = {
 	],
 	pages: [
 		{
-			title: 'The Answer to Social Distancing: Pets',
+			title: 'Shelter Animals: The Answer to Social Distancing',
 			content: (
 				<>
 					<p>
@@ -62,7 +62,7 @@ const model: ModelSchema = {
 					<p>
 						This map shows the percentage reduction in intakes of shelter
 						pets in 2020 as compared with the average of the prior 3
-						years. Hover over a state for more details.
+						years. Click on a state for more details.
 					</p>
 					<div id="animal-count-info-div"></div>
 				</>
@@ -70,7 +70,7 @@ const model: ModelSchema = {
 			mapState: {
 				position: {
 					center: [-100, 38],
-					zoom: 3,
+					zoom: 2,
 				},
 				basemap,
 				layers: [animalCount],
@@ -127,8 +127,6 @@ const model: ModelSchema = {
 		// 			let result = event.results[0];
 
 		// 			console.log(event.results);
-
-		// 			// console.log(event.results);
 
 		// 			if (result) {
 		// 				if (

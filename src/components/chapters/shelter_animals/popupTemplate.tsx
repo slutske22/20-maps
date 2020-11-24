@@ -1,6 +1,7 @@
 import MediaContent from 'esri/popup/content/MediaContent';
 import ColumnChartMediaInfo from 'esri/popup/content/ColumnChartMediaInfo';
 import ChartMediaInfoValue from 'esri/popup/content/support/ChartMediaInfoValue';
+import './popupTemplate.scss';
 
 let barChartValue = new ChartMediaInfoValue({
 	fields: ['F3_year_average_9_months', 'F2020_Count'],
