@@ -1,27 +1,36 @@
 import MediaContent from 'esri/popup/content/MediaContent';
-import BarChartMediaInfo from 'esri/popup/content/BarChartMediaInfo';
+import ColumnChartMediaInfo from 'esri/popup/content/ColumnChartMediaInfo';
 import ChartMediaInfoValue from 'esri/popup/content/support/ChartMediaInfoValue';
 
 let barChartValue = new ChartMediaInfoValue({
 	fields: ['F3_year_average_9_months', 'F2020_Count'],
 	normalizeField: null,
-	tooltipField: '<field name>',
+	// tooltipField: '<field name>',
 });
 
 // Create the BarChartMediaInfo media type
-let barChart = new BarChartMediaInfo({
-	title: '<b>Animals</b>',
-	caption: 'Per block',
+let columnChart = new ColumnChartMediaInfo({
 	value: barChartValue,
 });
 
 // Create the Media Content Element
 let mediaElement = new MediaContent({
-	mediaInfos: [barChart],
+	mediaInfos: [columnChart],
 });
 
 export const popupTemplate = {
-	content: [mediaElement],
+	content: [
+		{
+			type: 'text',
+			text: `
+         <div>
+            <h2>{STATE_NAME}</h2>
+            <h3>Number of pets admitted to animal shelters in U.S.<h3>
+         </div>
+      `,
+		},
+		mediaElement,
+	],
 	fieldInfos: [
 		{
 			fieldName: 'F3_year_average_9_months',

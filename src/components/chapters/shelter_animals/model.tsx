@@ -27,7 +27,7 @@ const model: ModelSchema = {
 	metadata: {
 		name: 'shelter_animals',
 		theme: 'light',
-		fullWidthMap: false,
+		fullWidthMap: true,
 	},
 	sources: [
 		{
@@ -70,7 +70,7 @@ const model: ModelSchema = {
 			mapState: {
 				position: {
 					center: [-100, 38],
-					zoom: 2,
+					zoom: 3,
 				},
 				basemap,
 				layers: [animalCount],
@@ -78,6 +78,18 @@ const model: ModelSchema = {
 		},
 	],
 	customFeatures: ({ view, map }) => {
+		view.when(function () {
+			const { popup } = view;
+
+			popup.dockEnabled = true;
+
+			popup.set('dockOptions', {
+				breakpoint: false,
+				buttonEnabled: false,
+				position: 'bottom-left',
+			});
+		});
+
 		const legend = new Legend({
 			view,
 			layerInfos: [
@@ -91,28 +103,30 @@ const model: ModelSchema = {
 
 		view.ui.add(legend, 'bottom-right');
 
-		const infoDiv = document.getElementById('animal-count-info-div');
-		const feature = new Feature({
-			container: 'animal-count-info-div',
-			graphic: {
-				popupTemplate,
-			},
-			map,
-			spatialReference: view.spatialReference,
-		});
+		// const infoDiv = document.getElementById('animal-count-info-div');
+		// const feature = new Feature({
+		// 	container: 'animal-count-info-div',
+		// 	graphic: {
+		// 		popupTemplate,
+		// 	},
+		// 	map,
+		// 	spatialReference: view.spatialReference,
+		// });
 
 		// // add hitTest for popup open on hover
 		// view.whenLayerView(animalCount).then(function (layerView) {
 		// 	let highlight;
 		// 	// listen for the pointer-move event on the View
-		// 	view.on('pointer-move', function (event) {
+		// 	view.on('click', function (event) {
 		// 		// Perform a hitTest on the View
 		// 		view.hitTest(event).then(function (event) {
 		// 			// Make sure graphic has a popupTemplate
-		// 			let results = event.results.filter(function (result) {
-		// 				return result.graphic.layer.popupTemplate;
-		// 			});
-		// 			let result = results[0];
+		// 			// let results = event.results.filter(function (result) {
+		// 			// 	return result.graphic.layer.popupTemplate;
+		// 			// });
+		// 			let result = event.results[0];
+
+		// 			console.log(event.results);
 
 		// 			// console.log(event.results);
 
