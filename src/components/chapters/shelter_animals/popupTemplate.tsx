@@ -26,7 +26,8 @@ export const popupTemplate = {
 			text: `
          <div>
             <h2>{STATE_NAME}</h2>
-            <h3>Number of pets admitted to animal shelters in U.S.<h3>
+				<h3>Number of pets admitted to animal shelters in U.S.<h3>
+				<p>Intake numbers from January through September</p>
          </div>
       `,
 		},
@@ -35,7 +36,7 @@ export const popupTemplate = {
 	fieldInfos: [
 		{
 			fieldName: 'F3_year_average_9_months',
-			label: '2017 - 2019 Average, Jan - October',
+			label: '2017-2019 Average',
 			format: {
 				digitSeparator: true,
 				places: 0,
@@ -43,7 +44,7 @@ export const popupTemplate = {
 		},
 		{
 			fieldName: 'F2020_Count',
-			label: '2020 Count, Jan - October',
+			label: '2020',
 			format: {
 				digitSeparator: true,
 				places: 0,

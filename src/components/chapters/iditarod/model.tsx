@@ -49,7 +49,7 @@ const model: ModelSchema = {
 						hours. Though there can be only one winner, all contestants
 						are champions of social distancing, traveling almost 1,000
 						miles through the Alaskan wilderness with their dogs as
-						company. Despite as drastic rise in COVID cases as we near the
+						company. Despite a drastic rise in COVID cases as we near the
 						end of 2020, Iditarod 2021 will{' '}
 						<RefLink
 							theme="light"
