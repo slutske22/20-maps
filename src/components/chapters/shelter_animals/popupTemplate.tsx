@@ -24,9 +24,9 @@ export const popupTemplate = {
 		{
 			type: 'text',
 			text: `
-         <div>
+         <div class="shelter-animals-popup">
             <h2>{STATE_NAME}</h2>
-				<h3>Number of pets admitted to animal shelters in U.S.<h3>
+				<p>Number of pets admitted to animal shelters in U.S.<p>
 				<p>Intake numbers from January through September</p>
          </div>
       `,

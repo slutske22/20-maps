@@ -9,6 +9,10 @@
 #animal-count-info-div {
 	.esri-feature__title {
 		margin: 0;
+	}
+
+	h2 {
+		margin: 0;
 		margin-bottom: 10px;
 		text-transform: uppercase;
 	}
@@ -16,11 +20,4 @@
 	display: none;
 	border: 1px solid lightgray;
 	padding: 1em;
-
-	h3 {
-		margin-bottom: 1em;
-		font-size: 1.4em !important;
-		text-align: center;
-		color: darkblue;
-	}
 }
