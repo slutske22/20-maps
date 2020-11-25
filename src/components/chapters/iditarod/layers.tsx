@@ -1,6 +1,9 @@
+import Basemap from 'esri/Basemap';
 import FeatureLayer from 'esri/layers/FeatureLayer';
 import * as renderers from './renderers';
 import { popupTemplate } from './popupTemplate';
+
+export const basemap = Basemap.fromId('topo-vector');
 
 export const trail = new FeatureLayer({
 	url:

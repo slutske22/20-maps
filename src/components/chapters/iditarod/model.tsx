@@ -1,7 +1,8 @@
 import React from 'react';
+import * as watchUtils from 'esri/core/watchUtils';
 import { ModelSchema } from '../../../types';
 import { RefLink } from '../../atoms';
-import { trail, checkpoints } from './layers';
+import { basemap, trail, checkpoints } from './layers';
 
 const model: ModelSchema = {
 	metadata: {
@@ -76,13 +77,13 @@ const model: ModelSchema = {
 					center: [-100, 38],
 					zoom: 2,
 				},
-				basemap: 'topo-vector',
+				basemap,
 				layers: [trail, checkpoints],
 			},
 		},
 	],
 	customFeatures: ({ view }) => {
-		view.when(() => {
+		watchUtils.watch(basemap, 'loaded', () => {
 			view.goTo(
 				{
 					center: [-157, 62],

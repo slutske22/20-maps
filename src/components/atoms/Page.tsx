@@ -27,6 +27,8 @@ export const Page = styled.div<PageProps>`
 `;
 
 export const PageContent = styled.div<PageContentProps>`
+	display: ${(props) => (props.floating ? '' : 'flex')};
+	flex-direction: ${(props) => (props.floating ? '' : 'column')};
 	padding: ${(props) =>
 		props.padding ? props.padding : props.floating ? '1.5em' : '2em'};
 	height: ${(props) => (props.floating ? '' : '100%')};
@@ -57,6 +59,9 @@ export const PageTitle = styled.h3`
 `;
 
 export const PageText = styled.div<{ floating: boolean }>`
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
 	font-size: ${(props) => (props.floating ? '1.1em' : '1.2em')};
 	font-family: 'Avenir Next', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	line-height: 1.3em;

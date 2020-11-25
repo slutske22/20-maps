@@ -103,7 +103,7 @@ const model: ModelSchema = {
 						</RefLink>
 						.
 					</p>
-					<p>Hover over a state for details.</p>
+					<p style={{ flexGrow: 1 }}>Hover over a state for details.</p>
 					<div id="voter-turnout-info-div"></div>
 				</>
 			),

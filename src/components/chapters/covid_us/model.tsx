@@ -122,7 +122,7 @@ const model: ModelSchema = {
 						linkTitle={`"Rounding out the Social Distancing Scoreboard", Ngo, M., Retrieved November 17, 2020`}
 					>
 						social distancing score
-					</RefLink>
+					</RefLink>{' '}
 					, updated monthly.
 				</>
 			),
