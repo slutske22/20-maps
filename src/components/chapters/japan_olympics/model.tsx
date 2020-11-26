@@ -2,10 +2,13 @@ import React from 'react';
 import { ModelSchema } from '../../../types';
 import { RefLink } from '../../atoms';
 import FeatureLayer from 'esri/layers/FeatureLayer';
+import * as renderers from './renderers';
 
 const torchRelay = new FeatureLayer({
 	url:
 		'https://services5.arcgis.com/0AFsQflykfA9lXZn/arcgis/rest/services/Tokyo_2020_Torch_Relay/FeatureServer',
+	// @ts-ignore
+	renderer: renderers.fireflyRenderer,
 });
 
 const model: ModelSchema = {
