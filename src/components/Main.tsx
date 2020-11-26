@@ -20,6 +20,7 @@ const Mars = React.lazy(() => import('./chapters/mars'));
 const VoterTurnout = React.lazy(() => import('./chapters/voter_turnout_us'));
 const ShelterAnimals = React.lazy(() => import('./chapters/shelter_animals'));
 const Iditarod = React.lazy(() => import('./chapters/iditarod'));
+const JapanOlympics = React.lazy(() => import('./chapters/japan_olympics'));
 
 const Wrapper = styled.main`
 	height: 100%;
@@ -34,6 +35,10 @@ const Main = () => {
 		<Wrapper>
 			<Header />
 			<Intro />
+			{/* Chapter 1 */}
+			<Suspense fallback={<ChapterSpinner />}>
+				<JapanOlympics />
+			</Suspense>
 			{/* Chapter 1 */}
 			<Suspense fallback={<ChapterSpinner />}>
 				<Iditarod />
