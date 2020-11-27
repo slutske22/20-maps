@@ -2,13 +2,15 @@ import React from 'react';
 import { ModelSchema } from '../../../types';
 import { RefLink } from '../../atoms';
 import FeatureLayer from 'esri/layers/FeatureLayer';
+import TimeSlider from 'esri/widgets/TimeSlider';
 import * as renderers from './renderers';
 
 const torchRelay = new FeatureLayer({
 	url:
-		'https://services5.arcgis.com/0AFsQflykfA9lXZn/arcgis/rest/services/Tokyo_2020_Torch_Relay/FeatureServer',
+		'https://services6.arcgis.com/VqchQRhgtql2vsmO/arcgis/rest/services/Tokyo_Olympics_Torch_Relay_Schedule_2021/FeatureServer',
 	// @ts-ignore
 	renderer: renderers.fireflyRenderer,
+	outFields: ['*'],
 });
 
 const model: ModelSchema = {
@@ -21,7 +23,7 @@ const model: ModelSchema = {
 		{
 			name: 'Tokyo 2020 Torch Relay',
 			url:
-				'https://www.arcgis.com/home/item.html?id=9fc3af6884a945fd84417a784ac8f968',
+				'https://www.arcgis.com/home/item.html?id=efbb7d441be4424abb8a2aacd57bc11e',
 		},
 		{
 			name: 'Tokyo 2020 Torch Relay Animation Web App',
@@ -87,6 +89,55 @@ const model: ModelSchema = {
 			},
 		},
 	],
+	customFeatures: ({ view, layers }) => {
+		let layerView;
+		view.whenLayerView(torchRelay).then((lv) => {
+			layerView = lv;
+			layerView.filter = {
+				where: `Time <= 'nope'`,
+			};
+		});
+
+		var timeSlider = new TimeSlider({
+			container: 'timeSlider',
+			playRate: 100,
+			mode: 'cumulative-from-start',
+			loop: false,
+			fullTimeExtent: {
+				start: new Date(2021, 2, 24),
+				end: new Date(2021, 6, 25),
+			},
+			stops: {
+				// @ts-ignore
+				interval: {
+					value: 1,
+					unit: 'days',
+				},
+			},
+			tickConfigs: [
+				{
+					mode: 'count',
+					values: 5,
+					labelsVisible: true,
+					labelFormatFunction: (value) => {
+						const date = new Date(value);
+						return date.toLocaleString('default', { month: 'short' });
+					},
+				},
+			],
+		});
+
+		view.ui.add(timeSlider, 'bottom-right');
+
+		// update layer view filter to reflect current timeExtent, all protests in layer up to timeExtend
+		timeSlider.watch('timeExtent', function (value) {
+			const dateString = value.end.getTime();
+
+			layerView.filter = {
+				where: `Time <= '${dateString}'`,
+			};
+		});
+	},
 };
 
 export default model;
