@@ -89,18 +89,50 @@ const model: ModelSchema = {
 			},
 		},
 	],
-	customFeatures: ({ view, layers }) => {
+	customFeatures: ({ view, layers, map }) => {
+		// get layey view, cut out all features on init
 		let layerView;
+		let flFromResults;
 		view.whenLayerView(torchRelay).then((lv) => {
+			// torchRelay.queryFeatures().then(function (results) {
+			// 	console.log('results before filter', results);
+			// 	// create a new feature layer for each feature in the original layer
+			// 	flFromResults = results.features.map((feature) => ({
+			// 		time: feature.attributes.Time,
+			// 		onmap: false,
+			// 		layer: new FeatureLayer({
+			// 			objectIdField: 'OBJECTID',
+			// 			source: [feature],
+			// 			fields: results.fields,
+			// 			popupTemplate: feature.popupTemplate,
+			// 			// @ts-ignore
+			// 			renderer: renderers.fireflyRenderer,
+			// 		}),
+			// 	}));
+
+			// 	console.log('flFromResults', flFromResults);
+			// 	// flFromResults.forEach((l) => map.add(l.layer));
+			// });
+
 			layerView = lv;
 			layerView.filter = {
 				where: `Time <= 'nope'`,
 			};
+
+			lv.watch('updating', function (val) {
+				if (!val) {
+					// wait for the layer view to finish updating
+					lv.queryFeatures().then(function (results) {
+						console.log('results after filter', results); // prints all the client-side features to the console
+					});
+				}
+			});
 		});
 
+		// set up time slider
 		var timeSlider = new TimeSlider({
 			container: 'timeSlider',
-			playRate: 100,
+			playRate: 150,
 			mode: 'cumulative-from-start',
 			loop: false,
 			fullTimeExtent: {
@@ -132,6 +164,14 @@ const model: ModelSchema = {
 		// update layer view filter to reflect current timeExtent, all protests in layer up to timeExtend
 		timeSlider.watch('timeExtent', function (value) {
 			const dateString = value.end.getTime();
+
+			// flFromResults.forEach((p) => {
+			// 	if (p.time <= dateString) {
+			// 		map.add(p.layer);
+			// 	} else {
+			// 		map.remove(p.layer);
+			// 	}
+			// });
 
 			layerView.filter = {
 				where: `Time <= '${dateString}'`,
