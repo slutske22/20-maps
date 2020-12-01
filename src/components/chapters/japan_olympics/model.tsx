@@ -37,8 +37,8 @@ const model: ModelSchema = {
 			content: (
 				<>
 					<p>
-						Aside from during wartime, the Olympics have never been
-						cancelled or postponed - until 2020. Japan's Prime Minister{' '}
+						Aside from during wartime, the Olympics have never been cancelled or
+						postponed - until 2020. Japan's Prime Minister{' '}
 						<RefLink
 							theme="dark"
 							link="https://www.espn.com/olympics/story/_/id/28946033/tokyo-olympics-officially-postponed-2021"
@@ -90,49 +90,64 @@ const model: ModelSchema = {
 		},
 	],
 	customFeatures: ({ view, layers, map }) => {
-		// get layey view, cut out all features on init
+		function fadeVisibilityOn(layer) {
+			let animating = true;
+			let opacity = 0;
+			layer.opacity = opacity;
+
+			requestAnimationFrame(incrementOpacityByFrame);
+
+			// This function will fire on every frame before the browser repaints.
+			function incrementOpacityByFrame() {
+				if (opacity >= 1 && animating) {
+					animating = false;
+					return;
+				}
+
+				opacity += 0.05;
+				layer.opacity = opacity;
+
+				requestAnimationFrame(incrementOpacityByFrame);
+			}
+		}
+
 		let layerView;
 		let flFromResults;
 		view.whenLayerView(torchRelay).then((lv) => {
-			// torchRelay.queryFeatures().then(function (results) {
-			// 	console.log('results before filter', results);
-			// 	// create a new feature layer for each feature in the original layer
-			// 	flFromResults = results.features.map((feature) => ({
-			// 		time: feature.attributes.Time,
-			// 		onmap: false,
-			// 		layer: new FeatureLayer({
-			// 			objectIdField: 'OBJECTID',
-			// 			source: [feature],
-			// 			fields: results.fields,
-			// 			popupTemplate: feature.popupTemplate,
-			// 			// @ts-ignore
-			// 			renderer: renderers.fireflyRenderer,
-			// 		}),
-			// 	}));
+			torchRelay.queryFeatures().then(function (results) {
+				console.log('results before filter', results);
+				// create a new feature layer for each feature in the original layer
+				flFromResults = results.features.map((feature) => {
+					const layer = new FeatureLayer({
+						objectIdField: 'OBJECTID',
+						source: [feature],
+						fields: results.fields,
+						popupTemplate: feature.popupTemplate,
+						opacity: 0,
+						// @ts-ignore
+						renderer: renderers.fireflyRenderer,
+					});
 
-			// 	console.log('flFromResults', flFromResults);
-			// 	// flFromResults.forEach((l) => map.add(l.layer));
-			// });
+					map.add(layer);
+
+					return {
+						time: feature.attributes.Time,
+						onmap: false,
+						shouldBeAdded: false,
+						layer,
+					};
+				});
+			});
 
 			layerView = lv;
 			layerView.filter = {
 				where: `Time <= 'nope'`,
 			};
-
-			lv.watch('updating', function (val) {
-				if (!val) {
-					// wait for the layer view to finish updating
-					lv.queryFeatures().then(function (results) {
-						console.log('results after filter', results); // prints all the client-side features to the console
-					});
-				}
-			});
 		});
 
-		// set up time slider
 		var timeSlider = new TimeSlider({
 			container: 'timeSlider',
-			playRate: 150,
+			playRate: 250,
 			mode: 'cumulative-from-start',
 			loop: false,
 			fullTimeExtent: {
@@ -165,17 +180,23 @@ const model: ModelSchema = {
 		timeSlider.watch('timeExtent', function (value) {
 			const dateString = value.end.getTime();
 
-			// flFromResults.forEach((p) => {
-			// 	if (p.time <= dateString) {
-			// 		map.add(p.layer);
-			// 	} else {
-			// 		map.remove(p.layer);
-			// 	}
-			// });
+			flFromResults.forEach((p) => {
+				if (p.time <= dateString) {
+					p.shouldBeAdded = true;
+				} else {
+					p.shouldBeAdded = false;
+				}
 
-			layerView.filter = {
-				where: `Time <= '${dateString}'`,
-			};
+				if (!p.onmap && p.shouldBeAdded) {
+					fadeVisibilityOn(p.layer);
+					p.onmap = true;
+				}
+
+				if (p.onmap && !p.shouldBeAdded) {
+					p.layer.opacity = 0;
+					p.onmap = false;
+				}
+			});
 		});
 	},
 };
