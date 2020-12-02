@@ -4,6 +4,7 @@ import { RefLink } from '../../atoms';
 import FeatureLayer from 'esri/layers/FeatureLayer';
 import TimeSlider from 'esri/widgets/TimeSlider';
 import * as renderers from './renderers';
+import { popupTemplate } from './popupTemplate';
 
 const torchRelay = new FeatureLayer({
 	url:
@@ -11,6 +12,7 @@ const torchRelay = new FeatureLayer({
 	// @ts-ignore
 	renderer: renderers.fireflyRenderer,
 	outFields: ['*'],
+	popupTemplate,
 });
 
 const model: ModelSchema = {
@@ -37,8 +39,8 @@ const model: ModelSchema = {
 			content: (
 				<>
 					<p>
-						Aside from during wartime, the Olympics have never been cancelled or
-						postponed - until 2020. Japan's Prime Minister{' '}
+						Aside from during wartime, the Olympics have never been
+						cancelled or postponed - until 2020. Japan's Prime Minister{' '}
 						<RefLink
 							theme="dark"
 							link="https://www.espn.com/olympics/story/_/id/28946033/tokyo-olympics-officially-postponed-2021"
@@ -122,7 +124,8 @@ const model: ModelSchema = {
 						objectIdField: 'OBJECTID',
 						source: [feature],
 						fields: results.fields,
-						popupTemplate: feature.popupTemplate,
+						popupTemplate: popupTemplate,
+						outFields: ['*'],
 						opacity: 0,
 						// @ts-ignore
 						renderer: renderers.fireflyRenderer,
