@@ -41,8 +41,8 @@ export type MetaData = {
 
 export type CustomFeaturesArgs = {
 	layers?: Layer[];
-	map: EsriMap;
-	view: ViewType;
+	map?: EsriMap;
+	view?: ViewType;
 	pageRefs?: { [key: string]: HTMLElement };
 	currentPage?: number;
 };
@@ -56,7 +56,9 @@ export type ModelSchema = {
 	pages: PageTypes[];
 	customFeatures?: any;
 	customFeaturesPerPage?: any;
-	customMapDOM?: HTMLElement | ReactElement | Component;
+	customMapDOM?: (
+		arg: CustomFeaturesArgs
+	) => HTMLElement | ReactElement | Component;
 	customChapterDOM?: HTMLElement | ReactElement | Component;
 };
 
@@ -70,7 +72,9 @@ export type MapProps = {
 	mapState: MapState;
 	customFeatures?: (arg: CustomFeaturesArgs) => any;
 	customFeaturesPerPage?: (arg: CustomFeaturesArgs) => any;
-	customMapDOM?: HTMLElement | ReactElement | Component;
+	customMapDOM?: (
+		arg: CustomFeaturesArgs
+	) => HTMLElement | ReactElement | Component;
 	pageRefs: { [key: string]: HTMLElement };
 	currentPage: number;
 };

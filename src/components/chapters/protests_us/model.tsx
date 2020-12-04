@@ -70,16 +70,6 @@ export const model: ModelSchema = {
 			view.whenLayerView(layer).then((layerView) => {
 				layerViews.push(layerView);
 			});
-
-			const bottomLeft: HTMLElement = document.querySelector(
-				`.US_protests .esri-ui-bottom-left.esri-ui-corner`
-			);
-
-			const customLegend: HTMLElement = document.querySelector(
-				`.US_protests.esri-component.esri-legend.esri-widget.esri-widget--panel`
-			);
-
-			customLegend.style.display = 'flex';
 		});
 
 		// Layer List
@@ -155,7 +145,7 @@ export const model: ModelSchema = {
 			});
 		});
 	},
-	customMapDOM: CustomLegend,
+	customMapDOM: () => <CustomLegend />,
 	pages: [
 		{
 			title: 'United States Protests',

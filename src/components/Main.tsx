@@ -35,6 +35,10 @@ const Main = () => {
 		<Wrapper>
 			<Header />
 			<Intro />
+			{/* Chapter 7 */}
+			<Suspense fallback={<ChapterSpinner />}>
+				<Mars />
+			</Suspense>
 			{/* Chapter 1 */}
 			<Suspense fallback={<ChapterSpinner />}>
 				<JapanOlympics />
@@ -90,10 +94,6 @@ const Main = () => {
 			{/* Chapter 6 */}
 			<Suspense fallback={<ChapterSpinner />}>
 				<CovidPollution />
-			</Suspense>
-			{/* Chapter 7 */}
-			<Suspense fallback={<ChapterSpinner />}>
-				<Mars />
 			</Suspense>
 		</Wrapper>
 	);

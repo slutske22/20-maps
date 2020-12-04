@@ -13,7 +13,7 @@ import {
 	PageText,
 } from '../atoms';
 import MapTemplate from './MapTemplate';
-import { PageTypes, MetaData, MapProps } from '../../types';
+import { PageTypes, MetaData, MapProps, CustomFeaturesArgs } from '../../types';
 
 type WrapperProps = {
 	height?: string;
@@ -52,7 +52,9 @@ type ChapterProps = {
 		pages: PageTypes[];
 		customFeatures?: () => void;
 		customFeaturesPerPage?: () => any;
-		customMapDOM?: HTMLElement | ReactElement | Component;
+		customMapDOM?: (
+			arg: CustomFeaturesArgs
+		) => HTMLElement | ReactElement | Component;
 		customChapterDOM?: HTMLElement | ReactElement | Component;
 	};
 };

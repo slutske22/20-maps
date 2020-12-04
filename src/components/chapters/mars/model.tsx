@@ -1,8 +1,14 @@
 import React from 'react';
 import { ModelSchema } from '../../../types';
-import { mars_hypso, mars_ground, labels } from './layers';
+import {
+	mars_hypso,
+	mars_ground,
+	labels,
+	mars_curiosity_track_ath,
+} from './layers';
 import Expand from 'esri/widgets/Expand';
 import { RefLink } from '../../atoms';
+import Slides from './slides';
 
 const model: ModelSchema = {
 	metadata: {
@@ -27,7 +33,7 @@ const model: ModelSchema = {
 
 		sidecar.style.left = '40px';
 		sidecar.style.width = '500px';
-      sidecar.style.transition = 'all 0.5s';
+		sidecar.style.transition = 'all 0.5s';
 
 		// create expand with custom page content in it
 		const expand = new Expand({
@@ -39,19 +45,18 @@ const model: ModelSchema = {
 
 		view.ui.add([{ component: expand, position: 'top-left', index: 0 }]);
 
-      // @ts-ignore
+		// @ts-ignore
 		expand.container.addEventListener('click', () => {
 			if (expand.expanded) {
-            sidecar.style.left = '40px';
-            sidecar.style.opacity = '1';
-            sidecar.style.pointerEvents = 'auto';
-            sidecar.style.transition = 'all 0.5s';
-
+				sidecar.style.left = '40px';
+				sidecar.style.opacity = '1';
+				sidecar.style.pointerEvents = 'auto';
+				sidecar.style.transition = 'all 0.5s';
 			} else {
-            sidecar.style.left = '35px';
-            sidecar.style.opacity = '0';
-            sidecar.style.pointerEvents = 'none';
-            sidecar.style.transition = 'none';
+				sidecar.style.left = '35px';
+				sidecar.style.opacity = '0';
+				sidecar.style.pointerEvents = 'none';
+				sidecar.style.transition = 'none';
 			}
 		});
 	},
@@ -93,7 +98,7 @@ const model: ModelSchema = {
 				</>
 			),
 			mapState: {
-				layers: [mars_hypso, ...labels],
+				layers: [mars_hypso, mars_curiosity_track_ath, ...labels],
 				position: {
 					center: [-100, 38],
 					zoom: 3,
@@ -111,6 +116,7 @@ const model: ModelSchema = {
 			},
 		},
 	],
+	customMapDOM: ({ view }) => <Slides view={view} />,
 };
 
 export default model;

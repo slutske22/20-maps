@@ -158,7 +158,7 @@ const Map: FunctionComponent<MapProps> = ({
 	return (
 		<>
 			<div className={`arcgis-map ${metadata.name}`} ref={element} />
-			{customMapDOM && customMapDOM}
+			{customMapDOM && mapRef && customMapDOM(mapRef)}
 		</>
 	);
 };
