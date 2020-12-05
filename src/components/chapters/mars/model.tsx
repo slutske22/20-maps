@@ -79,22 +79,21 @@ const model: ModelSchema = {
 			title: 'Mars Rover: Curiosity',
 			content: (
 				<>
-					{' '}
-					2020 probably has you ready to abandon Earth altogether for more
-					pristine pastures. We're still not ready to visit our red
-					neighbor, but the Curiosity Rover is still up there, making
-					discoveries. You can see mission updates{' '}
-					<RefLink
-						linkTitle="Mars Curiosity Rover, Mission Updates, NASA"
-						link="https://mars.nasa.gov/msl/mission-updates/"
-						theme="dark"
-					>
-						here
-					</RefLink>
-					.
-					<br />
-					<br />
-					Click the thumbnails to see Curiosity's 2020 discoveries.
+					<p>
+						2020 probably has you ready to abandon Earth altogether for more
+						pristine pastures. We're still not ready to visit our red neighbor,
+						but the Curiosity Rover is still up there, making discoveries. You
+						can see mission updates&nbsp;
+						<RefLink
+							linkTitle="Mars Curiosity Rover, Mission Updates, NASA"
+							link="https://mars.nasa.gov/msl/mission-updates/"
+							theme="dark"
+						>
+							here
+						</RefLink>
+						.
+					</p>
+					<p>Click the thumbnails to see Curiosity's 2020 discoveries.</p>
 				</>
 			),
 			mapState: {
@@ -109,7 +108,7 @@ const model: ModelSchema = {
 							y: 19, // lat
 							z: 3000000, // elevation in meters
 						},
-						tilt: 40,
+						tilt: 33,
 						heading: 217,
 					},
 				},
