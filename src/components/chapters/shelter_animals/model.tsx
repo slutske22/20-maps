@@ -104,52 +104,52 @@ const model: ModelSchema = {
 
 		view.ui.add(legend, 'bottom-right');
 
-		const infoDiv = document.getElementById('animal-count-info-div');
-		const feature = new Feature({
-			container: 'animal-count-info-div',
-			graphic: {
-				popupTemplate,
-			},
-			map,
-			spatialReference: view.spatialReference,
-		});
+		// const infoDiv = document.getElementById('animal-count-info-div');
+		// const feature = new Feature({
+		// 	container: 'animal-count-info-div',
+		// 	graphic: {
+		// 		popupTemplate,
+		// 	},
+		// 	map,
+		// 	spatialReference: view.spatialReference,
+		// });
 
-		// add hitTest for popup open on hover
-		view.whenLayerView(animalCount).then(function (layerView) {
-			let highlight;
-			// listen for the pointer-move event on the View
-			view.on('click', function (event) {
-				// Perform a hitTest on the View
-				view.hitTest(event).then(function (event) {
-					// Make sure graphic has a popupTemplate
-					// let results = event.results.filter(function (result) {
-					// 	return result.graphic.layer.popupTemplate;
-					// });
-					let result = event.results[0];
+		// // add hitTest for popup open on hover
+		// view.whenLayerView(animalCount).then(function (layerView) {
+		// 	let highlight;
+		// 	// listen for the pointer-move event on the View
+		// 	view.on('click', function (event) {
+		// 		// Perform a hitTest on the View
+		// 		view.hitTest(event).then(function (event) {
+		// 			// Make sure graphic has a popupTemplate
+		// 			// let results = event.results.filter(function (result) {
+		// 			// 	return result.graphic.layer.popupTemplate;
+		// 			// });
+		// 			let result = event.results[0];
 
-					console.log(event.results);
+		// 			console.log(event.results);
 
-					if (result) {
-						if (
-							!view.popup.features.length ||
-							(view.popup.features.length &&
-								view.popup.features[0].attributes.STATE_NAME !==
-									result.graphic.attributes.STATE_NAME)
-						) {
-							highlight && highlight.remove();
-							// Update the graphic of the Feature widget
-							// on pointer-move with the result
-							highlight = layerView.highlight(result.graphic);
+		// 			if (result) {
+		// 				if (
+		// 					!view.popup.features.length ||
+		// 					(view.popup.features.length &&
+		// 						view.popup.features[0].attributes.STATE_NAME !==
+		// 							result.graphic.attributes.STATE_NAME)
+		// 				) {
+		// 					highlight && highlight.remove();
+		// 					// Update the graphic of the Feature widget
+		// 					// on pointer-move with the result
+		// 					highlight = layerView.highlight(result.graphic);
 
-							infoDiv.style.display = 'block';
-							feature.graphic = result.graphic;
-						}
-					} else {
-						highlight && highlight.remove();
-					}
-				});
-			});
-		});
+		// 					infoDiv.style.display = 'block';
+		// 					feature.graphic = result.graphic;
+		// 				}
+		// 			} else {
+		// 				highlight && highlight.remove();
+		// 			}
+		// 		});
+		// 	});
+		// });
 	},
 };
 

@@ -76,8 +76,10 @@ const model: ModelSchema = {
 						in September, spanning 121 days.
 					</p>
 					<p>
-						Click the play button below to watch the torch travel its
-						prospective path.
+						<em className="action">Click the play button</em> below to
+						watch the torch travel its prospective path.{' '}
+						<em className="action">Click a checkpoint</em> for more
+						details.
 					</p>
 				</>
 			),

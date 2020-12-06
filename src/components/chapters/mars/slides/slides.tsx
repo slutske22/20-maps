@@ -11,10 +11,10 @@ export default [
 		name: 'Aurorae Chaos',
 		description: (
 			<>
-				Aurorae Chaos is a region of chaos terrain on Mars at the eastern end of
-				the outflow channels from Valles Marineris into Chryse Planitia,
-				centered at approximately ~324°E, 9°S. It is in the Margaritifer Sinus
-				quadrangle. (from{' '}
+				Aurorae Chaos is a region of chaos terrain on Mars at the eastern
+				end of the outflow channels from Valles Marineris into Chryse
+				Planitia, centered at approximately ~324°E, 9°S. It is in the
+				Margaritifer Sinus quadrangle. (from{' '}
 				<a
 					href="https://en.wikipedia.org/wiki/Aurorae_Chaos"
 					target="_blank"
@@ -94,10 +94,11 @@ export default [
 		description: (
 			<>
 				In December 2012, Curiosity's two-year mission was extended
-				indefinitely,[14] and on August 5, 2017, NASA celebrated the fifth
-				anniversary of the Curiosity rover landing.[15][16] The rover is still
-				operational, and as of December 4, 2020, Curiosity has been on Mars for
-				2961 sols (3042 Earth days) since landing on August 6, 2012 (from{' '}
+				indefinitely, and on August 5, 2017, NASA celebrated the fifth
+				anniversary of the Curiosity rover landing. The rover is still
+				operational, and as of December 4, 2020, Curiosity has been on Mars
+				for 2961 sols (3042 Earth days) since landing on August 6, 2012
+				(from{' '}
 				<a
 					href="https://en.wikipedia.org/wiki/Curiosity_(rover)"
 					target="_blank"
@@ -105,8 +106,8 @@ export default [
 				>
 					wikipedia
 				</a>
-				). The path you see is a simplified version of Curiosity's path. For a
-				more detailed view, see{' '}
+				). The path you see is a simplified version of Curiosity's path. For
+				a more detailed view, see{' '}
 				<a
 					href="https://mars.nasa.gov/msl/mission/where-is-the-rover/"
 					target="_blank"
@@ -183,10 +184,10 @@ export default [
 		description: (
 			<>
 				Olympus Mons is a very large shield volcano on the planet Mars. The
-				volcano is about two and a half times Mount Everest's height above sea
-				level. It is one of the largest volcanoes, the tallest planetary
-				mountain, and the second tallest mountain currently discovered in the
-				Solar System. (from{' '}
+				volcano is about two and a half times Mount Everest's height above
+				sea level. It is one of the largest volcanoes, the tallest planetary
+				mountain, and the second tallest mountain currently discovered in
+				the Solar System. (from{' '}
 				<a
 					href="https://en.wikipedia.org/wiki/Olympus_Mons"
 					target="_blank"
@@ -265,12 +266,13 @@ export default [
 		name: 'Argyre Planitia',
 		description: (
 			<>
-				Argyre Planitia is a plain located within the impact basin Argyre in the
-				southern highlands of Mars. The basin is approximately 1,800 km (1,100
-				mi) wide and drops 5.2 km (17,000 ft) below the surrounding plains. It
-				is the second deepest impact basin on Mars, and was possibly formed by a
-				giant impact during the Late Heavy Bombardment of the early Solar
-				System, approximately 3.9 billion years ago. (from{' '}
+				Argyre Planitia is a plain located within the impact basin Argyre in
+				the southern highlands of Mars. The basin is approximately 1,800 km
+				(1,100 mi) wide and drops 5.2 km (17,000 ft) below the surrounding
+				plains. It is the second deepest impact basin on Mars, and was
+				possibly formed by a giant impact during the Late Heavy Bombardment
+				of the early Solar System, approximately 3.9 billion years ago.
+				(from{' '}
 				<a
 					href="https://en.wikipedia.org/wiki/Argyre_Planitia"
 					target="_blank"
@@ -350,10 +352,11 @@ export default [
 		description: (
 			<>
 				Melas Chasma is a canyon on Mars, the widest segment of the Valles
-				Marineris canyon system. The canyon's depth suggests that this location
-				may be the best site for a manned outpost as it would have the highest
-				natural air pressure on Mars. Equatorial solar irradiation and access to
-				water would enhance this option still further. (from{' '}
+				Marineris canyon system. The canyon's depth suggests that this
+				location may be the best site for a manned outpost as it would have
+				the highest natural air pressure on Mars. Equatorial solar
+				irradiation and access to water would enhance this option still
+				further. (from{' '}
 				<a
 					href="https://en.wikipedia.org/wiki/Melas_Chasma"
 					target="_blank"
@@ -432,13 +435,14 @@ export default [
 		name: 'Terra Sirenum',
 		description: (
 			<>
-				Terra Sirenum is a large region in the southern hemisphere, notable for
-				massive cratering. Evidence of deposits of chloride based minerals in
-				Terra Sirenum was discovered by the 2001 Mars Odyssey orbiter's Thermal
-				Emission Imaging System in March 2008. The deposits are approximately
-				3.5 to 3.9 billion years old. This suggests that near-surface water was
-				widespread in early Martian history, which has implications for the
-				possible existence of Martian life. (from{' '}
+				Terra Sirenum is a large region in the southern hemisphere, notable
+				for massive cratering. Evidence of deposits of chloride based
+				minerals in Terra Sirenum was discovered by the 2001 Mars Odyssey
+				orbiter's Thermal Emission Imaging System in March 2008. The
+				deposits are approximately 3.5 to 3.9 billion years old. This
+				suggests that near-surface water was widespread in early Martian
+				history, which has implications for the possible existence of
+				Martian life. (from{' '}
 				<a
 					href="https://en.wikipedia.org/wiki/Terra_Sirenum"
 					target="_blank"

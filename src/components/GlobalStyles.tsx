@@ -31,6 +31,10 @@ const GlobalStyles = createGlobalStyle`
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
    }
 
+   p {
+      margin-bottom: 0;
+   }
+
    a {
       cursor: pointer;
       color: inherit;

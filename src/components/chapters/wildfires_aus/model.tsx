@@ -135,29 +135,34 @@ const model: ModelSchema = {
 			title: 'Koalas in Queensland',
 			content: (
 				<>
-					Australia has roughly{' '}
-					<RefLink
-						theme="dark"
-						link="https://www.currentresults.com/Environment-Facts/Plants-Animals/number-of-species-native-to-australia.php"
-						linkTitle={`"Number of Species Native to Australia", Osborne, L., currentresults.com, Retrieved October 27, 2020`}
-					>
-						3,000 endemic species of animals and birds
-					</RefLink>
-					, meaning they are found nowhere else on earth. The most iconic
-					of these is the Koala, with the entire species containing
-					somewhere between{' '}
-					<RefLink
-						theme="dark"
-						link="https://www.savethekoala.com/about-koalas/koala-endangered-or-not"
-						linkTitle={`"The Koala - Endangered or Not?", Australian Koala Foundation, 2020, Retrieved Oct 27, 2020`}
-					>
-						50 and 100 thousand
-					</RefLink>
-					. We can get a sense of the density of Koalas in the Brisbane
-					area before the 2019 - 2020 fires. This map layer shows koala
-					sightnings reporting by the public in 2018. As you can see, the
-					greater Brisbane area was not as affected by the fires as other
-					parts of the county...
+					<p>
+						Australia has roughly{' '}
+						<RefLink
+							theme="dark"
+							link="https://www.currentresults.com/Environment-Facts/Plants-Animals/number-of-species-native-to-australia.php"
+							linkTitle={`"Number of Species Native to Australia", Osborne, L., currentresults.com, Retrieved October 27, 2020`}
+						>
+							3,000 endemic species of animals and birds
+						</RefLink>
+						, meaning they are found nowhere else on earth. The most
+						iconic of these is the Koala, with the entire species
+						containing somewhere between{' '}
+						<RefLink
+							theme="dark"
+							link="https://www.savethekoala.com/about-koalas/koala-endangered-or-not"
+							linkTitle={`"The Koala - Endangered or Not?", Australian Koala Foundation, 2020, Retrieved Oct 27, 2020`}
+						>
+							50 and 100 thousand
+						</RefLink>
+						.{' '}
+					</p>
+					<p>
+						We can get a sense of the density of Koalas in the Brisbane
+						area before the 2019 - 2020 fires. This map layer shows koala
+						sightnings reporting by the public in 2018. As you can see,
+						the greater Brisbane area was not as affected by the fires as
+						other parts of the county...
+					</p>
 				</>
 			),
 			mapState: {

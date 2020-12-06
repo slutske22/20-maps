@@ -55,7 +55,7 @@ export const PageTitle = styled.h3`
 	font-weight: 700;
 	font-size: 1.5em;
 	font-style: italic;
-	margin-top: 0;
+	margin: 0;
 `;
 
 export const PageText = styled.div<{ floating: boolean }>`
@@ -65,5 +65,5 @@ export const PageText = styled.div<{ floating: boolean }>`
 	font-size: ${(props) => (props.floating ? '1.1em' : '1.2em')};
 	font-family: 'Avenir Next', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	line-height: 1.3em;
-	text-align: justify;
+	/* text-align: justify; */
 `;

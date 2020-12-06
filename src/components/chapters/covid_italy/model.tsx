@@ -103,7 +103,10 @@ const model: ModelSchema = {
 						China, it was Italy that led the rest of the world in the
 						plunge into the COVID pandemic.
 					</p>
-					<p>Click the map for regional Coronavirus details.</p>
+					<p>
+						<em className="action">Click the map</em> for regional
+						Coronavirus details.
+					</p>
 				</>
 			),
 			mapState: {

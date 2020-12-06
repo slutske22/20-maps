@@ -7,7 +7,7 @@ import slides from './slides';
 const SlidesWrapper = styled.aside`
 	position: absolute;
 	background-color: transparent;
-	padding: 10px;
+	padding: 15px;
 	top: 0px;
 	right: 0px;
 	width: 20%;
