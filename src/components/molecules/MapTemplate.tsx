@@ -23,6 +23,7 @@ const Map: FunctionComponent<MapProps> = ({
 	mapState: { basemap, layers, position, customBehavior },
 }: MapProps) => {
 	const element = useRef(null);
+	const toggle = useRef(null);
 	const [mapRef, setMapRef] = useState(null);
 	const [cleanupFunction, setCleaupFunction] = useState(null);
 
@@ -60,11 +61,80 @@ const Map: FunctionComponent<MapProps> = ({
 		setMapRef({ map, view });
 
 		// if using a fullwidthmap, override esri's css to move the upper left widgets over
-		if (metadata.fullWidthMap) {
+		if (metadata.fullWidthMap && !metadata.sceneview) {
 			const topLeft: HTMLElement = document.querySelector(
 				`#${metadata.name} .esri-ui-top-left`
 			);
 			topLeft.style.left = 'calc(30% - 10px)';
+		}
+
+		// if using fullWidthmap on a sceneview (mars and moon)...
+		if (metadata.fullWidthMap && metadata.sceneview) {
+			// create an expand widget to show and hide the sidecar
+			// only makes sense for a single page chapter
+
+			// shift the sidecar to make it look like its part of the expand
+			const sidecar: HTMLElement = document.querySelector(
+				`#${metadata.name} div[class^="SideCar"]`
+			);
+
+			sidecar.style.left = '40px';
+			sidecar.style.width = '500px';
+			sidecar.style.transition = 'all 0.5s';
+
+			// create expand with custom page content in it
+			const expand = new Expand({
+				view,
+				expandIconClass: 'esri-icon-question',
+				expandTooltip: 'Information',
+				expanded: true,
+			});
+
+			view.ui.add([{ component: expand, position: 'top-left', index: 0 }]);
+
+			// affect sidecar position based on expand state
+			// @ts-ignore
+			expand.container.addEventListener('click', () => {
+				if (expand.expanded) {
+					sidecar.style.left = '40px';
+					sidecar.style.opacity = '1';
+					sidecar.style.pointerEvents = 'auto';
+					sidecar.style.transition = 'all 0.5s';
+				} else {
+					sidecar.style.left = '35px';
+					sidecar.style.opacity = '0';
+					sidecar.style.pointerEvents = 'none';
+					sidecar.style.transition = 'none';
+				}
+			});
+
+			// move checkbox to top right
+			const topRight: HTMLElement = document.querySelector(
+				`#${metadata.name} .esri-ui-top-right`
+			);
+
+			const zoomToggle = document.querySelector(
+				`${metadata.name}-scroll-toggle-container .esri-widget`
+			);
+
+			console.log(
+				'topright',
+				topRight,
+				'toggle.current',
+				toggle.current,
+				'topRight.childNodes.length',
+				topRight.childNodes.length
+			);
+
+			// if (topRight.childNodes.length > 0) {
+			// 	topRight.append(toggle.current);
+			// }
+
+			// view.ui.move({
+			// 	component: toggle.current,
+			// 	position: 'top-right',
+			// 	index: 0,
+			// });
 		}
 
 		// create a data source widget on the fly with vanilla js
@@ -159,6 +229,16 @@ const Map: FunctionComponent<MapProps> = ({
 		<>
 			<div className={`arcgis-map ${metadata.name}`} ref={element} />
 			{customMapDOM && mapRef && customMapDOM(mapRef)}
+			{metadata.fullWidthMap && metadata.sceneview && (
+				<div
+					ref={toggle}
+					className={`${metadata.name}-scroll-toggle-container esri-widget`}
+					style={{ position: 'absolute', top: '15px', right: '15px' }}
+				>
+					<div>Enable Zoom on Scroll</div>
+					<input type="checkbox" />
+				</div>
+			)}
 		</>
 	);
 };
