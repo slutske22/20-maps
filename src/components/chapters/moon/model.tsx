@@ -34,8 +34,8 @@ const model: ModelSchema = {
 			content: (
 				<>
 					<p>
-						This year, NASA and the USGS released the most detailed geological
-						maps of the moon ever created
+						This year, NASA and the USGS released the most detailed
+						geological maps of the moon ever created
 					</p>
 				</>
 			),

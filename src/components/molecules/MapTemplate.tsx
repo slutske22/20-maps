@@ -8,6 +8,8 @@ import SceneView from 'esri/views/SceneView';
 import Expand from 'esri/widgets/Expand';
 import * as watchUtils from 'esri/core/watchUtils';
 
+import ScrollZoom from '../mapcomponents/ScrollZoom';
+
 import { MapProps } from '../../types';
 import { DataSources } from '../atoms';
 
@@ -108,33 +110,11 @@ const Map: FunctionComponent<MapProps> = ({
 				}
 			});
 
-			// move checkbox to top right
-			const topRight: HTMLElement = document.querySelector(
-				`#${metadata.name} .esri-ui-top-right`
-			);
+			const scrollZoom = new ScrollZoom({
+				view,
+			});
 
-			const zoomToggle = document.querySelector(
-				`${metadata.name}-scroll-toggle-container .esri-widget`
-			);
-
-			console.log(
-				'topright',
-				topRight,
-				'toggle.current',
-				toggle.current,
-				'topRight.childNodes.length',
-				topRight.childNodes.length
-			);
-
-			// if (topRight.childNodes.length > 0) {
-			// 	topRight.append(toggle.current);
-			// }
-
-			// view.ui.move({
-			// 	component: toggle.current,
-			// 	position: 'top-right',
-			// 	index: 0,
-			// });
+			view.ui.add(scrollZoom, 'top-right');
 		}
 
 		// create a data source widget on the fly with vanilla js
@@ -229,16 +209,6 @@ const Map: FunctionComponent<MapProps> = ({
 		<>
 			<div className={`arcgis-map ${metadata.name}`} ref={element} />
 			{customMapDOM && mapRef && customMapDOM(mapRef)}
-			{metadata.fullWidthMap && metadata.sceneview && (
-				<div
-					ref={toggle}
-					className={`${metadata.name}-scroll-toggle-container esri-widget`}
-					style={{ position: 'absolute', top: '15px', right: '15px' }}
-				>
-					<div>Enable Zoom on Scroll</div>
-					<input type="checkbox" />
-				</div>
-			)}
 		</>
 	);
 };
