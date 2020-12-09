@@ -47,11 +47,14 @@ const model: ModelSchema = {
 							Thomas Waerner
 						</RefLink>{' '}
 						was 2020's winner, with a race time of just over 9 days and 10
-						hours. Though there can be only one winner, all contestants
-						are champions of social distancing, traveling almost 1,000
-						miles through the Alaskan wilderness with their dogs as
-						company. Despite a drastic rise in COVID cases as we near the
-						end of 2020, Iditarod 2021 will{' '}
+						hours.{' '}
+					</p>
+					<p>
+						Though there can be only one winner, all contestants are
+						champions of social distancing, traveling almost 1,000 miles
+						through the Alaskan wilderness with their dogs as company.
+						Despite a drastic rise in COVID cases as we near the end of
+						2020, Iditarod 2021 will{' '}
 						<RefLink
 							theme="light"
 							link="https://www.usnews.com/news/health-news/articles/2020-09-24/iditarod-preps-for-any-scenario-as-2021-race-plans-proceed"

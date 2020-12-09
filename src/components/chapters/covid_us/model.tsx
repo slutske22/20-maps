@@ -64,9 +64,11 @@ const model: ModelSchema = {
 			title: 'COVID19 in the US',
 			content: (
 				<>
-					Coronavirus hit the United States hard, starting in New York and
-					Seattle, slowly working its way to every county in the country.
-					You can see the total cases per county in this map.
+					<p>
+						Coronavirus hit the United States hard, starting in New York
+						and Seattle, slowly working its way to every county in the
+						country. You can see the total cases per county in this map.
+					</p>
 				</>
 			),
 			mapState: {
@@ -80,7 +82,11 @@ const model: ModelSchema = {
 		},
 		{
 			title: 'Total Deaths',
-			content: <>Here we see the deaths per county.</>,
+			content: (
+				<>
+					<p>Here we see the deaths per county.</p>
+				</>
+			),
 			mapState: {
 				basemap: 'gray-vector',
 				layers,
@@ -94,9 +100,11 @@ const model: ModelSchema = {
 			title: 'Cases per 100K Popuplation',
 			content: (
 				<>
-					Viewing the number of cases per 100 thousand population gives
-					insight into how counties were able to control COVID's spread
-					within their population.
+					<p>
+						Viewing the number of cases per 100 thousand population gives
+						insight into how counties were able to control COVID's spread
+						within their population.
+					</p>
 				</>
 			),
 			mapState: {
@@ -112,18 +120,20 @@ const model: ModelSchema = {
 			title: 'Social Distancing Scores',
 			content: (
 				<>
-					The biggest secondary effect from COVID has been the need to stay
-					away from one another to avoid spreading the virus. This map
-					shows how successful each county has been in their ability to
-					social distance. Unacast offers a{' '}
-					<RefLink
-						theme="light"
-						link="https://www.unacast.com/post/rounding-out-the-social-distancing-scoreboard"
-						linkTitle={`"Rounding out the Social Distancing Scoreboard", Ngo, M., Retrieved November 17, 2020`}
-					>
-						social distancing score
-					</RefLink>{' '}
-					, updated monthly.
+					<p>
+						The biggest secondary effect from COVID has been the need to
+						stay away from one another to avoid spreading the virus. This
+						map shows how successful each county has been in their ability
+						to social distance. Unacast offers a{' '}
+						<RefLink
+							theme="light"
+							link="https://www.unacast.com/post/rounding-out-the-social-distancing-scoreboard"
+							linkTitle={`"Rounding out the Social Distancing Scoreboard", Ngo, M., Retrieved November 17, 2020`}
+						>
+							social distancing score
+						</RefLink>{' '}
+						, updated monthly.
+					</p>
 				</>
 			),
 			mapState: {
@@ -139,10 +149,15 @@ const model: ModelSchema = {
 			title: 'Unemployment',
 			content: (
 				<>
-					And with social distancing and forced shutdowns, unemployment has
-					been higher than its been in years. This map shows unemployment
-					over the last 14 months. Click on a county to see how
-					unemployment has evolved in that time period.
+					<p>
+						And with social distancing and forced shutdowns, unemployment
+						has been higher than its been in years. This map shows
+						unemployment over the last 14 months.{' '}
+					</p>
+					<p>
+						Click on a county to see how unemployment has evolved in that
+						time period.
+					</p>
 				</>
 			),
 			mapState: {

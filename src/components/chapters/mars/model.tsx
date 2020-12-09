@@ -80,10 +80,11 @@ const model: ModelSchema = {
 			content: (
 				<>
 					<p>
-						2020 probably has you ready to abandon Earth altogether for more
-						pristine pastures. We're still not ready to visit our red neighbor,
-						but the Curiosity Rover is still up there, making discoveries. You
-						can see mission updates&nbsp;
+						2020 probably has you ready to abandon Earth altogether for
+						more pristine pastures. We're still not ready to visit our red
+						neighbor, but in 2020 we have the whole planet mapped out. The
+						Curiosity Rover is still up there, making discoveries. You can
+						see mission updates&nbsp;
 						<RefLink
 							linkTitle="Mars Curiosity Rover, Mission Updates, NASA"
 							link="https://mars.nasa.gov/msl/mission-updates/"
