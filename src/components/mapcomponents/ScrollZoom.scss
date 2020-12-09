@@ -1,11 +1,16 @@
 .esri-scroll-zoom-toggle {
-   padding: 0.7em 1.5em;
-   display: flex;
-   flex-direction: row;
-   align-items: center;
+	padding: 0.7em 1.5em;
+}
+
+.esri-scroll-zoom-toggle--inner-wrapper {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	cursor: pointer;
 }
 
 .esri-scroll-zoom-toggle--input-checkbox {
-   margin-left: 1em;
-   margin-bottom: 6px;
+	margin-left: 1em;
+	margin-bottom: 6px;
+	cursor: pointer;
 }

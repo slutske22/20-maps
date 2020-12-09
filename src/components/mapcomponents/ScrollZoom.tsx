@@ -7,7 +7,8 @@ import { renderable, tsx } from 'esri/widgets/support/widget';
 import './ScrollZoom.scss';
 
 const CSS = {
-	base: 'esri-widget esri-scroll-zoom-toggle',
+	wrapper: 'esri-widget esri-scroll-zoom-toggle',
+	innerWrapper: 'esri-scroll-zoom-toggle--inner-wrapper',
 	checkbox: 'esri-scroll-zoom-toggle--input-checkbox',
 };
 
@@ -27,10 +28,14 @@ class ScrollZoom extends Widget {
 	private _toggleZoomOnScroll = (): void => {
 		this.enabled = !this.enabled;
 		if (this.enabled) {
+			// @ts-ignore
 			this.view.navigation.mouseWheelZoomEnabled = true;
+			// @ts-ignore
 			this.view.navigation.browserTouchPanEnabled = true;
 		} else {
+			// @ts-ignore
 			this.view.navigation.mouseWheelZoomEnabled = false;
+			// @ts-ignore
 			this.view.navigation.browserTouchPanEnabled = false;
 		}
 		console.log(this);
@@ -38,13 +43,11 @@ class ScrollZoom extends Widget {
 
 	render() {
 		return (
-			<div class={CSS.base}>
-				<div>Enable Scroll Zoom</div>
-				<input
-					type="checkbox"
-					onchange={this._toggleZoomOnScroll}
-					class={CSS.checkbox}
-				/>
+			<div class={CSS.wrapper}>
+				<div class={CSS.innerWrapper} onclick={this._toggleZoomOnScroll}>
+					<div>Enable Scroll Zoom</div>
+					<input type="checkbox" class={CSS.checkbox} checked={this.enabled} />
+				</div>
 			</div>
 		);
 	}

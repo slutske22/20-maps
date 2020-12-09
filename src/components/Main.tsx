@@ -36,12 +36,12 @@ const Main = () => {
 		<Wrapper>
 			<Header />
 			<Intro />
-			{/* Chapter 7 */}
+
 			<Suspense fallback={<ChapterSpinner />}>
 				<Moon />
 			</Suspense>
 
-			{/* <Suspense fallback={<ChapterSpinner />}>
+			<Suspense fallback={<ChapterSpinner />}>
 				<Mars />
 			</Suspense>
 
@@ -99,7 +99,7 @@ const Main = () => {
 
 			<Suspense fallback={<ChapterSpinner />}>
 				<CovidPollution />
-			</Suspense> */}
+			</Suspense>
 		</Wrapper>
 	);
 };

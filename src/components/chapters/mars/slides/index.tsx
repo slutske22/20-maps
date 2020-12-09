@@ -8,12 +8,14 @@ const SlidesWrapper = styled.aside`
 	position: absolute;
 	background-color: transparent;
 	padding: 15px;
+	padding-top: 70px;
 	top: 0px;
 	right: 0px;
 	width: 20%;
 	max-width: 200px;
 	min-width: 120px;
 	height: calc(100% - 60px);
+	pointer-events: none;
 `;
 
 const SlideContainer = styled.div`
@@ -23,6 +25,7 @@ const SlideContainer = styled.div`
 	margin-bottom: 10px;
 	border: 1px solid #fff;
 	overflow: hidden;
+	pointer-events: auto;
 `;
 
 const SlideImg = styled.img`
