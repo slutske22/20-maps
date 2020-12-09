@@ -40,66 +40,66 @@ const Main = () => {
 			<Suspense fallback={<ChapterSpinner />}>
 				<Moon />
 			</Suspense>
-			{/* Chapter 7 */}
-			<Suspense fallback={<ChapterSpinner />}>
+
+			{/* <Suspense fallback={<ChapterSpinner />}>
 				<Mars />
 			</Suspense>
-			{/* Chapter 1 */}
+
 			<Suspense fallback={<ChapterSpinner />}>
 				<JapanOlympics />
 			</Suspense>
-			{/* Chapter 1 */}
+
 			<Suspense fallback={<ChapterSpinner />}>
 				<Iditarod />
 			</Suspense>
-			{/* Chapter 1 */}
+
 			<Suspense fallback={<ChapterSpinner />}>
 				<ShelterAnimals />
 			</Suspense>
-			{/* Chapter 1 */}
+
 			<Suspense fallback={<ChapterSpinner />}>
 				<WildfiresCalifornia />
 			</Suspense>
-			{/* Chapter 1 */}
+
 			<Suspense fallback={<ChapterSpinner />}>
 				<VoterTurnout />
 			</Suspense>
-			{/* Chapter 1 */}
+
 			<Suspense fallback={<ChapterSpinner />}>
 				<CovidUS />
 			</Suspense>
-			{/* Chapter 1 */}
+
 			<Suspense fallback={<ChapterSpinner />}>
 				<CovidGlobal />
 			</Suspense>
-			{/* Chapter 2 */}
+
 			<Suspense fallback={<ChapterSpinner />}>
 				<WildfiresAus />
 			</Suspense>
-			{/* Chapter 3 */}
+
 			<Suspense fallback={<ChapterSpinner />}>
 				<Locusts />
 			</Suspense>
-			{/* Chapter 3 */}
+
 			<Suspense fallback={<ChapterSpinner />}>
 				<CovidItaly />
 			</Suspense>
-			{/* Chapter 4 */}
+
 			<Suspense fallback={<ChapterSpinner />}>
 				<ProtestsUS />
 			</Suspense>
-			{/* Chapter 4 */}
+
 			<Suspense fallback={<ChapterSpinner />}>
 				<Beirut />
 			</Suspense>
-			{/* Chapter 5 */}
+
 			<Suspense fallback={<ChapterSpinner />}>
 				<ArcticIce />
 			</Suspense>
-			{/* Chapter 6 */}
+
 			<Suspense fallback={<ChapterSpinner />}>
 				<CovidPollution />
-			</Suspense>
+			</Suspense> */}
 		</Wrapper>
 	);
 };
