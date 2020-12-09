@@ -4,7 +4,7 @@ import {
 	mars_hypso,
 	mars_ground,
 	labels,
-	mars_curiosity_track_ath,
+	mars_curiosity_track_path,
 } from './layers';
 import Expand from 'esri/widgets/Expand';
 import { RefLink } from '../../atoms';
@@ -17,61 +17,25 @@ const model: ModelSchema = {
 		fullWidthMap: true,
 		sceneview: true,
 	},
-	customFeatures: ({ map, view }) => {
+	customFeatures: ({ map }) => {
 		// add ground layer
 		map.ground.layers.add(mars_ground);
-
-		// override default behavior and set top left back to default
-		const topLeft: HTMLElement = document.querySelector(
-			`#mars .esri-ui-top-left`
-		);
-		topLeft.style.left = '';
-
-		const sidecar: HTMLElement = document.querySelector(
-			`#mars div[class^="SideCar"]`
-		);
-
-		sidecar.style.left = '40px';
-		sidecar.style.width = '500px';
-		sidecar.style.transition = 'all 0.5s';
-
-		// create expand with custom page content in it
-		const expand = new Expand({
-			view,
-			expandIconClass: 'esri-icon-question',
-			expandTooltip: 'Information',
-			expanded: true,
-		});
-
-		view.ui.add([{ component: expand, position: 'top-left', index: 0 }]);
-
-		// @ts-ignore
-		expand.container.addEventListener('click', () => {
-			if (expand.expanded) {
-				sidecar.style.left = '40px';
-				sidecar.style.opacity = '1';
-				sidecar.style.pointerEvents = 'auto';
-				sidecar.style.transition = 'all 0.5s';
-			} else {
-				sidecar.style.left = '35px';
-				sidecar.style.opacity = '0';
-				sidecar.style.pointerEvents = 'none';
-				sidecar.style.transition = 'none';
-			}
-		});
 	},
 	sources: [
 		{
-			name: 'Mars Topographic Layer',
-			url: '',
+			name: 'Mars 3D Model',
+			url:
+				'https://www.arcgis.com/home/item.html?id=c49741fb82704534adeb72dea3f58c3b',
 		},
 		{
-			name: 'Mars Imagery Layer',
-			url: '',
+			name: 'Mars Hypso Tint Layer',
+			url:
+				'https://www.arcgis.com/home/item.html?id=608e67315a9d478caa9f3311c3c729ef',
 		},
 		{
-			name: 'Mars Topographic Layer',
-			url: '',
+			name: 'Curiosity Rover Track Path',
+			url:
+				'https://www.arcgis.com/home/item.html?id=d0acbbe95e9547d0a3b3a38b7cc8f19e',
 		},
 	],
 	pages: [
@@ -98,7 +62,7 @@ const model: ModelSchema = {
 				</>
 			),
 			mapState: {
-				layers: [mars_hypso, mars_curiosity_track_ath, ...labels],
+				layers: [mars_hypso, mars_curiosity_track_path, ...labels],
 				position: {
 					center: [-100, 38],
 					zoom: 3,

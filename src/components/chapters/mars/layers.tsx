@@ -15,12 +15,7 @@ export const mars_ground = new ElevationLayer({
 		'https://tiles.arcgis.com/tiles/RS8mqPfEEjgYh6uG/arcgis/rest/services/Mars3D_WEL/ImageServer',
 });
 
-export const mars_rovers_track_path = new FeatureLayer({
-	url:
-		'https://services5.arcgis.com/AMh9EzyFGgthLT1q/arcgis/rest/services/track3_Merge/FeatureServer',
-});
-
-export const mars_curiosity_track_ath = new FeatureLayer({
+export const mars_curiosity_track_path = new FeatureLayer({
 	url:
 		'https://services5.arcgis.com/AMh9EzyFGgthLT1q/arcgis/rest/services/curiosity_track/FeatureServer',
 	// @ts-ignore
