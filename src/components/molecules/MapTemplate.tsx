@@ -40,10 +40,10 @@ const Map: FunctionComponent<MapProps> = ({
 			container: element.current,
 			map,
 			...position,
-			highlightOptions: {
-				fillOpacity: 0,
-				color: [50, 50, 50],
-			},
+			// highlightOptions: {
+			// 	fillOpacity: 0,
+			// 	color: [50, 50, 50],
+			// },
 			navigation: {
 				mouseWheelZoomEnabled: false,
 				browserTouchPanEnabled: false,
