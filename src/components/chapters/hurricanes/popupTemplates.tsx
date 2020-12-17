@@ -17,3 +17,20 @@ export const hurricanePopup = {
 		},
 	],
 };
+
+export const photoPopupTemplate = {
+	content: [
+		{
+			type: 'text',
+			text: `
+            <h3>{Title}</h3>
+            <h3 class="subtitle">{Date_Time}</h3>
+            <p class="description">{Description}</p>
+         `,
+		},
+		{
+			type: 'attachments',
+			displayType: 'preview',
+		},
+	],
+};

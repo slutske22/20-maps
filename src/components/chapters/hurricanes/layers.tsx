@@ -54,3 +54,10 @@ export const hurricaneTracksHighlight = new FeatureLayer({
 	// @ts-ignore
 	renderer: renderers.whiteGhostLineRenderer,
 });
+
+export const photosLayer = new FeatureLayer({
+	url:
+		'https://services.arcgis.com/0ZRg6WRC7mxSLyKX/arcgis/rest/services/Hurricane_Laura_Crowdsourced_Photos/FeatureServer',
+	outFields: ['*'],
+	popupTemplate: popupTemplates.photoPopupTemplate,
+});

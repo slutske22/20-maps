@@ -1,0 +1,41 @@
+.esri-popup__main-container {
+	.subtitle {
+		font-weight: normal;
+		font-style: italic;
+	}
+
+	.description {
+		margin-bottom: 1em !important;
+	}
+}
+
+.esri-popup__main-container {
+	.esri-feature__attachments.esri-feature__content-element {
+		h2 {
+			display: none;
+		}
+
+		.esri-attachments__label {
+			display: none;
+		}
+
+		.esri-attachments__item-button {
+			padding: 0;
+			margin-bottom: 0;
+		}
+
+		.esri-attachments__item {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.esri-feature__last-edited-info {
+	&.esri-feature__content-element {
+		display: none;
+	}
+}
+
+.esri-feature__content-element.esri-feature__text {
+	padding: 0 7px 7px 7px;
+}

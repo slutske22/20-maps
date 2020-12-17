@@ -120,8 +120,14 @@ const GlobalStyles = createGlobalStyle`
    }
 
    .esri-popup__main-container {
-		max-height: 800px !important;
-	}
+		max-height: 80vh !important;
+   }
+   
+   .esri-feature__attachments.esri-feature__content-element {
+      h2, .esri-attachments__label {
+         display: none;
+      }
+   }
 
 
 `;

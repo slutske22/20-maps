@@ -8,8 +8,10 @@ import {
 	hurricanePositionsDots,
 	hurricaneTracks,
 	hurricaneTracksHighlight,
+	photosLayer,
 } from './layers';
 import { RefLink } from '../../atoms';
+import './popupStyles.scss';
 
 const model: ModelSchema = {
 	metadata: {
@@ -35,8 +37,8 @@ const model: ModelSchema = {
 			content: (
 				<>
 					<p>
-						Despite the sentiment that "its enough already, 2020," we were still
-						due for hurricane season.
+						Despite the sentiment that "its enough already, 2020," we were
+						still due for hurricane season.
 					</p>
 				</>
 			),
@@ -52,6 +54,40 @@ const model: ModelSchema = {
 					hurricaneTracksHighlight,
 					hurricanePositionsSwirls,
 					hurricanePositionsDots,
+				],
+			},
+		},
+		{
+			title: 'Damage in the South Eastern US',
+			content: (
+				<>
+					<p>
+						To put a more relatable face on the hurricanes, National
+						Alliance for Public Safety GIS{' '}
+						<RefLink
+							theme="dark"
+							link="https://www.napsgfoundation.org/"
+							linkTitle="napsgfoundation.org/"
+						>
+							NAPSG
+						</RefLink>{' '}
+						published a collection of crowdsourced photos
+					</p>
+				</>
+			),
+			mapState: {
+				position: {
+					center: [-92, 31],
+					zoom: 5,
+				},
+				basemap: 'dark-gray-vector',
+				layers: [
+					topobathLayer,
+					hurricaneTracks,
+					hurricaneTracksHighlight,
+					hurricanePositionsSwirls,
+					hurricanePositionsDots,
+					photosLayer,
 				],
 			},
 		},
