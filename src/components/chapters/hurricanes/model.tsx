@@ -9,8 +9,10 @@ import {
 	hurricaneTracks,
 	hurricaneTracksHighlight,
 	photosLayer,
+	lauraWindsLayer,
 } from './layers';
 import { RefLink } from '../../atoms';
+import * as popupTemplates from './popupTemplates';
 import './popupStyles.scss';
 
 const model: ModelSchema = {
@@ -37,14 +39,25 @@ const model: ModelSchema = {
 			content: (
 				<>
 					<p>
-						Despite the sentiment that "its enough already, 2020," we were
-						still due for hurricane season.
+						Like everything else, this year's hurricane season{' '}
+						<RefLink
+							theme="dark"
+							link="https://www.noaa.gov/media-release/record-breaking-atlantic-hurricane-season-draws-to-end"
+							linkTitle={`"Record-breaking Atlantic hurricane season draws to an end", Blackwell, J., NOAA, Nov 24, 2020, Retrieved Dec 17, 2020`}
+						>
+							broke records
+						</RefLink>{' '}
+						. With 30 named storms (top winds of 39 mph or greater), 2020
+						has the most storms on record, surpassing the 28 from 2005,
+						and the second-highest number of hurricanes on record. This
+						map shows the hurricanes' tracks and recorded intensities as
+						they progressed.
 					</p>
 				</>
 			),
 			mapState: {
 				position: {
-					center: [-170, 35],
+					center: [-151, 17],
 					zoom: 2,
 				},
 				basemap: 'dark-gray-vector',
@@ -58,7 +71,7 @@ const model: ModelSchema = {
 			},
 		},
 		{
-			title: 'Damage in the South Eastern US',
+			title: 'Damage in the Southeastern U.S.',
 			content: (
 				<>
 					<p>
@@ -67,28 +80,64 @@ const model: ModelSchema = {
 						<RefLink
 							theme="dark"
 							link="https://www.napsgfoundation.org/"
-							linkTitle="napsgfoundation.org/"
+							linkTitle="napsgfoundation.org"
 						>
 							NAPSG
 						</RefLink>{' '}
-						published a collection of crowdsourced photos
+						published a collection of crowdsourced photos in the
+						southeastern U.S. in the wake of hurricanes Marco and Laura.
+						The colored bands represent hurricane Laura's wind footprint.
+					</p>
+					<p>
+						Click a purple diamond to see photos of the hurricane damage
+						and responses.
 					</p>
 				</>
 			),
 			mapState: {
 				position: {
 					center: [-92, 31],
-					zoom: 5,
+					zoom: 4,
 				},
 				basemap: 'dark-gray-vector',
 				layers: [
 					topobathLayer,
-					hurricaneTracks,
-					hurricaneTracksHighlight,
+					lauraWindsLayer,
 					hurricanePositionsSwirls,
 					hurricanePositionsDots,
+					hurricaneTracks,
+					hurricaneTracksHighlight,
 					photosLayer,
 				],
+				customBehavior: ({ view }) => {
+					[
+						hurricanePositionsSwirls,
+						hurricanePositionsDots,
+						hurricaneTracks,
+						hurricaneTracksHighlight,
+					].forEach((layer) => {
+						layer.opacity = 0.2;
+						layer.popupEnabled = false;
+					});
+
+					view.popup.dockEnabled = true;
+					view.popup.dockOptions = {
+						position: 'top-right',
+					};
+
+					return () => {
+						[
+							hurricanePositionsSwirls,
+							hurricanePositionsDots,
+							hurricaneTracks,
+							hurricaneTracksHighlight,
+						].forEach((layer) => {
+							layer.opacity = 1;
+							layer.popupEnabled = true;
+						});
+						view.popup.dockEnabled = false;
+					};
+				},
 			},
 		},
 	],

@@ -33,4 +33,8 @@ export const photoPopupTemplate = {
 			displayType: 'preview',
 		},
 	],
+	dockEnabled: true,
+	dockOptions: {
+		position: 'top-right	',
+	},
 };

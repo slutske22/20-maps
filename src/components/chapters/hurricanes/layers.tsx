@@ -9,7 +9,7 @@ import rasterFunctions from './rasterFunctions';
 export const topobathLayer = new ImageryLayer({
 	url:
 		'https://utility.arcgis.com/usrsvcs/servers/ad47b1b7d5ea46ffafdc0c75526a1986/rest/services/WorldElevation/TopoBathy/ImageServer',
-	opacity: 0.15,
+	opacity: 0.1,
 	renderingRule: RasterFunction.fromJSON(rasterFunctions[2]),
 });
 
@@ -60,4 +60,10 @@ export const photosLayer = new FeatureLayer({
 		'https://services.arcgis.com/0ZRg6WRC7mxSLyKX/arcgis/rest/services/Hurricane_Laura_Crowdsourced_Photos/FeatureServer',
 	outFields: ['*'],
 	popupTemplate: popupTemplates.photoPopupTemplate,
+});
+
+export const lauraWindsLayer = new FeatureLayer({
+	url:
+		'https://services.arcgis.com/pGfbNJoYypmNq86F/ArcGIS/rest/services/Hurricane_Laura_2020_Actual_Winds/FeatureServer/2',
+	opacity: 0.2,
 });
