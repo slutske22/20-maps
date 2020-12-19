@@ -37,6 +37,7 @@ export type MetaData = {
 	theme: 'light' | 'dark' | 'dark-blue' | 'dark-red';
 	fullWidthMap: boolean;
 	sceneview?: boolean;
+	disableSpinnerAfterInitialLoad?: boolean;
 };
 
 export type CustomFeaturesArgs = {

@@ -12,6 +12,7 @@ const model: ModelSchema = {
 		name: 'artic_ice',
 		theme: 'light',
 		fullWidthMap: true,
+		disableSpinnerAfterInitialLoad: true,
 	},
 	sources: [
 		{

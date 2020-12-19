@@ -45,8 +45,7 @@ const otherProtestLayer = new FeatureLayer({
 	// @ts-ignore
 	renderer: renderers.otherRenderer,
 	popupTemplate,
-	definitionExpression:
-		"Tags NOT LIKE '%racial%' AND Tags NOT LIKE '%police%'",
+	definitionExpression: "Tags NOT LIKE '%racial%' AND Tags NOT LIKE '%police%'",
 });
 
 export const model: ModelSchema = {
@@ -54,6 +53,7 @@ export const model: ModelSchema = {
 		name: 'US_protests',
 		theme: 'dark',
 		fullWidthMap: true,
+		disableSpinnerAfterInitialLoad: true,
 	},
 	sources: [
 		{
@@ -152,10 +152,9 @@ export const model: ModelSchema = {
 			content: (
 				<>
 					<p>
-						Social distancing and economic shutdown have overlapped with
-						key police and political incidents this year. The public's
-						response has been protests and riots on a scale that we have
-						not seen in decades.
+						Social distancing and economic shutdown have overlapped with key
+						police and political incidents this year. The public's response has
+						been protests and riots on a scale that we have not seen in decades.
 					</p>
 					<p>
 						<RefLink
@@ -165,16 +164,14 @@ export const model: ModelSchema = {
 						>
 							Countlove.org
 						</RefLink>{' '}
-						has been keeping track of protests in the US for years. The
-						protest data is tagged with keywords about what the protest is
-						about.{' '}
+						has been keeping track of protests in the US for years. The protest
+						data is tagged with keywords about what the protest is about.{' '}
 					</p>
 					<p>
-						<em className="action">Press the play button</em> in the
-						bottom right corner to watch the protests erupt as the year
-						progresses. Pay special attention to what happens in March and
-						April as Coronavirus takes hold, as well as what happens in
-						late May, just after the{' '}
+						<em className="action">Press the play button</em> in the bottom
+						right corner to watch the protests erupt as the year progresses. Pay
+						special attention to what happens in March and April as Coronavirus
+						takes hold, as well as what happens in late May, just after the{' '}
 						<RefLink
 							link="https://en.wikipedia.org/wiki/Killing_of_George_Floyd"
 							linkTitle="Killing of George Floyd, Wikipedia"
@@ -192,11 +189,7 @@ export const model: ModelSchema = {
 					zoom: 3,
 				},
 				basemap,
-				layers: [
-					otherProtestLayer,
-					covidProtestsLayer,
-					racialProtestsLayer,
-				],
+				layers: [otherProtestLayer, covidProtestsLayer, racialProtestsLayer],
 			},
 		},
 	],

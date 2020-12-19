@@ -133,9 +133,16 @@ const Map: FunctionComponent<MapProps> = ({
 
 		// watch the view to see if its currently updating, set loading icon appropriately
 		// note this only happens once per page load, not once per component load...not sure why
-		watchUtils.whenTrue(view, 'updating', () => {
-			setMapLoading(true);
-		});
+
+		if (metadata.disableSpinnerAfterInitialLoad) {
+			watchUtils.whenTrueOnce(view, 'updating', () => {
+				setMapLoading(true);
+			});
+		} else {
+			watchUtils.whenTrue(view, 'updating', () => {
+				setMapLoading(true);
+			});
+		}
 		watchUtils.whenFalse(view, 'updating', () => {
 			setMapLoading(false);
 		});
