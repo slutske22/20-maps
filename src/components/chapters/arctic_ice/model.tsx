@@ -40,14 +40,7 @@ const model: ModelSchema = {
 			view,
 			statusIndicatorsVisible: false,
 			listItemCreatedFunction: function (e) {
-				switch (e.item.layer.id) {
-					case 'seaIceSummer':
-						e.item.title = 'Ice in Summer';
-						break;
-					case 'seaIceWinter':
-						e.item.title = 'Ice in Winter';
-						break;
-				}
+				e.item.title = e.item.layer.title;
 			},
 		});
 
@@ -95,8 +88,8 @@ const model: ModelSchema = {
 			content: (
 				<>
 					<p>
-						The change in global temperatures is most evident in the
-						shrinking of arctic ice. This year, arctic ice{' '}
+						The change in global temperatures is most evident in the shrinking
+						of arctic ice. This year, arctic ice{' '}
 						<RefLink
 							theme="light"
 							link="https://climate.nasa.gov/news/3023/2020-arctic-sea-ice-minimum-at-second-lowest-on-record/"
@@ -115,9 +108,9 @@ const model: ModelSchema = {
 						.
 					</p>
 					<p>
-						Click the play button below to watch the arctic ice evolve
-						from 1980 to 2015. (Data from the last several years is
-						incomplete at this time.)
+						Click the play button below to watch the arctic ice evolve from 1980
+						to 2015. (Data from the last several years is incomplete at this
+						time.)
 					</p>
 				</>
 			),
@@ -128,12 +121,7 @@ const model: ModelSchema = {
 						id: '7ec08e5438304dbfa1e26181503e6fa8',
 					},
 				},
-				layers: [
-					arcticReference,
-					...graticule,
-					...iceLayers1979,
-					...iceLayers,
-				],
+				layers: [arcticReference, ...graticule, ...iceLayers1979, ...iceLayers],
 				position: {
 					extent: new Extent({
 						xmax: 6613525,

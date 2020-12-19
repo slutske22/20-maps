@@ -63,7 +63,6 @@ export type ModelSchema = {
 };
 
 export type MapProps = {
-	setMapLoading: Dispatch<SetStateAction<boolean>>;
 	metadata: MetaData;
 	sources: {
 		name: string;

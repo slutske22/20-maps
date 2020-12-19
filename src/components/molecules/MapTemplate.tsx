@@ -11,10 +11,9 @@ import * as watchUtils from 'esri/core/watchUtils';
 import ScrollZoom from '../mapcomponents/ScrollZoom';
 
 import { MapProps } from '../../types';
-import { DataSources } from '../atoms';
+import { DataSources, MapSpinner } from '../atoms';
 
 const Map: FunctionComponent<MapProps> = ({
-	setMapLoading,
 	metadata,
 	sources,
 	customFeatures,
@@ -25,9 +24,13 @@ const Map: FunctionComponent<MapProps> = ({
 	mapState: { basemap, layers, position, customBehavior },
 }: MapProps) => {
 	const element = useRef(null);
-	const toggle = useRef(null);
 	const [mapRef, setMapRef] = useState(null);
+	const [mapLoading, setMapLoading] = useState(true);
 	const [cleanupFunction, setCleaupFunction] = useState(null);
+
+	useEffect(() => {
+		console.log(metadata.name, 'maploading', mapLoading);
+	}, [mapLoading]);
 
 	// component mount: set up map, view
 	useEffect(() => {
@@ -40,10 +43,6 @@ const Map: FunctionComponent<MapProps> = ({
 			container: element.current,
 			map,
 			...position,
-			// highlightOptions: {
-			// 	fillOpacity: 0,
-			// 	color: [50, 50, 50],
-			// },
 			navigation: {
 				mouseWheelZoomEnabled: false,
 				browserTouchPanEnabled: false,
@@ -134,7 +133,10 @@ const Map: FunctionComponent<MapProps> = ({
 
 		// watch the view to see if its currently updating, set loading icon appropriately
 		// note this only happens once per page load, not once per component load...not sure why
-		watchUtils.whenFalseOnce(view, 'updating', () => {
+		watchUtils.whenTrue(view, 'updating', () => {
+			setMapLoading(true);
+		});
+		watchUtils.whenFalse(view, 'updating', () => {
 			setMapLoading(false);
 		});
 
@@ -209,6 +211,7 @@ const Map: FunctionComponent<MapProps> = ({
 		<>
 			<div className={`arcgis-map ${metadata.name}`} ref={element} />
 			{customMapDOM && mapRef && customMapDOM(mapRef)}
+			{mapLoading && <MapSpinner />}
 		</>
 	);
 };

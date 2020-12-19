@@ -10,6 +10,7 @@ export const arcticReference = new TileLayer({
 
 export const seaIceSummer = new FeatureLayer({
 	id: 'seaIceSummer',
+	title: 'Ice in Summer',
 	url:
 		'https://services5.arcgis.com/0cdFOdQ7VcrIdCxr/arcgis/rest/services/Arctic_Sea_Ice_Combo_1978_2019/FeatureServer/0',
 	maxScale: 0, // no max,
@@ -21,6 +22,7 @@ export const seaIceSummer = new FeatureLayer({
 
 export const seaIceWinter = new FeatureLayer({
 	id: 'seaIceWinter',
+	title: 'Ice in Winter',
 	url:
 		'https://services5.arcgis.com/0cdFOdQ7VcrIdCxr/arcgis/rest/services/Arctic_Sea_Ice_Combo_1978_2019/FeatureServer/1',
 	maxScale: 0, // no max
@@ -31,7 +33,8 @@ export const seaIceWinter = new FeatureLayer({
 });
 
 const seaIceSummer1979 = new FeatureLayer({
-	id: 'seaIceSummer',
+	id: 'seaIceSummer1979',
+	title: 'Summer 1979',
 	url:
 		'https://services5.arcgis.com/0cdFOdQ7VcrIdCxr/arcgis/rest/services/Arctic_Sea_Ice_Combo_1978_2019/FeatureServer/0',
 	maxScale: 0, // no max,
@@ -42,7 +45,8 @@ const seaIceSummer1979 = new FeatureLayer({
 });
 
 const seaIceWinter1979 = new FeatureLayer({
-	id: 'seaIceWinter',
+	id: 'seaIceWinter1979',
+	title: 'Winter 1979',
 	url:
 		'https://services5.arcgis.com/0cdFOdQ7VcrIdCxr/arcgis/rest/services/Arctic_Sea_Ice_Combo_1978_2019/FeatureServer/1',
 	maxScale: 0, // no max

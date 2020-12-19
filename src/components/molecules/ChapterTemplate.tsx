@@ -29,8 +29,7 @@ const Wrapper = styled.section<WrapperProps>`
 	position: relative;
 	display: flex;
 	flex-direction: row;
-	background-color: ${(props) =>
-		props.maptheme === 'light' ? '' : '#242424'};
+	background-color: ${(props) => (props.maptheme === 'light' ? '' : '#242424')};
 	/* scroll-snap-stop: always;
 	scroll-snap-align: start; */
 `;
@@ -72,7 +71,6 @@ const Chapter = ({
 	},
 }: ChapterProps) => {
 	const [currentPage, setCurrentPage] = useState(0);
-	const [mapLoading, setMapLoading] = useState(true);
 	const { dispatch } = useContext(Context);
 	const pageRefs = {};
 
@@ -126,10 +124,8 @@ const Chapter = ({
 							fullWidth={metadata.fullWidthMap}
 							className={`arcgis-map-${metadata.theme}`}
 						>
-							{mapLoading && <MapSpinner />}
 							{isVisible && (
 								<MapTemplate
-									setMapLoading={setMapLoading}
 									mapState={pages[currentPage].mapState}
 									customFeatures={customFeatures}
 									customFeaturesPerPage={customFeaturesPerPage}
