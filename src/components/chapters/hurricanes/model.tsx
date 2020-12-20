@@ -46,7 +46,7 @@ const model: ModelSchema = {
 							linkTitle={`"Record-breaking Atlantic hurricane season draws to an end", Blackwell, J., NOAA, Nov 24, 2020, Retrieved Dec 17, 2020`}
 						>
 							broke records
-						</RefLink>{' '}
+						</RefLink>
 						. With 30 named storms (top winds of 39 mph or greater), 2020
 						has the most storms on record, surpassing the 28 from 2005,
 						and the second-highest number of hurricanes on record. This

@@ -25,6 +25,7 @@ const model: ModelSchema = {
 		name: 'covid_global',
 		theme: 'dark',
 		fullWidthMap: false,
+		disableSpinnerAfterInitialLoad: true,
 	},
 	sources: [
 		{

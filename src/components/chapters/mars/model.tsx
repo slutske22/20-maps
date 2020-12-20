@@ -16,6 +16,7 @@ const model: ModelSchema = {
 		theme: 'dark',
 		fullWidthMap: true,
 		sceneview: true,
+		disableSpinnerAfterInitialLoad: true,
 	},
 	customFeatures: ({ map }) => {
 		// add ground layer
