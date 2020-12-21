@@ -25,32 +25,20 @@ export const MISRImagery = new ImageryLayer({
 		'https://maps.disasters.nasa.gov/ags04/rest/services/ca_fires_202008/misr_2d_imagery_08242020/ImageServer',
 });
 
-// export const SC2Sept29 = new MapImageLayer({
-// 	url:
-// 		'https://maps.disasters.nasa.gov/ags04/rest/services/ca_fires_202008/sentinel2/MapServer/976',
-// });
-
-export const SC2Sept29 = new MapImageLayer({
+export const smokeImagery = new MapImageLayer({
 	url:
-		'https://maps.disasters.nasa.gov/ags04/rest/services/ca_fires_202008/sentinel2/MapServer/547',
-	// sublayers: [
-	// 	{
-	// 		id: 976,
-	// 	},
-	// 	{
-	// 		id: 948,
-	// 	},
-	// ],
-});
-
-export const SC2Oct1 = new MapImageLayer({
-	url:
-		'https://maps.disasters.nasa.gov/ags04/rest/services/ca_fires_202008/sentinel2/MapServer/948',
-});
-
-export const SC2Oct3 = new MapImageLayer({
-	url:
-		'https://maps.disasters.nasa.gov/ags04/rest/services/ca_fires_202008/sentinel2/MapServer/925',
+		'/proxy/https://maps.disasters.nasa.gov/ags04/rest/services/ca_fires_202008/sentinel2/MapServer?f=json',
+	sublayers: [
+		{
+			id: 976,
+		},
+		{
+			id: 948,
+		},
+		{
+			id: 925,
+		},
+	],
 });
 
 export const states = new FeatureLayer({
