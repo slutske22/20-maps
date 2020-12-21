@@ -37,3 +37,26 @@ In order to have multiple maps on the same webpage with different [themes](https
 ```
 
 The exact details are explained in the issue [Multiple maps on same page with different themes - wrap theme in custom selector](https://github.com/jcfranco/jsapi-styles/issues/10).
+
+### Setting up a Proxy
+
+Some of my favorite data layers relevant to 2020 are owned by NASA and served from their ArcGIS portal at https://maps.disasters.nasa.gov. For some reason, this server is not CORS enabled, meaning responses are *not* returned with `Access-Control-Allow-Origin: *` in the headers.  Lucky me!  Luckily, this is a common problem, and ESRI suggests [using a proxy](https://developers.arcgis.com/javascript/latest/guide/proxies/) to attach the right CORS headers to requests made to such CORS-less servers.  They even offer some [starter proxy repos](https://github.com/Esri/resource-proxy) you can branch off of.
+
+Considering I'm not a PHP, .NET, or Java developer, I needed to come up with my own solution.  I wrote a quick nodejs server that makes use of cors-anywhere.  The crucial lines are:
+
+```javascript
+let proxy = corsAnywhere.createServer({
+  originWhitelist: [], // Allow all origins
+  requireHeaders: [], // Do not require any headers.
+  removeHeaders: [], // Do not remove any headers.
+});
+
+app.use(cors());
+
+app.get('/proxy/:proxyUrl*', (req, res) => {
+  req.url = req.url.replace('/proxy/https:/', '/https://');
+  proxy.emit('request', req, res);
+});
+```
+
+And then when trying to use any layers served by the maps.disasters.nasa.gov server, I simply need to prefix the layer url with `/proxy/`.  Of course this means that 20 Maps for 2020 is now a full stack app.  I had hoped to keep it as a simple front end bundle ("Can someone serve my HTML, please?"), but that would mean I can't use the NASA layers.  Oh well.  This is what forced me to use heroku as a host (as opposed to github pages).
