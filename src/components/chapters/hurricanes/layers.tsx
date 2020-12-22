@@ -15,7 +15,7 @@ export const topobathLayer = new ImageryLayer({
 
 export const hurricanePositionsSwirls = new FeatureLayer({
 	url:
-		'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Recent_Hurricanes_v1/FeatureServer/0',
+		'https://services6.arcgis.com/VqchQRhgtql2vsmO/arcgis/rest/services/Hurricanes2020/FeatureServer/0',
 	// @ts-ignore
 	renderer: renderers.blueSwirlRenderer,
 	outFields: ['*'],
@@ -24,7 +24,7 @@ export const hurricanePositionsSwirls = new FeatureLayer({
 
 export const hurricanePositionsDots = new FeatureLayer({
 	url:
-		'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Recent_Hurricanes_v1/FeatureServer/0',
+		'https://services6.arcgis.com/VqchQRhgtql2vsmO/arcgis/rest/services/Hurricanes2020/FeatureServer/0',
 	// @ts-ignore
 	renderer: renderers.blueDotRenderer,
 	definitionExpression:
@@ -34,7 +34,7 @@ export const hurricanePositionsDots = new FeatureLayer({
 export const hurricaneTracks = new FeatureLayer({
 	id: 'Hurricane_Recent_4466_1123_2461_5598_3670',
 	url:
-		'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Recent_Hurricanes_v1/FeatureServer/1',
+		'https://services6.arcgis.com/VqchQRhgtql2vsmO/arcgis/rest/services/Hurricanes2020/FeatureServer/1',
 	title: 'Blue Hatched Track',
 	opacity: 0.45,
 	// @ts-ignore
@@ -48,7 +48,7 @@ export const hurricaneTracks = new FeatureLayer({
 export const hurricaneTracksHighlight = new FeatureLayer({
 	id: 'Hurricane_Recent_4466_1123_2461_5598_8316_2112',
 	url:
-		'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Recent_Hurricanes_v1/FeatureServer/1',
+		'https://services6.arcgis.com/VqchQRhgtql2vsmO/arcgis/rest/services/Hurricanes2020/FeatureServer/1',
 	opacity: 0.14,
 	title: 'Light Trans Solid Track',
 	// @ts-ignore

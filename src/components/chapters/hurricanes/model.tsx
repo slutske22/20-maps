@@ -12,7 +12,6 @@ import {
 	lauraWindsLayer,
 } from './layers';
 import { RefLink } from '../../atoms';
-import * as popupTemplates from './popupTemplates';
 import './popupStyles.scss';
 
 const model: ModelSchema = {
@@ -47,11 +46,10 @@ const model: ModelSchema = {
 						>
 							broke records
 						</RefLink>
-						. With 30 named storms (top winds of 39 mph or greater), 2020
-						has the most storms on record, surpassing the 28 from 2005,
-						and the second-highest number of hurricanes on record. This
-						map shows the hurricanes' tracks and recorded intensities as
-						they progressed.
+						. With 30 named storms (top winds of 39 mph or greater), 2020 has
+						the most storms on record, surpassing the 28 from 2005, and the
+						second-highest number of hurricanes on record. This map shows the
+						hurricanes' tracks and recorded intensities as they progressed.
 					</p>
 				</>
 			),
@@ -75,8 +73,8 @@ const model: ModelSchema = {
 			content: (
 				<>
 					<p>
-						To put a more relatable face on the hurricanes, National
-						Alliance for Public Safety GIS{' '}
+						To put a more relatable face on the hurricanes, National Alliance
+						for Public Safety GIS{' '}
 						<RefLink
 							theme="dark"
 							link="https://www.napsgfoundation.org/"
@@ -84,13 +82,13 @@ const model: ModelSchema = {
 						>
 							NAPSG
 						</RefLink>{' '}
-						published a collection of crowdsourced photos in the
-						southeastern U.S. in the wake of hurricanes Marco and Laura.
-						The colored bands represent hurricane Laura's wind footprint.
+						published a collection of crowdsourced photos in the southeastern
+						U.S. in the wake of hurricanes Marco and Laura. The colored bands
+						represent hurricane Laura's wind footprint.
 					</p>
 					<p>
-						Click a purple diamond to see photos of the hurricane damage
-						and responses.
+						Click a purple diamond to see photos of the hurricane damage and
+						responses.
 					</p>
 				</>
 			),
