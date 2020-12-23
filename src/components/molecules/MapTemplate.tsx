@@ -39,7 +39,7 @@ const Map: FunctionComponent<MapProps> = ({
 			layers: layers,
 		});
 
-		const params = {
+		const params: any = {
 			container: element.current,
 			map,
 			...position,
