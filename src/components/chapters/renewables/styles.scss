@@ -1,3 +1,13 @@
 #energy-legend-container {
 	border: 0.25px solid lightgray;
 }
+
+.renewables-popup__x-axis-labels {
+	display: flex;
+	flex-direction: row;
+}
+
+.renewables-popup__x-axis-labels .label {
+	transform: rotate(270deg);
+	transform-origin: 0 0;
+}

@@ -60,7 +60,12 @@ const model: ModelSchema = {
 			],
 		});
 
-		// view.ui.add(legend, 'bottom-left');
+		view.when(() => {
+			view.popup.dockEnabled = true;
+			view.popup.dockOptions = {
+				position: 'bottom-left',
+			};
+		});
 	},
 };
 

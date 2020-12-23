@@ -1,6 +1,7 @@
 import TileLayer from 'esri/layers/TileLayer';
 import FeatureLayer from 'esri/layers/FeatureLayer';
 import * as renderers from './renderers';
+import * as popupTemplates from './popupTemplates';
 
 export const spatialReference = {
 	wkt:
@@ -16,6 +17,7 @@ export const basemap = new TileLayer({
 export const energy = new FeatureLayer({
 	url:
 		'https://services6.arcgis.com/VqchQRhgtql2vsmO/arcgis/rest/services/Renewable_Energy_Percent_of_Total_Final_Energy_Consumption_Country_Polygons/FeatureServer',
+	popupTemplate: popupTemplates.popupTemplate,
 });
 
 export const graticules = [
