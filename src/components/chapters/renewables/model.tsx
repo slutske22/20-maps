@@ -3,6 +3,7 @@ import { ModelSchema } from '../../../types';
 import { basemap, energy, graticules } from './layers';
 import { RefLink } from '../../atoms';
 import Legend from 'esri/widgets/Legend';
+import './styles.scss';
 
 const model: ModelSchema = {
 	metadata: {
@@ -24,6 +25,13 @@ const model: ModelSchema = {
 			content: (
 				<>
 					<p>Some content ehre</p>
+					<p style={{ flexGrow: 1 }}>Flex grow 1</p>
+					<div className="arcgis-map-light">
+						<div
+							id="energy-legend-container"
+							className="esri-component esri-legend esri-widget esri-widget--panel"
+						/>
+					</div>
 				</>
 			),
 			mapState: {
@@ -42,6 +50,7 @@ const model: ModelSchema = {
 	customFeatures: ({ view }) => {
 		const legend = new Legend({
 			view,
+			container: 'energy-legend-container',
 			layerInfos: [
 				// @ts-ignore
 				{
@@ -51,7 +60,7 @@ const model: ModelSchema = {
 			],
 		});
 
-		view.ui.add(legend, 'bottom-left');
+		// view.ui.add(legend, 'bottom-left');
 	},
 };
 
