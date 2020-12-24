@@ -29,7 +29,8 @@ const model: ModelSchema = {
 			content: (
 				<>
 					<p>
-						In times of great change, old traditions bring comfort. The{' '}
+						Animals have helped us maintain our sense of normalcy in more
+						ways than just being our pets. The{' '}
 						<RefLink
 							theme="light"
 							link="https://www.alaskacenters.gov/explore/culture/dog-mushing/iditarod"
