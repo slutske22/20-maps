@@ -17,10 +17,16 @@ const Wrapper = styled.nav`
 	z-index: 5;
 `;
 
-const NavLink = styled.a<{ active: boolean }>`
+const NavLink = styled.a`
+	padding: 10px 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+`;
+
+const NavLinkDot = styled.div<{ active: boolean }>`
 	width: 8px;
 	height: 8px;
-	margin: 10px 20px;
 	border-radius: 50%;
 	background-color: ${(props) => (props.active ? 'white' : 'grey')};
 `;
@@ -166,10 +172,11 @@ const Nav = () => {
 					<NavLink
 						data-tip
 						data-for={link.hash}
-						active={link.hash === activeNavLink}
 						href={`#${link.hash}`}
 						onClick={() => scroll(link.hash)}
-					/>
+					>
+						<NavLinkDot active={link.hash === activeNavLink} />
+					</NavLink>
 					<NavToolTip
 						id={link.hash}
 						place="right"
@@ -177,9 +184,9 @@ const Nav = () => {
 						border
 						borderColor="darkgrey"
 						effect="solid"
-						delayHide={100}
+						delayHide={10}
 						className="tooltip"
-						offset={{ left: -10 }}
+						offset={{ left: 10 }}
 					>
 						{link.name}
 					</NavToolTip>

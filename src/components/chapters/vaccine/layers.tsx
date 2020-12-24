@@ -21,6 +21,7 @@ export const minneapolisProviers = new FeatureLayer({
 	minScale: 4622330,
 	// @ts-ignore
 	renderer: renderers.providerRenderer,
+	legendEnabled: false,
 });
 
 export const HoustonProviders = new FeatureLayer({
@@ -29,6 +30,7 @@ export const HoustonProviders = new FeatureLayer({
 	minScale: 2311170,
 	// @ts-ignore
 	renderer: renderers.providerRenderer,
+	legendEnabled: false,
 });
 
 export const availabilityTypes = [
