@@ -25,6 +25,7 @@ const JapanOlympics = React.lazy(() => import('./chapters/japan_olympics'));
 const Moon = React.lazy(() => import('./chapters/moon'));
 const Hurricanes = React.lazy(() => import('./chapters/hurricanes'));
 const Renewables = React.lazy(() => import('./chapters/renewables'));
+const Vaccine = React.lazy(() => import('./chapters/vaccine'));
 
 const Wrapper = styled.main`
 	height: 100%;
@@ -40,7 +41,7 @@ const Main = () => {
 			<Header />
 			<Intro />
 
-			<Suspense fallback={<ChapterSpinner />}>
+			{/* <Suspense fallback={<ChapterSpinner />}>
 				<CovidGlobal />
 			</Suspense>
 
@@ -114,6 +115,10 @@ const Main = () => {
 
 			<Suspense fallback={<ChapterSpinner />}>
 				<JapanOlympics />
+			</Suspense> */}
+
+			<Suspense fallback={<ChapterSpinner />}>
+				<Vaccine />
 			</Suspense>
 		</Wrapper>
 	);

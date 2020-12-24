@@ -28,10 +28,6 @@ const Map: FunctionComponent<MapProps> = ({
 	const [mapLoading, setMapLoading] = useState(true);
 	const [cleanupFunction, setCleaupFunction] = useState(null);
 
-	useEffect(() => {
-		console.log(metadata.name, 'maploading', mapLoading);
-	}, [mapLoading]);
-
 	// component mount: set up map, view
 	useEffect(() => {
 		const map = new EsriMap({
@@ -54,6 +50,7 @@ const Map: FunctionComponent<MapProps> = ({
 			: new MapView(params);
 
 		view.on('click', (e) => {
+			console.log('view', view);
 			console.log('extent', view.extent);
 			console.log('mappoint', e.mapPoint);
 		});

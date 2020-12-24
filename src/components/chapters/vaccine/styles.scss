@@ -1,0 +1,24 @@
+#vaccine {
+	.layer-select {
+		position: absolute;
+		top: 15px;
+		left: 60px;
+		background-color: white;
+		border: 1px solid lightgrey;
+		padding: 5px;
+	}
+
+	h2 {
+		font-size: 16px;
+		text-transform: uppercase;
+		color: gray;
+		font-style: italic;
+		margin: 0;
+		margin-bottom: 5px;
+	}
+
+	select {
+		padding: 5px;
+		border: 1px solid lightgrey;
+	}
+}
