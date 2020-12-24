@@ -5,9 +5,29 @@
 .renewables-popup__x-axis-labels {
 	display: flex;
 	flex-direction: row;
+	width: 308px;
+	justify-content: space-between;
+	margin-left: 51px;
 }
 
 .renewables-popup__x-axis-labels .label {
 	transform: rotate(270deg);
 	transform-origin: 0 0;
+}
+
+#renewables {
+	.esri-popup__content {
+		// height: 600px;
+	}
+
+	.esri-feature__content-element.esri-feature__text {
+	}
+
+	.esri-feature-content {
+		// width: 100%;
+
+		div {
+			// width: 100%;
+		}
+	}
 }

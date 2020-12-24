@@ -56,9 +56,8 @@ export const popupTemplate = {
 			type: 'text',
 			text: `
 				<div class="renewables-popup__x-axis-labels">
-					${fields
-						.map((field) => `<div class="label">${field.split('_')[1]}</div>`)
-						.join('')}
+					<span class="label">2000</span>
+					<span class="label">2017</span>
 				</div>
 			`,
 		},
@@ -68,3 +67,11 @@ export const popupTemplate = {
 		label: field.split('_')[1],
 	})),
 };
+
+`
+				<div class="renewables-popup__x-axis-labels">
+					${fields
+						.map((field) => `<div class="label">${field.split('_')[1]}</div>`)
+						.join('')}
+				</div>
+			`;

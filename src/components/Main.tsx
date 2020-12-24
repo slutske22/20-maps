@@ -41,50 +41,6 @@ const Main = () => {
 			<Intro />
 
 			<Suspense fallback={<ChapterSpinner />}>
-				<Renewables />
-			</Suspense>
-
-			<Suspense fallback={<ChapterSpinner />}>
-				<Belarus />
-			</Suspense>
-
-			<Suspense fallback={<ChapterSpinner />}>
-				<Hurricanes />
-			</Suspense>
-
-			<Suspense fallback={<ChapterSpinner />}>
-				<Moon />
-			</Suspense>
-
-			<Suspense fallback={<ChapterSpinner />}>
-				<Mars />
-			</Suspense>
-
-			<Suspense fallback={<ChapterSpinner />}>
-				<JapanOlympics />
-			</Suspense>
-
-			<Suspense fallback={<ChapterSpinner />}>
-				<Iditarod />
-			</Suspense>
-
-			<Suspense fallback={<ChapterSpinner />}>
-				<ShelterAnimals />
-			</Suspense>
-
-			<Suspense fallback={<ChapterSpinner />}>
-				<WildfiresCalifornia />
-			</Suspense>
-
-			<Suspense fallback={<ChapterSpinner />}>
-				<VoterTurnout />
-			</Suspense>
-
-			<Suspense fallback={<ChapterSpinner />}>
-				<CovidUS />
-			</Suspense>
-
-			<Suspense fallback={<ChapterSpinner />}>
 				<CovidGlobal />
 			</Suspense>
 
@@ -101,7 +57,27 @@ const Main = () => {
 			</Suspense>
 
 			<Suspense fallback={<ChapterSpinner />}>
+				<CovidUS />
+			</Suspense>
+
+			<Suspense fallback={<ChapterSpinner />}>
+				<CovidPollution />
+			</Suspense>
+
+			<Suspense fallback={<ChapterSpinner />}>
+				<ShelterAnimals />
+			</Suspense>
+
+			<Suspense fallback={<ChapterSpinner />}>
+				<Iditarod />
+			</Suspense>
+
+			<Suspense fallback={<ChapterSpinner />}>
 				<ProtestsUS />
+			</Suspense>
+
+			<Suspense fallback={<ChapterSpinner />}>
+				<Belarus />
 			</Suspense>
 
 			<Suspense fallback={<ChapterSpinner />}>
@@ -109,11 +85,35 @@ const Main = () => {
 			</Suspense>
 
 			<Suspense fallback={<ChapterSpinner />}>
+				<WildfiresCalifornia />
+			</Suspense>
+
+			<Suspense fallback={<ChapterSpinner />}>
+				<Hurricanes />
+			</Suspense>
+
+			<Suspense fallback={<ChapterSpinner />}>
 				<ArcticIce />
 			</Suspense>
 
 			<Suspense fallback={<ChapterSpinner />}>
-				<CovidPollution />
+				<Renewables />
+			</Suspense>
+
+			<Suspense fallback={<ChapterSpinner />}>
+				<Moon />
+			</Suspense>
+
+			<Suspense fallback={<ChapterSpinner />}>
+				<Mars />
+			</Suspense>
+
+			<Suspense fallback={<ChapterSpinner />}>
+				<VoterTurnout />
+			</Suspense>
+
+			<Suspense fallback={<ChapterSpinner />}>
+				<JapanOlympics />
 			</Suspense>
 		</Wrapper>
 	);
