@@ -42,6 +42,19 @@ const model: ModelSchema = {
 			content: (
 				<>
 					<p>
+						Meanwhile, back on Earth, U.S. Citizens were voting for more
+						terrestrial interests (with the outcome{' '}
+						<RefLink
+							theme="light"
+							link="https://spacenews.com/from-the-moon-to-the-earth-how-the-biden-administration-might-reshape-nasa/"
+							linkTitle={`"From the moon to the Earth: How the Biden administration might reshape NASA", Foust, J., spacenews.com, Nov 20, 2020, Retrieved Dec 24, 2020`}
+						>
+							potentially affecting
+						</RefLink>{' '}
+						NASA's goal of returning the moon in 4 years).
+					</p>
+					<p>
+						{' '}
 						Between the government's handling (or mishandling) of the
 						pandemic, nationwide riots, and endless controversy
 						surrounding President Trump, the 2020 U.S. elections saw{' '}
