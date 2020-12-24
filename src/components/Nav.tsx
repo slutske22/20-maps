@@ -45,6 +45,10 @@ const chapterlinks = [
 		hash: 'wildfires_australia',
 	},
 	{
+		name: 'Locusts in Africa',
+		hash: 'locusts',
+	},
+	{
 		name: 'COVID in Italy',
 		hash: 'covid_italy',
 	},
@@ -53,8 +57,24 @@ const chapterlinks = [
 		hash: 'covid_us',
 	},
 	{
+		name: 'Shutdown Pollution',
+		hash: 'covid_pollution',
+	},
+	{
+		name: 'Shelter Animals',
+		hash: 'shelter_animals',
+	},
+	{
+		name: 'Iditarod',
+		hash: 'iditarod',
+	},
+	{
 		name: 'US Protests',
 		hash: 'US_protests',
+	},
+	{
+		name: 'Belarus Protests',
+		hash: 'belarus',
 	},
 	{
 		name: 'Blast in Beirut',
@@ -62,59 +82,39 @@ const chapterlinks = [
 	},
 	{
 		name: 'California Wildfires',
-		hash: 'wildfires_us',
+		hash: 'wildfires_california',
+	},
+	{
+		name: 'Hurricanes',
+		hash: 'hurricanes',
 	},
 	{
 		name: 'Arctic Sea Ice',
 		hash: 'artic_ice',
 	},
 	{
+		name: 'Renewable Energy',
+		hash: 'renewables',
+	},
+	{
+		name: 'Lunar Geology',
+		hash: 'moon',
+	},
+	{
 		name: 'Mars: Curiosity',
 		hash: 'mars',
 	},
 	{
-		name: '10',
-		hash: '10',
+		name: 'Voter Turnout U.S.',
+		hash: 'voter_turnout_us',
 	},
 	{
-		name: '11',
-		hash: '11',
+		name: 'Olympics 2021',
+		hash: 'japan_olympics',
 	},
 	{
-		name: '12',
-		hash: '12',
-	},
-	{
-		name: '13',
-		hash: '13',
-	},
-	{
-		name: '14',
-		hash: '14',
-	},
-	{
-		name: '15',
-		hash: '15',
-	},
-	{
-		name: '16',
-		hash: '16',
-	},
-	{
-		name: '17',
-		hash: '17',
-	},
-	{
-		name: '18',
-		hash: '18',
-	},
-	{
-		name: '19',
-		hash: '19',
-	},
-	{
-		name: '20',
-		hash: '20',
+		name: 'The Vaccine',
+		hash: 'vaccine',
 	},
 ];
 

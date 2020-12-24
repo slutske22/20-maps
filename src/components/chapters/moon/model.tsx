@@ -35,32 +35,32 @@ const model: ModelSchema = {
 			content: (
 				<>
 					<p>
-						This year, NASA and the{' '}
-						<RefLink
-							theme="light"
-							link="https://www.usgs.gov/news/usgs-releases-first-ever-comprehensive-geologic-map-moon"
-							linkTitle={`"USGS Releases First-Ever Comprehensive Geologic Map of the Moon", usgs.gov, Apr 20, 2020, Retrieved Dec 17, 2020`}
-						>
-							USGS released the most detailed geological maps of the moon
-							ever created
-						</RefLink>
-						. What looks like a child's finger painting is the culmination
-						of decades of research in geophysics and astronomy, and
-						further lays the foundation for man's (or woman's){' '}
+						2020 probably has you ready to abandon Earth altogether for more
+						pristine pastures. With plans to{' '}
 						<RefLink
 							theme="light"
 							link="https://www.nasa.gov/specials/artemis/"
 							linkTitle={`"Artemis: Humanity's Return to the Moon", NASA.gov, Retrieved Dec 17, 2020`}
 						>
 							return to the moon
+						</RefLink>{' '}
+						in 2024, scientific knowledge about our oldest satellite is at an
+						all time high in 2020. This year, NASA and the{' '}
+						<RefLink
+							theme="light"
+							link="https://www.usgs.gov/news/usgs-releases-first-ever-comprehensive-geologic-map-moon"
+							linkTitle={`"USGS Releases First-Ever Comprehensive Geologic Map of the Moon", usgs.gov, Apr 20, 2020, Retrieved Dec 17, 2020`}
+						>
+							USGS released the most detailed geological maps of the moon ever
+							created
 						</RefLink>
-						.
+						. What looks like a child's finger painting is the culmination of
+						decades of research in geophysics and astronomy.
 					</p>
 					<p>
-						Explore the moon's geography and topography using the map
-						controls on the left, or by panning and zooming with your
-						mouse. Toggle the geography layer on and off in the upper
-						right corner.
+						Explore the moon's geography and topography using the map controls
+						on the left, or by panning and zooming with your mouse. Toggle the
+						geography layer on and off in the upper right corner.
 					</p>
 				</>
 			),
