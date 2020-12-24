@@ -89,8 +89,8 @@ const model: ModelSchema = {
 			content: (
 				<>
 					<p>
-						The change in global temperatures is most evident in the shrinking
-						of arctic ice. This year, arctic ice{' '}
+						The change in global temperatures is most evident in the
+						shrinking of arctic ice. This year, arctic ice{' '}
 						<RefLink
 							theme="light"
 							link="https://climate.nasa.gov/news/3023/2020-arctic-sea-ice-minimum-at-second-lowest-on-record/"
@@ -98,7 +98,7 @@ const model: ModelSchema = {
 						>
 							shrank to almost the lowest its been on record
 						</RefLink>
-						. The melting of the ice releases CO<sub>2</sub> which is{' '}
+						. The melting of the ice releases CO<small>2</small> which is{' '}
 						<RefLink
 							theme="light"
 							link="https://arctic.noaa.gov/Report-Card/Report-Card-2019/ArtMID/7916/ArticleID/844/Permafrost-and-the-Global-Carbon-Cycle"
@@ -109,9 +109,9 @@ const model: ModelSchema = {
 						.
 					</p>
 					<p>
-						Click the play button below to watch the arctic ice evolve from 1980
-						to 2015. (Data from the last several years is incomplete at this
-						time.)
+						Click the play button below to watch the arctic ice evolve
+						from 1980 to 2015. (Data from the last several years is
+						incomplete at this time.)
 					</p>
 				</>
 			),
@@ -122,7 +122,12 @@ const model: ModelSchema = {
 						id: '7ec08e5438304dbfa1e26181503e6fa8',
 					},
 				},
-				layers: [arcticReference, ...graticule, ...iceLayers1979, ...iceLayers],
+				layers: [
+					arcticReference,
+					...graticule,
+					...iceLayers1979,
+					...iceLayers,
+				],
 				position: {
 					extent: new Extent({
 						xmax: 6613525,

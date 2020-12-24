@@ -1,3 +1,4 @@
+import React from 'react';
 import { ModelSchema } from '../../../types';
 import TileLayer from 'esri/layers/TileLayer';
 import Legend from 'esri/widgets/Legend';
@@ -5,6 +6,7 @@ import Swipe from 'esri/widgets/Swipe';
 import Expand from 'esri/widgets/Expand';
 import Bookmark from 'esri/webmap/Bookmark';
 import Bookmarks from 'esri/widgets/Bookmarks';
+import { RefLink } from '../../atoms';
 
 const NO2_Mean_March_2010_2019 = new TileLayer({
 	url:
@@ -109,8 +111,35 @@ const model: ModelSchema = {
 	pages: [
 		{
 			title: 'Reduced Pollution',
-			content:
-				'One of the positive side effects of social and economic shutdown has been a reduction in pollution...',
+			content: (
+				<>
+					<p>
+						One of the positive side effects of social and economic
+						shutdown has been a reduction in pollution across the globe.
+						Nitrogen Dioxide (NO<small>2</small>) is a pollutant that{' '}
+						<RefLink
+							theme="light"
+							link="https://www.care4air.org/air-pollutants/measuring-air-pollutants/"
+							linkTitle={`"Measuring Air Pollutants", care4air.org, Retrieved Dec 23, 2020`}
+						>
+							can be measured
+						</RefLink>{' '}
+						on a global scale. This maps shows the comparison between the
+						averages of NO<small>2</small> measured in March from 2010 to
+						2019 (left) against the NO<small>2</small> measured in March
+						2020 (right). The difference is clear. The map also highlights
+						just how much more severe the pollution is in China than the
+						rest of the world.
+					</p>
+					<p>
+						Drag the swipe handle back and forth to see how 2020's
+						pollution compared to the average of the last 10 years. Click
+						the bookmarks in the top right corner to see different places
+						on Earth where the pollution was noticeably reduced as a
+						result of economic shutdown.
+					</p>
+				</>
+			),
 			mapState: {
 				basemap: 'topo-vector',
 				layers: [NO2_Mean_March_2010_2019, NO2_March_2020],
