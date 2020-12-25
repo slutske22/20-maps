@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import styled from 'styled-components';
 import Header from './Header';
 import Intro from './Intro';
+import Outro from './Outro';
 import { ChapterSpinner } from './atoms';
 
 const CovidGlobal = React.lazy(() => import('./chapters/covid_global'));
@@ -120,6 +121,8 @@ const Main = () => {
 			<Suspense fallback={<ChapterSpinner />}>
 				<JapanOlympics />
 			</Suspense>
+
+			<Outro />
 		</Wrapper>
 	);
 };
