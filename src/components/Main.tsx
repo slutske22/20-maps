@@ -41,7 +41,7 @@ const Main = () => {
 			<Header />
 			<Intro />
 
-			{/* <Suspense fallback={<ChapterSpinner />}>
+			<Suspense fallback={<ChapterSpinner />}>
 				<CovidGlobal />
 			</Suspense>
 
@@ -115,7 +115,7 @@ const Main = () => {
 
 			<Suspense fallback={<ChapterSpinner />}>
 				<JapanOlympics />
-			</Suspense> */}
+			</Suspense>
 
 			<Suspense fallback={<ChapterSpinner />}>
 				<Vaccine />

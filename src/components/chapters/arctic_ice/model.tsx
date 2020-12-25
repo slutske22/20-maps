@@ -89,8 +89,18 @@ const model: ModelSchema = {
 			content: (
 				<>
 					<p>
-						The change in global temperatures is most evident in the
-						shrinking of arctic ice. This year, arctic ice{' '}
+						While natural disasters are as old as time, their recent
+						ferocity has many wondering if they are part of a larger
+						pattern. Global warming is becoming more{' '}
+						<RefLink
+							theme="light"
+							link="https://www.pewresearch.org/fact-tank/2020/10/16/many-globally-are-as-concerned-about-climate-change-as-about-the-spread-of-infectious-diseases/"
+							linkTitle={`"Many globally are as concerned about climate change as about the spread of infectious diseases", Fagan, M., Pew Research Center, Oct 16, 2020, Retrieved Dec 24, 2020`}
+						>
+							widely accepted
+						</RefLink>{' '}
+						as a reality. The change in global temperatures is most
+						evident in the shrinking of arctic ice. This year, arctic ice{' '}
 						<RefLink
 							theme="light"
 							link="https://climate.nasa.gov/news/3023/2020-arctic-sea-ice-minimum-at-second-lowest-on-record/"

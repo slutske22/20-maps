@@ -24,8 +24,52 @@ const model: ModelSchema = {
 			title: 'Renewable Energy by Percent',
 			content: (
 				<>
-					<p>Some content ehre</p>
-					<p style={{ flexGrow: 1 }}>Flex grow 1</p>
+					<p>
+						The very real possibility of{' '}
+						<RefLink
+							theme="light"
+							link="https://www.carbonbrief.org/analysis-why-scientists-think-100-of-global-warming-is-due-to-humans"
+							linkTitle={`"Analysis: Why scientists think 100% of global warming is due to humans", Hausfather, Z., carbonbrief.org, Dec 12, 2017, Retrieved Dec 24, 2020`}
+						>
+							human behavior
+						</RefLink>{' '}
+						as a large, if not primary contributing factor to global
+						warming, combined with the{' '}
+						<RefLink
+							theme="light"
+							link="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3866387/"
+							linkTitle={`"The future of oil supply", Miller, R., Philos Trans A Math Phys Eng Sci. Jan 13, 2014, Retrieved from ncbi.nlm.nih.gov on Dec 24, 2020`}
+						>
+							finite nature
+						</RefLink>{' '}
+						of our other primary fuel sources, requires us to change.
+					</p>
+					<p>
+						The United Nations established the{' '}
+						<RefLink
+							theme="light"
+							link="https://unstats.un.org/sdgs/"
+							linkTitle={`"Sustainable Development Goals", unstats.un.org, Retrieved Dec 24, 2020`}
+						>
+							Sustainable Development Goals (SDG)
+						</RefLink>{' '}
+						to guide the world's leaders on how to prepare for the future.
+						Since 2000,{' '}
+						<RefLink
+							theme="light"
+							link="https://unstats.un.org/sdgs/metadata/files/Metadata-07-02-01.pdf"
+							linkTitle={`"Indicator 7.2.1: Renewable energy share in the total final energy consumption", unstats.un.org, Retrieved Dec 24, 2020`}
+						>
+							Indicator 7.2.1
+						</RefLink>{' '}
+						of the SDG has been measuring every country's renewable energy
+						use as a percentage of its total energy consumption.
+					</p>
+					<p style={{ flexGrow: 1 }}>
+						Click a country to see how much of its energy use has been
+						from renewable sources, and how that number has evolved in the
+						last 20 years.
+					</p>
 					<div className="arcgis-map-light">
 						<div
 							id="energy-legend-container"

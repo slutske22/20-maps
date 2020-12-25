@@ -8,6 +8,7 @@
 	width: 308px;
 	justify-content: space-between;
 	margin-left: 51px;
+	width: calc(100% - 50px);
 }
 
 .renewables-popup__x-axis-labels .label {
@@ -16,18 +17,15 @@
 }
 
 #renewables {
-	.esri-popup__content {
-		// height: 600px;
-	}
-
-	.esri-feature__content-element.esri-feature__text {
+	.esri-legend__layer-table.esri-legend__layer-table--size-ramp:first-child {
+		display: none;
 	}
 
 	.esri-feature-content {
-		// width: 100%;
+		width: 100%;
 
-		div {
-			// width: 100%;
+		& > div {
+			width: 100%;
 		}
 	}
 }
