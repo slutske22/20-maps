@@ -43,6 +43,7 @@ const TimeTitle = styled.h2`
 `;
 
 const ByLine = styled.h3`
+	font-weight: normal;
 	position: absolute;
 	font-style: italic;
 	font-size: 1.3em;
@@ -62,7 +63,7 @@ const Header = () => (
 			<TimeTitle>🕑 20 minute read</TimeTitle>
 		</TitleBlock>
 		<ByLine>
-			by Seth Lutske <br />
+			Seth Lutske <br />
 			December 2020
 		</ByLine>
 	</Wrapper>

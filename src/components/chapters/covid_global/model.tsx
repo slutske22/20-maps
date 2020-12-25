@@ -41,7 +41,7 @@ const model: ModelSchema = {
 			mode: 'time-window',
 			fullTimeExtent: {
 				start: new Date(2020, 1, 1),
-				end: new Date(2020, 11, 1),
+				end: new Date(2020, 9, 1),
 			},
 			playRate: 3000,
 			stops: {
@@ -55,10 +55,11 @@ const model: ModelSchema = {
 			tickConfigs: [
 				{
 					mode: 'count',
-					values:
-						new Date(2020, 11, 31) > new Date()
-							? new Date().getMonth() + 1
-							: 12,
+					// values:
+					// 	new Date(2020, 11, 31) > new Date()
+					// 		? new Date().getMonth() + 1
+					// 		: 12,
+					values: 9,
 					labelsVisible: true,
 					labelFormatFunction: (value) => {
 						const date = new Date(value);
@@ -98,12 +99,13 @@ const model: ModelSchema = {
 							political hoax
 						</RefLink>{' '}
 						status, quickly became the world's first panedmic in 100
-						years.
+						years. COVID-19 would come to overshadow all of 2020 and have
+						far reaching effects many of us did not anticipate.
 					</p>
 					<p>
 						<em className="action">Press the play button</em> in the
 						bottom corner to watch how the pandemic spread across the
-						globe as the year progressed.
+						globe as the first half of the year progressed.
 					</p>
 				</>
 			),
