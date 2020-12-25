@@ -39,6 +39,11 @@ const model: ModelSchema = {
 			content: (
 				<>
 					<p>
+						It's been a bad year, but hope springs eternal. There is no
+						display of human spirit and global camaraderie quite like the
+						Olympics. That was disrupted this year, but only temporarily.
+					</p>
+					<p>
 						Aside from during wartime, the Olympics have never been
 						cancelled or postponed - until 2020. Japan's Prime Minister{' '}
 						<RefLink

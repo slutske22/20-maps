@@ -115,12 +115,12 @@ const chapterlinks = [
 		hash: 'voter_turnout_us',
 	},
 	{
-		name: 'Olympics 2021',
-		hash: 'japan_olympics',
-	},
-	{
 		name: 'The Vaccine',
 		hash: 'vaccine',
+	},
+	{
+		name: 'Beyond 2020: Olympics 2021',
+		hash: 'japan_olympics',
 	},
 ];
 

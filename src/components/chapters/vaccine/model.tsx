@@ -20,7 +20,9 @@ const setRenderer = (view, layer, field) => {
 		view,
 		field,
 	};
-	SmartColorRenderer.createContinuousRenderer(params).then(function (response) {
+	SmartColorRenderer.createContinuousRenderer(params).then(function (
+		response
+	) {
 		layer.renderer = response.renderer;
 	});
 };
@@ -59,8 +61,61 @@ const model: ModelSchema = {
 			content: (
 				<>
 					<p>
-						Just days before Christmas, the release of the vaccine was
-						announced.
+						Just days before Christmas, the release of the COVID-19
+						vaccine{' '}
+						<RefLink
+							theme="light"
+							link="https://www.usatoday.com/story/news/health/2020/12/21/covid-vaccine-pfizer-biontech-moderna-everything-know-them/3955331001/"
+							linkTitle={`"Two COVID-19 vaccines are now authorized in the US; here's what we know about them", Rodriguez, A., USA Today, Dec 21, 2020, Retrieved Dec 24, 2020`}
+						>
+							was announced
+						</RefLink>
+						. The vaccine was{' '}
+						<RefLink
+							theme="light"
+							link="https://connect.uclahealth.org/2020/12/10/the-fastest-vaccine-in-history/"
+							linkTitle={`"The fastest vaccine in history", Cohen, S., UCLA Health, Dec 10, 2020, Retrieved Dec 24, 2020`}
+						>
+							developed faster
+						</RefLink>{' '}
+						than any other in history, and is the first{' '}
+						<RefLink
+							theme="light"
+							link="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/different-vaccines/mrna.html"
+							linkTitle={`"Understanding mRNA COVID-19 Vaccines", CDC.gov, Dec 18 2020, Retrieved Dec 24, 2020`}
+						>
+							mRNA vaccine
+						</RefLink>{' '}
+						to be made available for public use by the Food and Drug
+						Administration. As news of the vaccine spreads, so does a
+						mixture of hope and suspicion. The effects of poor scientific
+						literacy helped{' '}
+						<RefLink
+							theme="light"
+							link="https://techonomy.com/2020/07/science-literacy-and-americas-covid-crisis/"
+							linkTitle={`"How America’s Low Science Literacy Fueled the COVID Crisis", Salisbury, M., Jul 29, 2020, Retrieved Dec 24, 2020`}
+						>
+							COVID to spread
+						</RefLink>
+						, and will likely fuel{' '}
+						<RefLink
+							theme="light"
+							link="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5806657/"
+							linkTitle={`"Health literacy and vaccination: A systematic review", Lorini, C., Human Vaccines and Immunotheraputics, Dec 6, 2017, Retrieved from ncbi.nlm.nih.gov on Dec 24, 2020`}
+						>
+							vaccine rejection
+						</RefLink>
+						. Still, the vaccine comes as the perfect Christmas present
+						for a COVID-fatigued global populace.
+					</p>
+					<p>
+						The logistics of manufacturing and administering a vaccine
+						have never been so pressing. This map shows the number of
+						vaccines allocated for each state. You can select from various
+						datasets which illustrate vaccine doses allocated or
+						administered. To get a more local feel or vaccine
+						availability, click the bookmarks to see where the vaccine
+						will be provided in Seattle, Minneapolis, and Houston.
 					</p>
 				</>
 			),

@@ -30,7 +30,8 @@ const model: ModelSchema = {
 	sources: [
 		{
 			name: 'Covid Global Time Series',
-			url: '',
+			url:
+				'https://www.arcgis.com/home/item.html?id=5a66bbc206e64fbdab055c9d9223a0e5',
 		},
 	],
 	customFeatures: ({ view }) => {

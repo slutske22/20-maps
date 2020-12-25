@@ -114,11 +114,11 @@ const Main = () => {
 			</Suspense>
 
 			<Suspense fallback={<ChapterSpinner />}>
-				<JapanOlympics />
+				<Vaccine />
 			</Suspense>
 
 			<Suspense fallback={<ChapterSpinner />}>
-				<Vaccine />
+				<JapanOlympics />
 			</Suspense>
 		</Wrapper>
 	);

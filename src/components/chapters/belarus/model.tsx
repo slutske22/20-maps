@@ -80,6 +80,12 @@ const model: ModelSchema = {
 		},
 	],
 	customFeatures: ({ view }) => {
+		// running out of time: default popup:
+		view.when(() => {
+			view.popup.defaultPopupTemplateEnabled = true;
+		});
+
+		// create mask from belarus border
 		const query = countries.createQuery();
 		query.where = "ISO = 'BY'";
 		countries.queryFeatures(query).then(function (result) {
