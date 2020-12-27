@@ -1,11 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Wrapper = styled.div`
+interface SpinnerProps {
+	suspense?: boolean;
+}
+
+const Wrapper = styled.div<SpinnerProps>`
 	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0;
+	height: ${(props) => (props.suspense ? '100vh' : '100%')};
+	position: ${(props) => (props.suspense ? '' : 'absolute')};
+	top: ${(props) => (props.suspense ? '' : '0')};
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -13,8 +17,8 @@ const Wrapper = styled.div`
 	pointer-events: none;
 `;
 
-const MapSpinner = () => (
-	<Wrapper>
+const MapSpinner = ({ suspense }: SpinnerProps) => (
+	<Wrapper suspense={suspense}>
 		{/* from loading.io */}
 		<svg
 			width="137px"

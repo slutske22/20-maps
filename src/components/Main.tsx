@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Header from './Header';
 import Intro from './Intro';
 import Outro from './Outro';
-import { ChapterSpinner } from './atoms';
+import { MapSpinner } from './atoms';
 
 const CovidGlobal = React.lazy(() => import('./chapters/covid_global'));
 const WildfiresAus = React.lazy(() => import('./chapters/wildfires_aus'));
@@ -42,83 +42,83 @@ const Main = () => {
 			<Header />
 			<Intro />
 
-			<Suspense fallback={<ChapterSpinner />}>
+			<Suspense fallback={<MapSpinner suspense />}>
 				<CovidGlobal />
 			</Suspense>
 
-			<Suspense fallback={<ChapterSpinner />}>
+			<Suspense fallback={<MapSpinner suspense />}>
 				<WildfiresAus />
 			</Suspense>
 
-			<Suspense fallback={<ChapterSpinner />}>
+			<Suspense fallback={<MapSpinner suspense />}>
 				<Locusts />
 			</Suspense>
 
-			<Suspense fallback={<ChapterSpinner />}>
+			<Suspense fallback={<MapSpinner suspense />}>
 				<CovidItaly />
 			</Suspense>
 
-			<Suspense fallback={<ChapterSpinner />}>
+			<Suspense fallback={<MapSpinner suspense />}>
 				<CovidUS />
 			</Suspense>
 
-			<Suspense fallback={<ChapterSpinner />}>
+			<Suspense fallback={<MapSpinner suspense />}>
 				<CovidPollution />
 			</Suspense>
 
-			<Suspense fallback={<ChapterSpinner />}>
+			<Suspense fallback={<MapSpinner suspense />}>
 				<ShelterAnimals />
 			</Suspense>
 
-			<Suspense fallback={<ChapterSpinner />}>
+			<Suspense fallback={<MapSpinner suspense />}>
 				<Iditarod />
 			</Suspense>
 
-			<Suspense fallback={<ChapterSpinner />}>
+			<Suspense fallback={<MapSpinner suspense />}>
 				<ProtestsUS />
 			</Suspense>
 
-			<Suspense fallback={<ChapterSpinner />}>
+			<Suspense fallback={<MapSpinner suspense />}>
 				<Belarus />
 			</Suspense>
 
-			<Suspense fallback={<ChapterSpinner />}>
+			<Suspense fallback={<MapSpinner suspense />}>
 				<Beirut />
 			</Suspense>
 
-			<Suspense fallback={<ChapterSpinner />}>
+			<Suspense fallback={<MapSpinner suspense />}>
 				<WildfiresCalifornia />
 			</Suspense>
 
-			<Suspense fallback={<ChapterSpinner />}>
+			<Suspense fallback={<MapSpinner suspense />}>
 				<Hurricanes />
 			</Suspense>
 
-			<Suspense fallback={<ChapterSpinner />}>
+			<Suspense fallback={<MapSpinner suspense />}>
 				<ArcticIce />
 			</Suspense>
 
-			<Suspense fallback={<ChapterSpinner />}>
+			<Suspense fallback={<MapSpinner suspense />}>
 				<Renewables />
 			</Suspense>
 
-			<Suspense fallback={<ChapterSpinner />}>
+			<Suspense fallback={<MapSpinner suspense />}>
 				<Moon />
 			</Suspense>
 
-			<Suspense fallback={<ChapterSpinner />}>
+			<Suspense fallback={<MapSpinner suspense />}>
 				<Mars />
 			</Suspense>
 
-			<Suspense fallback={<ChapterSpinner />}>
+			<Suspense fallback={<MapSpinner suspense />}>
 				<VoterTurnout />
 			</Suspense>
 
-			<Suspense fallback={<ChapterSpinner />}>
+			<Suspense fallback={<MapSpinner suspense />}>
 				<Vaccine />
 			</Suspense>
 
-			<Suspense fallback={<ChapterSpinner />}>
+			<Suspense fallback={<MapSpinner suspense />}>
 				<JapanOlympics />
 			</Suspense>
 
