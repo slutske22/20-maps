@@ -53,19 +53,19 @@ const TopLinks = () => {
 			<Wrapper>
 				<ShareButtonOutline
 					className="top-link-button"
-					url="https://slutske22.github.io/20-maps/"
+					url="https://twenty-maps.herokuapp.com/"
 					network="Facebook"
-					text="Give it a try - react-custom-share component"
-					longtext="Social sharing buttons for React. Use one of the build-in themes or create a custom one from the scratch."
+					text="20 Maps for 2020"
+					longtext="Such a bad year never looked so good: Geographic data visualizations for 2020."
 				>
 					<FaFacebook />
 				</ShareButtonOutline>
 				<ShareButtonOutline
 					className="top-link-button"
-					url="https://slutske22.github.io/20-maps/"
+					url="https://twenty-maps.herokuapp.com/"
 					network="Twitter"
-					text="Give it a try - react-custom-share component"
-					longtext="Social sharing buttons for React. Use one of the build-in themes or create a custom one from the scratch."
+					text="20 Maps for 2020"
+					longtext="Such a bad year never looked so good: Geographic data visualizations for 2020."
 				>
 					<FaTwitter />
 				</ShareButtonOutline>

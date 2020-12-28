@@ -10,7 +10,7 @@
 		"dev": "webpack-dev-server --open --mode development --compress",
 		"dev:server": "nodemon server.js",
 		"build": "npm run clean && webpack --mode production",
-		"clean": "rimraf dist",
+		"clean": "rm -rf dist",
 		"storybook": "start-storybook -p 6006 --no-dll",
 		"build-storybook": "build-storybook --no-dll"
 	},
