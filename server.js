@@ -3,8 +3,7 @@ const cors = require('cors');
 const corsAnywhere = require('cors-anywhere');
 const path = require('path');
 
-const { PORT } = process.env;
-const port = PORT || 3030;
+const port = process.env.PORT || 3030;
 
 var app = express();
 
