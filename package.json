@@ -5,7 +5,8 @@
 	"main": "src/index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "npm run build && npm run server",
+		"start-all": "npm run build && npm run server",
+		"start": "node server.js",
 		"server": "node server.js",
 		"dev": "webpack-dev-server --open --mode development --compress",
 		"dev:server": "nodemon server.js",
