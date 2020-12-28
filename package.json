@@ -12,7 +12,8 @@
 		"build": "npm run clean && webpack --mode production",
 		"clean": "rm -rf dist",
 		"storybook": "start-storybook -p 6006 --no-dll",
-		"build-storybook": "build-storybook --no-dll"
+		"build-storybook": "build-storybook --no-dll",
+		"heroku-postbuild": "node server.js"
 	},
 	"repository": {
 		"type": "git",
