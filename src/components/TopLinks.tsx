@@ -55,8 +55,7 @@ const TopLinks = () => {
 					className="top-link-button"
 					url="https://twenty-maps.herokuapp.com/"
 					network="Facebook"
-					text="20 Maps for 2020"
-					longtext="Such a bad year never looked so good: Geographic data visualizations for 2020."
+					longtext="20 Maps for 2020 is a blog-esque web app documenting the trials and tribulations of 2020 via the ArcGIS JS API. Geospatial data is analyzed, filtered, and made pretty over the course of 20 maps. Data analysis and good color sense combine to illuminate interesting phenomena that has occurred in this craptastic year."
 				>
 					<FaFacebook />
 				</ShareButtonOutline>
@@ -64,8 +63,7 @@ const TopLinks = () => {
 					className="top-link-button"
 					url="https://twenty-maps.herokuapp.com/"
 					network="Twitter"
-					text="20 Maps for 2020"
-					longtext="Such a bad year never looked so good: Geographic data visualizations for 2020."
+					longtext="20 Maps for 2020 is a blog-esque web app documenting the trials and tribulations of 2020 via the ArcGIS JS API. Geospatial data is analyzed, filtered, and made pretty over the course of 20 maps. Data analysis and good color sense combine to illuminate interesting phenomena that has occurred in this craptastic year."
 				>
 					<FaTwitter />
 				</ShareButtonOutline>
