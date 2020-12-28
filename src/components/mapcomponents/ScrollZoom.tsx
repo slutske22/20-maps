@@ -38,7 +38,6 @@ class ScrollZoom extends Widget {
 			// @ts-ignore
 			this.view.navigation.browserTouchPanEnabled = false;
 		}
-		console.log(this);
 	};
 
 	render() {

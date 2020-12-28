@@ -24,8 +24,7 @@ const model: ModelSchema = {
 			content: (
 				<>
 					<p>
-						Protests in 2020 were not limited to the United States. With
-						the{' '}
+						Protests in 2020 were not limited to the United States. With the{' '}
 						<RefLink
 							theme="dark"
 							link="https://theglobepost.com/2020/08/11/belarus-rigged-elections/"
@@ -60,12 +59,11 @@ const model: ModelSchema = {
 						through the end of the year.
 					</p>
 					<p>
-						The red spots on the map represent protests. Click one for
-						more details. This data, while not as detailed as the U.S.
-						protest data, is part of a larger dataset documenting
-						incidents of conflict around the world. Toggle off the mask
-						layer and explore the globe to see what other conflicts
-						occurred in 2020.
+						The red spots on the map represent protests. Click one for more
+						details. This data, while not as detailed as the U.S. protest data,
+						is part of a larger dataset documenting incidents of conflict around
+						the world. Toggle off the mask layer and explore the globe to see
+						what other conflicts occurred in 2020.
 					</p>
 				</>
 			),
@@ -90,7 +88,6 @@ const model: ModelSchema = {
 		query.where = "ISO = 'BY'";
 		countries.queryFeatures(query).then(function (result) {
 			const geometry = result.features[0].geometry;
-			console.log('geometry', geometry);
 			mask.geometry = geometry;
 			view.goTo(geometry).catch(function (error) {
 				if (error.name != 'AbortError') {

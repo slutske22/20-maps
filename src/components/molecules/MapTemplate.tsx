@@ -49,11 +49,11 @@ const Map: FunctionComponent<MapProps> = ({
 			? new SceneView(params)
 			: new MapView(params);
 
-		view.on('click', (e) => {
-			console.log('view', view);
-			console.log('extent', view.extent);
-			console.log('mappoint', e.mapPoint);
-		});
+		// view.on('click', (e) => {
+		// 	console.log('view', view);
+		// 	console.log('extent', view.extent);
+		// 	console.log('mappoint', e.mapPoint);
+		// });
 
 		// save map and view to state for use in other effects
 		setMapRef({ map, view });

@@ -57,8 +57,8 @@ const Header = () => (
 		<TitleBlock>
 			<Title>20 Maps for 2020</Title>
 			<SubTitle>
-				Global Upheaval is Far More Palatable When you Choose a Pretty Color
-				Gradient
+				Global Upheaval is Far More Palatable When you Visualize it with Pretty
+				Colors
 			</SubTitle>
 			<TimeTitle>🕑 20 minute read</TimeTitle>
 		</TitleBlock>

@@ -65,9 +65,9 @@ const model: ModelSchema = {
 			content: (
 				<>
 					<p>
-						Coronavirus hit the United States hard, starting in New York
-						and Seattle, slowly working its way to every county in the
-						country. You can see the total cases per county in this map.
+						Coronavirus hit the United States hard, starting in New York and
+						Seattle, slowly working its way to every county in the country. You
+						can see the total cases per county in this map.
 					</p>
 				</>
 			),
@@ -102,8 +102,8 @@ const model: ModelSchema = {
 				<>
 					<p>
 						Viewing the number of cases per 100 thousand population gives
-						insight into how counties were able to control COVID's spread
-						within their population.
+						insight into how counties were able to control COVID's spread within
+						their population.
 					</p>
 				</>
 			),
@@ -121,10 +121,10 @@ const model: ModelSchema = {
 			content: (
 				<>
 					<p>
-						The biggest secondary effect from COVID has been the need to
-						stay away from one another to avoid spreading the virus. This
-						map shows how successful each county has been in their ability
-						to social distance. Unacast offers a{' '}
+						The biggest secondary effect from COVID has been the need to stay
+						away from one another to avoid spreading the virus. This map shows
+						how successful each county has been in their ability to social
+						distance. Unacast offers a{' '}
 						<RefLink
 							theme="light"
 							link="https://www.unacast.com/post/rounding-out-the-social-distancing-scoreboard"
@@ -150,13 +150,13 @@ const model: ModelSchema = {
 			content: (
 				<>
 					<p>
-						And with social distancing and forced shutdowns, unemployment
-						has been higher than its been in years. This map shows
-						unemployment over the last 14 months.{' '}
+						And with social distancing and forced shutdowns, unemployment has
+						been higher than its been in years. This map shows unemployment over
+						the last 14 months.{' '}
 					</p>
 					<p>
-						Click on a county to see how unemployment has evolved in that
-						time period.
+						Click on a county to see how unemployment has evolved in that time
+						period.
 					</p>
 				</>
 			),
@@ -233,14 +233,6 @@ const model: ModelSchema = {
 				layers[i].popupTemplate = null;
 			}
 		}
-
-		// console.log(
-		// 	// 'currentPage',
-		// 	// currentPage,
-		// 	// 'layers opacity',
-		// 	// layers.map((l) => l.opacity)
-		// 	pageRefs[currentPage].childNodes[0]
-		// );
 
 		// @ts-ignore
 		const cards: HTMLElement[] = document.querySelectorAll(

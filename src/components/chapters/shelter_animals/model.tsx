@@ -46,8 +46,8 @@ const model: ModelSchema = {
 			content: (
 				<>
 					<p>
-						Another unexpected side effect of COVID was how all that
-						social distancing would effect the world's pets.{' '}
+						Another unexpected side effect of COVID was how all that social
+						distancing would effect the world's pets.{' '}
 						<RefLink
 							theme="light"
 							link="https://www.shelteranimalscount.org/"
@@ -55,15 +55,15 @@ const model: ModelSchema = {
 						>
 							shelteranimalscount.org
 						</RefLink>{' '}
-						has been organizing the collection of U.S. animal shelter
-						cesus data for years. 2020 saw a huge reduction in intake of
-						shelter pets, especially in March and April.{' '}
+						has been organizing the collection of U.S. animal shelter cesus data
+						for years. 2020 saw a huge reduction in intake of shelter pets,
+						especially in March and April.{' '}
 					</p>
 
 					<p style={{ flexGrow: 1 }}>
-						This map shows the percentage reduction in intakes of shelter
-						pets in 2020 as compared with the average of the prior 3
-						years. Click on a state for more details.
+						This map shows the percentage reduction in intakes of shelter pets
+						in 2020 as compared with the average of the prior 3 years. Click on
+						a state for more details.
 					</p>
 					<div id="animal-count-info-div"></div>
 				</>
