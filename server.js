@@ -21,7 +21,7 @@ app.get('/proxy/:proxyUrl*', (req, res) => {
 	proxy.emit('request', req, res);
 });
 
-app.use(express.static(process.env.PWD + '/dist'));
+app.use(express.static(path.join(process.env.PWD, 'dist')));
 
 app.listen(port, () => {
 	console.log(`App listening on port ${port}`);
