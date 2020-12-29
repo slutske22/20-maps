@@ -98,14 +98,19 @@ const model: ModelSchema = {
 						>
 							political hoax
 						</RefLink>{' '}
-						status, quickly became the world's first panedmic in 100
-						years. COVID-19 would come to overshadow all of 2020 and have
-						far reaching effects many of us did not anticipate.
+						status, quickly became the world's first panedmic in 100 years.
+						COVID-19 would come to overshadow all of 2020 and have far reaching
+						effects many of us did not anticipate.
 					</p>
 					<p>
-						<em className="action">Press the play button</em> in the
-						bottom corner to watch how the pandemic spread across the
-						globe as the first half of the year progressed.
+						<em className="action">Press the play button</em> in the bottom
+						corner to watch how the pandemic spread across the globe as the
+						first portion of the year progressed.
+					</p>
+					<p>
+						This unitless heatmap shows the number of new cases per country as
+						reported in the month shown in the time slider. You can see how
+						COVID surged in April and May, and slowly eased in September.
 					</p>
 				</>
 			),
