@@ -85,9 +85,8 @@ const model: ModelSchema = {
 			content: (
 				<>
 					<p>
-						In January, while Coronavirus was still an unknown virus in
-						Wuhan, Australia was on fire. The 2019 - 2020 Australian
-						summer saw over{' '}
+						In January, while Coronavirus was still an unknown virus in Wuhan,
+						Australia was on fire. The 2019 - 2020 Australian summer saw over{' '}
 						<RefLink
 							theme="dark"
 							link="https://www.9news.com.au/national/australian-bushfires-17-million-hectares-burnt-more-than-previously-thought/b8249781-5c86-4167-b191-b9f628bdd164"
@@ -144,9 +143,9 @@ const model: ModelSchema = {
 						>
 							3,000 endemic species of animals and birds
 						</RefLink>
-						, meaning they are found nowhere else on earth. The most
-						iconic of these is the Koala, with the entire species
-						containing somewhere between{' '}
+						, meaning they are found nowhere else on earth. The most iconic of
+						these is the Koala, with the entire species containing somewhere
+						between{' '}
 						<RefLink
 							theme="dark"
 							link="https://www.savethekoala.com/about-koalas/koala-endangered-or-not"
@@ -157,11 +156,11 @@ const model: ModelSchema = {
 						.{' '}
 					</p>
 					<p>
-						We can get a sense of the density of Koalas in the Brisbane
-						area before the 2019 - 2020 fires. This map layer shows koala
-						sightnings reporting by the public in 2018. As you can see,
-						the greater Brisbane area was not as affected by the fires as
-						other parts of the county...
+						We can get a sense of the density of Koalas in the Brisbane area
+						before the 2019 - 2020 fires. This map layer shows koala sightnings
+						reporting by the public in 2018. As you can see, the greater
+						Brisbane area was not as affected by the fires as other parts of the
+						county...
 					</p>
 				</>
 			),
@@ -185,15 +184,14 @@ const model: ModelSchema = {
 							link="https://www.theguardian.com/australia-news/2019/dec/27/australias-environment-minister-says-up-to-30-of-koalas-killed-in-nsw-mid-north-coast-fires"
 							linkTitle={`"Australia's environment minister says up to 30% of koalas killed in NSW mid-north coast fires", Zhou, N., Dec 26, 2019, Retrieved Oct 27, 2020`}
 						>
-							announced <i>in Deceber</i>
+							announced <i>in December</i>
 						</RefLink>{' '}
-						that an estimated 5,000 Koalas had been killed in New South
-						Wales alone, which accounts for roughly 30% of the species in
-						that state.{' '}
+						that an estimated 5,000 Koalas had been killed in New South Wales
+						alone, which accounts for roughly 30% of the species in that state.{' '}
 					</p>
 					<p>
-						In Victoria, the effect of the fires on wildlife habitat is
-						easy to see. The difference in the{' '}
+						In Victoria, the effect of the fires on wildlife habitat is easy to
+						see. The difference in the{' '}
 						<RefLink
 							theme="dark"
 							link="https://www.environment.nsw.gov.au/-/media/OEH/Corporate-Site/Documents/Animals-and-plants/Threatened-species/koala-habitat-information-base-technical-guide-190534.pdf"
@@ -204,12 +202,10 @@ const model: ModelSchema = {
 						before and after the fires is stark.{' '}
 					</p>
 					<p>
-						<em className="action">
-							Drag the swipe handle back and forth
-						</em>{' '}
-						to see how their habitat has changed due to the fires. The
-						left side shows habitat suitability from before the fires, and
-						the right side from after.
+						<em className="action">Drag the swipe handle back and forth</em> to
+						see how their habitat has changed due to the fires. The left side
+						shows habitat suitability from before the fires, and the right side
+						from after.
 					</p>
 				</>
 			),

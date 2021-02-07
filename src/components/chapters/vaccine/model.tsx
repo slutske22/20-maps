@@ -20,9 +20,7 @@ const setRenderer = (view, layer, field) => {
 		view,
 		field,
 	};
-	SmartColorRenderer.createContinuousRenderer(params).then(function (
-		response
-	) {
+	SmartColorRenderer.createContinuousRenderer(params).then(function (response) {
 		layer.renderer = response.renderer;
 	});
 };
@@ -61,8 +59,7 @@ const model: ModelSchema = {
 			content: (
 				<>
 					<p>
-						Just days before Christmas, the release of the COVID-19
-						vaccine{' '}
+						Just days before Christmas, the release of the COVID-19 vaccine{' '}
 						<RefLink
 							theme="light"
 							link="https://www.usatoday.com/story/news/health/2020/12/21/covid-vaccine-pfizer-biontech-moderna-everything-know-them/3955331001/"
@@ -87,9 +84,8 @@ const model: ModelSchema = {
 							mRNA vaccine
 						</RefLink>{' '}
 						to be made available for public use by the Food and Drug
-						Administration. As news of the vaccine spreads, so does a
-						mixture of hope and suspicion. The effects of poor scientific
-						literacy helped{' '}
+						Administration. As news of the vaccine spreads, so does a mixture of
+						hope and suspicion. The effects of poor scientific literacy helped{' '}
 						<RefLink
 							theme="light"
 							link="https://techonomy.com/2020/07/science-literacy-and-americas-covid-crisis/"
@@ -105,17 +101,16 @@ const model: ModelSchema = {
 						>
 							vaccine rejection
 						</RefLink>
-						. Still, the vaccine comes as the perfect Christmas present
-						for a COVID-fatigued global populace.
+						. Still, the vaccine comes as the perfect Christmas present for a
+						COVID-fatigued global populace.
 					</p>
 					<p>
-						The logistics of manufacturing and administering a vaccine
-						have never been so pressing. This map shows the number of
-						vaccines allocated for each state. You can select from various
-						datasets which illustrate vaccine doses allocated or
-						administered. To get a more local feel or vaccine
-						availability, click the bookmarks to see where the vaccine
-						will be provided in Seattle, Minneapolis, and Houston.
+						The logistics of manufacturing and administering a vaccine have
+						never been so pressing. This map shows the number of vaccines
+						allocated for each state. You can select from various datasets which
+						illustrate vaccine doses allocated or administered. To get a more
+						local feel of vaccine availability, click the bookmarks to see where
+						the vaccine will be provided in Seattle, Minneapolis, and Houston.
 					</p>
 				</>
 			),
