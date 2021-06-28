@@ -65,3 +65,55 @@ app.get('/proxy/:proxyUrl*', (req, res) => {
 ```
 
 And then when trying to use any layers served by the maps.disasters.nasa.gov server, I simply need to prefix the layer url with `/proxy/`.  Of course this means that 20 Maps for 2020 is now a full stack app.  I had hoped to keep it as a simple front end bundle ("Can someone serve my HTML, please?"), but that would mean I can't use the NASA layers.  Oh well.  This is what forced me to use heroku as a host (as opposed to github pages).
+
+## Sample Screenshots
+
+## Australia
+
+This gif demonstrates the map's responsiveness to user scrolling between chapter pages:
+
+<img src="/src/assets/images/aus.gif" width="1200px">
+
+## COVID in the US
+
+<img src="/src/assets/images/covid-us.gif" width="1200px">
+
+## Reduction in Shelter Animals
+
+<img src="/src/assets/images/animals.png" width="1200px">
+
+## Melting of the Arctic Ice
+
+<img src="/src/assets/images/arctic.gif" width="1200px">
+
+## Global Hurricanes
+
+<img src="/src/assets/images/hurricanes1.png" width="1200px">
+
+## Hurricanes in Southeastern US
+
+<img src="/src/assets/images/hurricanes2.png" width="1200px">
+
+## Protests
+
+<img src="/src/assets/images/protests.gif" width="1200px">
+
+## Beirut Damage
+
+<img src="/src/assets/images/beirut.png" width="1200px">
+
+## Renewable Energy by Country
+
+<img src="/src/assets/images/energy.png" width="1200px">
+
+## The Moon
+
+<img src="/src/assets/images/moon.gif" width="1200px">
+
+## Mars
+
+<img src="/src/assets/images/mars.gif" width="1200px">
+
+## Japan Olympics 2020/1
+
+<img src="/src/assets/images/japan.gif" width="1200px">
