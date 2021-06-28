@@ -1,12 +1,13 @@
 # 20 Maps for 2020: The Repo
 
+<img src="/src/assets/images/covid.png" width="1200px">
+
 ## _Global Upheaval is Far More Palatable When You Choose a Pretty Color Ramp_
 
 ## [👀 See the project 👀](http://twenty-maps.herokuapp.com/) 
 
 20 Maps is a blog-esque web page app documenting the trials and tribulations of 2020 via the ArcGIS Javascript API. Geospatial data is analyzed, filtered, and made pretty over the course of 20 maps. Data analysis and good color sense combine to illuminate interesting phenomena that has occurred in this craptastic year.
 
-<img src="/src/assets/images/covid.png" width="1200px">
 
 ## Dev Notes
 
