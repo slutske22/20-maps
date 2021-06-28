@@ -6,7 +6,7 @@
 
 20 Maps is a blog-esque web page app documenting the trials and tribulations of 2020 via the ArcGIS Javascript API. Geospatial data is analyzed, filtered, and made pretty over the course of 20 maps. Data analysis and good color sense combine to illuminate interesting phenomena that has occurred in this craptastic year.
 
-<img src="/src/assets/icons/covid.png" width="1200px">
+<img src="/src/assets/images/covid.png" width="1200px">
 
 ## Dev Notes
 
