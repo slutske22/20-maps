@@ -106,13 +106,13 @@ This gif demonstrates the map's responsiveness to user scrolling between chapter
 
 <img src="/src/assets/images/energy.png" width="1200px">
 
-## The Moon
-
-<img src="/src/assets/images/moon.gif" width="1200px">
-
 ## Mars
 
 <img src="/src/assets/images/mars.gif" width="1200px">
+
+## The Moon
+
+<img src="/src/assets/images/moon.png" width="1200px">
 
 ## Japan Olympics 2020/1
 
