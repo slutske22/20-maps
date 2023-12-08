@@ -11,7 +11,7 @@ module.exports = {
 	entry: './src/index.js',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		publicPath: '/',
+		publicPath: 'auto',
 	},
 	// target:'node', // messes with styled components.  why?
 	devtool: 'cheap-module-source-map',

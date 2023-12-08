@@ -4,7 +4,7 @@
 	"description": "20 Maps for 2020",
 	"main": "src/index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
+		"prettier": "prettier \"src/**/*.{ts,tsx,js,jsx,json,css,scss}\" --write",
 		"start-all": "npm run build && npm run server",
 		"start": "node server.js",
 		"dev": "webpack-dev-server --open --mode development --compress",
@@ -12,7 +12,8 @@
 		"build": "npm run clean && webpack --mode production",
 		"clean": "rm -rf dist",
 		"storybook": "start-storybook -p 6006 --no-dll",
-		"build-storybook": "build-storybook --no-dll"
+		"build-storybook": "build-storybook --no-dll",
+		"deploy": "gh-pages -d dist"
 	},
 	"repository": {
 		"type": "git",
@@ -66,6 +67,7 @@
 		"cors-anywhere": "^0.4.3",
 		"emotion": "^10.0.27",
 		"express": "^4.17.1",
+		"gh-pages": "^6.1.0",
 		"react": "^16.13.1",
 		"react-custom-share": "^0.4.8",
 		"react-dom": "^16.13.1",
