@@ -7,9 +7,9 @@
 		"prettier": "prettier \"src/**/*.{ts,tsx,js,jsx,json,css,scss}\" --write",
 		"start-all": "npm run build && npm run server",
 		"start": "node server.js",
-		"dev": "webpack-dev-server --open --mode development --compress",
+		"dev": "webpack-dev-server --open /20-maps/ --mode development --compress",
 		"dev:server": "nodemon server.js",
-		"build": "npm run clean && webpack --mode production",
+		"build": "npm run clean && webpack --mode production --publicPath /20-maps",
 		"clean": "rm -rf dist",
 		"storybook": "start-storybook -p 6006 --no-dll",
 		"build-storybook": "build-storybook --no-dll",
@@ -24,7 +24,7 @@
 	"bugs": {
 		"url": "https://github.com/slutske22/20-maps/issues"
 	},
-	"homepage": "https://github.com/slutske22/20-maps#readme",
+	"homepage": "https://slutske22.github.io/20-maps/",
 	"devDependencies": {
 		"@arcgis/webpack-plugin": "^4.16.3",
 		"@babel/core": "^7.11.6",

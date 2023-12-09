@@ -4,7 +4,7 @@
 
 ## _Global Upheaval is Far More Palatable When You Choose a Pretty Color Ramp_
 
-<h1 align="center"><a href="http://twenty-maps.herokuapp.com/">👀 See the project 👀</a></h1>
+<h1 align="center"><a href="https://slutske22.github.io/20-maps/">👀 See the project 👀</a></h1>
 
 20 Maps is a blog-esque web page app documenting the trials and tribulations of 2020 via the ArcGIS Javascript API. Geospatial data is analyzed, filtered, and made pretty over the course of 20 maps. Data analysis and good color sense combine to illuminate interesting phenomena that has occurred in this craptastic year.
 

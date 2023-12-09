@@ -11,7 +11,7 @@ module.exports = {
 	entry: './src/index.js',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		publicPath: 'auto',
+		publicPath: '/20-maps/',
 	},
 	// target:'node', // messes with styled components.  why?
 	devtool: 'cheap-module-source-map',
@@ -52,7 +52,8 @@ module.exports = {
 		],
 	},
 	devServer: {
-		historyApiFallback: true,
+		historyApiFallback: true,		
+		publicPath: '/20-maps/',
 	},
 	plugins: [
 		new ArcGISPlugin(),
